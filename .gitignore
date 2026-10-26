@@ -1,1 +1,10 @@
 .DS_Store
+node_modules/
+dist/
+.vercel/
+.env
+.env.*
+!.env.example
+*.log
+knowledge/generated.json
+test-results/

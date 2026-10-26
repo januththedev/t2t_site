@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": false,
+  "trailingSlash": true,
+  "functions": {
+    "api/chat.mjs": {
+      "maxDuration": 30,
+      "includeFiles": "knowledge/generated.json"
+    }
+  }
+}
