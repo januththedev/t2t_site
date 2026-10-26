@@ -3,12 +3,13 @@
 ## Running Locally
 
 This is an HTML/CSS/JavaScript website with a Vercel Node.js function for
-T2T Guide, its source-grounded OpenRouter chatbot. Node.js 24 is required;
-there are no npm dependencies or databases.
+T2T Guide, its source-grounded OpenRouter chatbot. Node.js 24 is required.
+The build uses pinned Sharp to optimize images; no database is required.
 
 Start the complete website and chat API:
 
 ```sh
+npm ci
 npm run dev
 ```
 
@@ -31,7 +32,7 @@ or `serve` does not run the chat API.
    | --- | --- |
    | Build Command | `npm run build` |
    | Output Directory | `dist` |
-   | Install Command | Empty (no dependencies) |
+   | Install Command | `npm ci --include=dev` |
    | Node.js Version | `24.x` |
 
 3. In Vercel's Environment Variables settings, add `OPENROUTER_API_KEY` as a
@@ -57,6 +58,31 @@ domain separately in Vercel's project settings after verifying the deployment.
 
 Existing Google Forms, social links, and other external services continue to
 use their current URLs. Hosting this site does not add a form-submission backend.
+
+## Image loading and performance
+
+The build creates responsive WebP variants for the images referenced by HTML
+and the events feed, then rewrites only `dist/` to use them. The original images
+and PDFs remain available. New or updated images are optimized automatically
+on the next build; generated variants do not need to be committed.
+
+Variants have content-hashed URLs under `/assets/images/` and immutable browser
+caching. HTML remains revalidated. Images receive intrinsic dimensions to
+reduce layout shifts, responsive `srcset`/`sizes`, async decoding, and lazy
+loading except for logos and the main hero images. Homepage and IFAP hero images
+are loaded eagerly with high fetch priority. Dynamic event cards use the same
+optimized variants. Lead-x fonts no longer block rendering, and its content is
+not hidden while waiting for reveal animations.
+
+Run `npm run build` to see the image-byte reduction for the current sources.
+The optimization happens at build time, with no image-processing requests or
+additional services needed when visitors load a page.
+
+A local cold-cache mobile check (390 × 844, DPR 2, measured through 1.2 seconds
+after load) reduced initial image payload from 9.80 MB to 0.95 MB on the homepage
+and from 54.95 MB to 0.05 MB on IFAP. External Google Fonts was blocked in both
+runs to isolate local assets. These are image-byte measurements, not production
+page-speed scores; browser lazy-loading decisions can vary.
 
 ## T2T Guide chatbot
 

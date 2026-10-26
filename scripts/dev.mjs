@@ -30,7 +30,8 @@ const server = createServer(async (req,res) => {
       path = resolve(path,'index.html'); info = await stat(path);
     }
     if (!info.isFile() || !(await realpath(path)).startsWith(resolve(root) + sep)) { res.writeHead(404); return res.end('Not found'); }
-    res.writeHead(200,{'Content-Type':types[extname(path).toLowerCase()] || 'application/octet-stream','Content-Length':info.size});
+    res.writeHead(200,{'Content-Type':types[extname(path).toLowerCase()] || 'application/octet-stream','Content-Length':info.size,
+      'Cache-Control':url.pathname.startsWith('/assets/') ? 'public, max-age=31536000, immutable' : 'no-cache'});
     if (req.method === 'HEAD') return res.end();
     await pipeline(createReadStream(path),res);
   } catch (error) {

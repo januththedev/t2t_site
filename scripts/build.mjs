@@ -2,6 +2,7 @@ import { cpSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildKnowledge } from './build-knowledge.mjs';
+import { optimizeSiteImages } from './optimize-images.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const output = join(root, 'dist');
@@ -24,4 +25,5 @@ for (const name of [...files, ...directories]) {
   });
 }
 
+await optimizeSiteImages(output);
 console.log(`Static site built in dist/ (${files.length} root files, ${directories.length} content directories).`);

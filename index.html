@@ -524,7 +524,8 @@
           });
 
           article.innerHTML = `
-            <img class="cover" src="${event.image}" alt="${event.title}" loading="lazy" />
+            <img class="cover" src="${event.image}" alt="${event.title}" loading="lazy" decoding="async"
+              ${event.imageSrcset ? `srcset="${event.imageSrcset}" sizes="(max-width: 768px) calc(100vw - 32px), 380px" width="${event.imageWidth}" height="${event.imageHeight}"` : ''} />
             <div class="body">
               <h3>${event.title}</h3>
               <p class="meta"><strong>📅 ${event.date}</strong><br>${event.meta}</p>

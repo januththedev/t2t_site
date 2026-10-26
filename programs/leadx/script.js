@@ -124,6 +124,8 @@ function initScrollObservers() {
 
   sections.forEach(section => activeSectionObserver.observe(section));
 
+  // Keep content visible immediately; animations must never gate the first paint.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   // 3. Scroll Reveal Animations (Subtle fade-in-up)
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -145,8 +147,7 @@ function initScrollObservers() {
   });
 
   document.querySelectorAll("section, .glass-card, .week-card, .process-step-card").forEach(el => {
-    // Set initial opacity to 0 to prevent flashing
-    el.style.opacity = "0";
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
     revealObserver.observe(el);
   });
 }
