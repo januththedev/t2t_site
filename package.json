@@ -15,5 +15,6 @@
   },
   "devDependencies": {
     "sharp": "0.35.5"
-  }
+  },
+  "type": "module"
 }

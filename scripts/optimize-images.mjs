@@ -67,7 +67,7 @@ export async function optimizeSiteImages(output) {
     }
     const preferred = variants.find(item => item.width >= (logo || avatar ? 160 : 960)) || variants.at(-1);
     manifest.set(source, { width,height,src:preferred.url,srcset:variants.map(item => `${item.url} ${item.width}w`).join(', '),variants,
-      sizes:source === 'images/logos/t2t.png' ? '28px' : logo ? '180px' : avatar ? '48px' : '(max-width: 768px) calc(100vw - 32px), (max-width: 1200px) 50vw, 600px' });
+      sizes:source === 'images/logos/t2t.png' ? '44px' : logo ? '180px' : avatar ? '48px' : '(max-width: 800px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px' });
     originalBytes += input.length; optimizedBytes += preferred.bytes;
   }
   for (const [page,text] of html) {
