@@ -15,7 +15,6 @@ export interface ImageAsset {
 export interface Payload {
   page: Page;
   images: Record<string, ImageAsset>;
-  footer: string;
 }
 export interface Program {
   id: string;

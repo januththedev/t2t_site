@@ -1,5 +1,5 @@
 import { renderToString } from "react-dom/server";
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { App } from "./App";
 import content from "./content.json";
@@ -8,7 +8,6 @@ export function renderPages(
   output: string,
   images: Record<string, ImageAsset> = {},
 ) {
-  let footer = readFileSync("ui/footer.html", "utf8");
   const rewrite = (html: string, base = "/") =>
     html.replace(/<img\b[^>]*>/gi, (tag) => {
       const path = tag.match(/\bsrc="([^"]+)"/)?.[1];
@@ -30,7 +29,6 @@ export function renderPages(
       }
       return tag;
     });
-  footer = rewrite(footer);
   for (const original of Object.values(content)) {
     const page: Page = {
       ...original,
@@ -45,7 +43,7 @@ export function renderPages(
             key === "images/IMG_20250330_121443-scaled.jpg"),
       ),
     );
-    const payload: Payload = { page, images: used, footer };
+    const payload: Payload = { page, images: used };
     const html = renderToString(<App payload={payload} />)
       .replaceAll("srcSet=", "srcset=")
       .replaceAll("fetchPriority=", "fetchpriority=");

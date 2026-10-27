@@ -26,6 +26,7 @@ const directories = [
   "programs",
   "register",
   "chatbot",
+  "licenses",
 ];
 const files = readdirSync(root).filter((name) => /\.(html|css|js)$/.test(name));
 

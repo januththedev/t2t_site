@@ -41,7 +41,7 @@ export function PageMotion() {
     );
     const targets = Array.from(
       document.querySelectorAll<HTMLElement>(
-        ".section-heading, .program-section > .section-content, .reading-content > section, .corporate-stages",
+        ".section-heading, .program-section > .section-content, .reading-content > section, .corporate-stages, .footer-invitation",
       ),
     );
     if (!preference.matches) {

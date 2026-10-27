@@ -6,14 +6,14 @@ export const theme = createTheme({
     background: { default: "#f7f8fb", paper: "#fff" },
   },
   typography: {
-    fontFamily: 'Inter, "Segoe UI", Arial, sans-serif',
+    fontFamily: '"Manrope Variable", "Segoe UI", Arial, sans-serif',
     button: { textTransform: "none", fontWeight: 600 },
   },
   shape: { borderRadius: 12 },
   components: {
     MuiButton: {
       defaultProps: { disableElevation: true },
-      styleOverrides: { root: { padding: "12px 20px", borderRadius: 10 } },
+      styleOverrides: { root: { padding: "13px 22px", borderRadius: 8 } },
     },
     MuiChip: { styleOverrides: { root: { fontWeight: 600 } } },
   },

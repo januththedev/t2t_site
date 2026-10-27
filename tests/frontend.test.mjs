@@ -72,6 +72,16 @@ test("program applications use the established destinations and do not simulate 
       "utf8",
     );
     assert.ok(html.includes("https://forms.gle/" + id));
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0];
+    assert.ok(
+      footer?.includes('href="https://forms.gle/' + id + '"'),
+      `${program}: footer must apply to the current program`,
+    );
+    assert.equal(
+      (html.match(/id="apply"/g) || []).length,
+      1,
+      `${program}: application anchor must remain unique`,
+    );
     assert.ok(!/Application Received|Check Your Inbox|<form\b/.test(html));
   }
   assert.ok(
@@ -81,23 +91,33 @@ test("program applications use the established destinations and do not simulate 
   );
 });
 
-test('React hydration uses the same responsive page content as the static HTML', () => {
+test("React hydration uses the same responsive page content as the static HTML", () => {
   for (const file of walk(dist)) {
-    if (file.includes('/register/')) continue;
-    const html = readFileSync(file, 'utf8');
-    const serialized = html.match(/<script id="t2t-data" type="application\/json">([\s\S]*?)<\/script>/)?.[1];
+    if (file.includes("/register/")) continue;
+    const html = readFileSync(file, "utf8");
+    const serialized = html.match(
+      /<script id="t2t-data" type="application\/json">([\s\S]*?)<\/script>/,
+    )?.[1];
     assert.ok(serialized, file);
     const payload = JSON.parse(serialized);
-    assert.ok(html.includes(payload.page.html), `${file}: rendered content differs from hydration data`);
+    assert.ok(
+      html.includes(payload.page.html),
+      `${file}: rendered content differs from hydration data`,
+    );
     assert.ok(!/<script\b/i.test(payload.page.html));
     assert.ok(!payload.page.html.includes('src="../../images/'));
   }
 });
-test('Three.js is deferred and program content is available before React loads', () => {
-  const html = readFileSync(join(dist, 'index.html'), 'utf8');
-  for (const name of ['CRISP', 'AI-X', 'Lead-x', 'IFAP']) assert.ok(html.includes(name));
+test("Three.js is deferred and program content is available before React loads", () => {
+  const html = readFileSync(join(dist, "index.html"), "utf8");
+  for (const name of ["CRISP", "AI-X", "Lead-x", "IFAP"])
+    assert.ok(html.includes(name));
   assert.ok(!/<(?:script|link)[^>]+(?:src|href)="[^\"]*three-/i.test(html));
-  const manifest=JSON.parse(readFileSync(join(dist,'.vite/manifest.json'),'utf8'));
-  assert.ok(Object.keys(manifest).some(key=>key.includes('DepthScene')));
-  assert.ok(!JSON.stringify(manifest['src/client.tsx'].imports || []).includes('three'));
+  const manifest = JSON.parse(
+    readFileSync(join(dist, ".vite/manifest.json"), "utf8"),
+  );
+  assert.ok(Object.keys(manifest).some((key) => key.includes("DepthScene")));
+  assert.ok(
+    !JSON.stringify(manifest["src/client.tsx"].imports || []).includes("three"),
+  );
 });

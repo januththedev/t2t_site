@@ -34,15 +34,22 @@ export default function DepthScene() {
         const scene = new T.Scene(),
           camera = new T.PerspectiveCamera(32, 1, 0.1, 30);
         camera.position.z = 7;
-        const geometry = new T.TorusGeometry(1.4, 0.17, 12, 72);
+        // An arch between two endpoints echoes the bridge in the T2T mark.
+        const curve = new T.CubicBezierCurve3(
+          new T.Vector3(-2, -1.1, 0),
+          new T.Vector3(-1.1, 1.6, 0.15),
+          new T.Vector3(1.1, 1.6, 0.15),
+          new T.Vector3(2, -1.1, 0),
+        );
+        const geometry = new T.TubeGeometry(curve, 64, 0.035, 8, false);
         const material = new T.MeshStandardMaterial({
           color: 0x4979ed,
           metalness: 0.4,
           roughness: 0.28,
         });
-        const ring = new T.Mesh(geometry, material);
-        ring.rotation.set(0.7, 0.2, 0.5);
-        scene.add(ring);
+        const bridge = new T.Mesh(geometry, material);
+        bridge.rotation.set(0.1, 0.15, 0.05);
+        scene.add(bridge);
         scene.add(new T.HemisphereLight(0xffffff, 0x6688cc, 3));
         const light = new T.DirectionalLight(0xffffff, 4);
         light.position.set(2, 4, 4);
@@ -55,13 +62,13 @@ export default function DepthScene() {
         const draw = () => {
           frame = 0;
           if (!visible || document.hidden) return;
-          ring.rotation.y += (x - ring.rotation.y) * 0.035;
-          ring.rotation.x += (y + 0.7 - ring.rotation.x) * 0.035;
+          bridge.rotation.y += (x - bridge.rotation.y) * 0.035;
+          bridge.rotation.x += (y + 0.1 - bridge.rotation.x) * 0.035;
           renderer.render(scene, camera);
           if (
             !motion.matches &&
-            (Math.abs(x - ring.rotation.y) > 0.0001 ||
-              Math.abs(y + 0.7 - ring.rotation.x) > 0.0001)
+            (Math.abs(x - bridge.rotation.y) > 0.0001 ||
+              Math.abs(y + 0.1 - bridge.rotation.x) > 0.0001)
           )
             frame = requestAnimationFrame(draw);
         };

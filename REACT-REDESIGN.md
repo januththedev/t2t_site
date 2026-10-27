@@ -9,7 +9,9 @@ The frontend uses React, strict TypeScript, Vite, and a custom Material UI theme
 - `src/content.json`: reviewed page content and metadata, migrated from the previous HTML. Edit this for current program detail pages and the homepage's editorial sections. HTML is trusted repository content, never user input.
 - `src/theme.ts` and `src/refined.css`: Material UI theme and responsive visual system.
 - `src/enhance.js`: native JavaScript enhancements within published content (events, section index, chatbot launcher).
-- `ui/footer.html`: shared footer content.
+- `src/components/Footer.tsx`: contextual application/contact action and the shared theory-to-trade signature. This replaces the previous HTML footer and duplicate closing banners.
+- `src/components/ProgramGlyph.tsx`: small program-specific line illustrations.
+- `src/fonts.css`: self-hosted Manrope font, with license under `licenses/`.
 - Existing root and program HTML files remain historical migration inputs; the React build replaces their output with pages from `src/content.json`.
 
 Run `npm ci`, `npm run typecheck`, `npm test`, and `npm run dev`. The build generates route-specific HTML with React server rendering, creates responsive images, rerenders using the same image manifest supplied to hydration, indexes the generated HTML for chatbot knowledge, then bundles browser modules with Vite. Existing URLs, fragments, applications, downloads, and the Node chatbot API continue to work.
@@ -29,3 +31,9 @@ Publish only `redesign/react-depth-preview` to the GitHub destination `januththe
 ## Ambient polish
 
 The shared navigation is 72px on desktop and 66px on mobile, with a smaller, readable official mark and a translucent glass background. Glass surfaces also appear in the program facts and hero note. Every page has two restrained motion treatments: low-opacity ambient light in its hero and gentle heading/section entrances. `PageMotion.tsx` observes hero visibility to pause ambient animations offscreen and pauses motion in hidden tabs. Reveals happen once as below-fold sections approach; content remains visible with JavaScript disabled. Reduced-motion preferences disable animation and restore pending content. Unsupported backdrop filters use solid readable surfaces.
+
+## Competition polish
+
+The footer is a single intentional closing composition: a contextual next step, grouped practical links, and an oversized theory-to-trade signature connected by an arch. Program pages retain a unique `#apply` anchor pointing at their own application. Duplicate closing banners were removed. The fixed chatbot launcher has reserved space in the legal row.
+
+The same typography, blue palette, spacing, and surfaces carry through the homepage, program details, corporate, event, privacy, and archive pages. Real source photography and testimonials are preserved. The optional Three.js form now echoes the arch in the T2T logo rather than showing an unrelated ring. Program-specific SVG glyphs, a self-hosted variable font, and readable metadata replace the previous mixed presentation. Partner marks with excessive empty margins are trimmed during image optimization; the ISC2 mark retains its full lettering on a contrasting surface.

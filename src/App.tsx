@@ -11,6 +11,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import { theme } from "./theme";
+import { Footer } from "./components/Footer";
+import { Arrow } from "./components/Arrow";
+import { ProgramGlyph } from "./components/ProgramGlyph";
 import { PageMotion } from "./components/PageMotion";
 import { programs } from "./programs";
 import type { Payload } from "./types";
@@ -58,7 +61,7 @@ function Brand() {
     </a>
   );
 }
-function Header() {
+function Header({ path }: { path: string }) {
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -111,14 +114,27 @@ function Header() {
               </summary>
               <div className="program-dropdown">
                 {programs.map((p) => (
-                  <a key={p.id} href={`/programs/${p.id}/`}>
+                  <a
+                    key={p.id}
+                    href={`/programs/${p.id}/`}
+                    aria-current={
+                      path === `/programs/${p.id}/` ? "page" : undefined
+                    }
+                  >
                     <strong>{p.name}</strong>
                     <span>{p.category}</span>
                   </a>
                 ))}
               </div>
             </details>
-            <a href="/corporate-programs/">For organizations</a>
+            <a
+              href="/corporate-programs/"
+              aria-current={
+                path === "/corporate-programs/" ? "page" : undefined
+              }
+            >
+              For organizations
+            </a>
             <a href="/#about">Our approach</a>
             <a href="/#events">Events</a>
           </nav>
@@ -128,7 +144,7 @@ function Header() {
             variant="contained"
             className="header-cta"
           >
-            Explore programs ↗
+            Explore programs <Arrow diagonal />
           </Button>
           <button
             ref={button}
@@ -155,7 +171,12 @@ function Header() {
               <span>{p.category}</span>
             </a>
           ))}
-          <a href="/corporate-programs/">For organizations</a>
+          <a
+            href="/corporate-programs/"
+            aria-current={path === "/corporate-programs/" ? "page" : undefined}
+          >
+            For organizations
+          </a>
           <a href="/#about">Our approach</a>
           <a href="/#events">Events & workshops</a>
         </nav>
@@ -180,19 +201,17 @@ function Hero() {
       <div className="container new-hero-grid">
         <div className="new-hero-copy">
           <p className="eyebrow">
-            <span className="status-dot" /> KNOWLEDGE IS JUST THE BEGINNING
+            <span className="status-dot" /> THEORY INTO PRACTICE. POTENTIAL INTO
+            POSSIBILITY.
           </p>
           <h1>
-            Make your
+            Your potential.
             <br />
-            next move
-            <br />
-            <span>mean something.</span>
+            <span>Put to work.</span>
           </h1>
           <p className="hero-description">
-            Turn what you know into what you can do.
-            <br />
-            Practical learning. Industry mentors. Real possibilities.
+            Close the gap between what you learn and what comes next. Practical
+            skills, industry mentors, and the experience to move forward.
           </p>
           <div className="actions">
             <Button
@@ -201,18 +220,19 @@ function Hero() {
               variant="contained"
               size="large"
             >
-              Find your program <span aria-hidden="true">↗</span>
+              Find your program <Arrow diagonal />
             </Button>
             <Button component="a" href="#about" variant="text" size="large">
-              Discover T2T <span aria-hidden="true">↗</span>
+              Our approach <Arrow />
             </Button>
           </div>
           <div className="hero-signoff">
-            <span className="signoff-line" /> Your potential. Put into practice.
+            <span className="signoff-line" /> Learn by doing. Grow by becoming.
           </div>
         </div>
         <div className="new-hero-visual">
-          <div className="depth-fallback" />
+          <div className="depth-fallback" aria-hidden="true" />
+          <span className="hero-image-index">01 / INSIDE T2T</span>
           {depth && (
             <Suspense fallback={null}>
               <DepthScene />
@@ -225,27 +245,34 @@ function Hero() {
               eager
             />
             <figcaption>
-              <span className="photo-dot" /> THE CLASSROOM IS ONLY THE START.
+              <span className="photo-dot" />
+              <span>
+                Ideas become experience.
+                <strong>When you build them together.</strong>
+              </span>
+              <Arrow diagonal />
             </figcaption>
           </figure>
           <div className="hero-float">
-            <span className="float-icon">↗</span>
+            <span className="hero-float-mark" aria-hidden="true">
+              t<span>2</span>t
+            </span>
             <span>
-              Less just knowing.
+              Real people.
               <br />
-              <strong>More actually doing.</strong>
+              <strong>Real possibilities.</strong>
             </span>
           </div>
           <div className="visual-label">
+            <span>COLOMBO, SRI LANKA</span>
             <span>LEARN. BUILD. BECOME.</span>
-            <span>01 — T2T</span>
           </div>
         </div>
       </div>
       <div className="container hero-strip">
-        <span>Built around your next chapter</span>
+        <span>Built around what comes next.</span>
         <span>Practical skills</span>
-        <span>Industry perspective</span>
+        <span>Industry mentors</span>
         <span>Real project experience</span>
         <a href="#programs" aria-label="Explore programs below">
           ↓
@@ -266,9 +293,9 @@ function Explorer() {
           <div>
             <p className="eyebrow">FOUR PATHS. YOUR NEXT CHAPTER.</p>
             <h2>
-              A little direction.
+              Find your direction.
               <br />
-              <em>A lot of possibility.</em>
+              <em>Make your move.</em>
             </h2>
           </div>
           <p>
@@ -303,7 +330,7 @@ function Explorer() {
               <div className="card-top">
                 <span>{p.number}</span>
                 <span>{p.category}</span>
-                <span aria-hidden="true">↗</span>
+                <ProgramGlyph id={p.id} />
               </div>
               <h3>
                 <a href={`/programs/${p.id}/`}>{p.name}</a>
@@ -313,7 +340,7 @@ function Explorer() {
               <div className="card-bottom">
                 <span>{p.duration}</span>
                 <a href={`/programs/${p.id}/`} aria-label={`Explore ${p.name}`}>
-                  Explore program <span aria-hidden="true">↗</span>
+                  Explore program <Arrow diagonal />
                 </a>
               </div>
             </article>
@@ -333,7 +360,7 @@ export function App({ payload }: { payload: Payload }) {
   return (
     <ThemeProvider theme={theme}>
       <Assets.Provider value={payload.images}>
-        <Header />
+        <Header path={payload.page.path} />
         <PageMotion />
         <main id="main" tabIndex={-1}>
           {payload.page.path === "/" && (
@@ -347,7 +374,7 @@ export function App({ payload }: { payload: Payload }) {
             dangerouslySetInnerHTML={{ __html: payload.page.html }}
           />
         </main>
-        <div dangerouslySetInnerHTML={{ __html: payload.footer }} />
+        <Footer path={payload.page.path} />
       </Assets.Provider>
     </ThemeProvider>
   );

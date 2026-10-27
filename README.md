@@ -2,9 +2,12 @@
 
 ## Running Locally
 
-This is an HTML/CSS/JavaScript website with a Vercel Node.js function for
-T2T Guide, its source-grounded OpenRouter chatbot. Node.js 24 is required.
-The build uses pinned Sharp to optimize images; no database is required.
+This is a React and TypeScript website, prerendered to static HTML with Vite.
+Material UI provides themed controls, with custom CSS and progressive Three.js
+for restrained depth. A Vercel Node.js function runs T2T Guide, its source-grounded
+OpenRouter chatbot. Node.js 24 is required; no database is required.
+
+See `REACT-REDESIGN.md` for the current content, component, and build architecture.
 
 Start the complete website and chat API:
 
@@ -14,7 +17,7 @@ npm run dev
 ```
 
 Then open http://localhost:3000. Stop the server with Ctrl+C. Re-run
-`npm run build` after editing HTML, CSS, or knowledge files. The watcher restarts
+`npm run build` after editing React components, `src/content.json`, CSS, or knowledge files. The watcher restarts
 the server when its imported modules or generated knowledge change. To use AI
 locally, put your OpenRouter configuration in ignored `.env.local`, using
 `.env.example` for variable names. Without a key, the guide answers from its
@@ -51,7 +54,7 @@ The `/register/` page retains its existing redirect to `/programs/ifap/`.
 
 The build copies root HTML/CSS/JavaScript files and these content directories:
 `corporate-programs`, `data`, `docs`, `events`, `images`, `privacy_policy`,
-`programs`, `register`, and `chatbot`. Add new top-level content directories to
+`programs`, `register`, `chatbot`, and `licenses`. Add new top-level content directories to
 `scripts/build.mjs`. Repository metadata, setup files, and `CNAME` are not
 published. `CNAME` remains available for GitHub Pages; configure any custom
 domain separately in Vercel's project settings after verifying the deployment.
@@ -71,8 +74,9 @@ caching. HTML remains revalidated. Images receive intrinsic dimensions to
 reduce layout shifts, responsive `srcset`/`sizes`, async decoding, and lazy
 loading except for logos and the main hero images. Homepage and IFAP hero images
 are loaded eagerly with high fetch priority. The homepage event list uses lightweight text rows rather than downloading
-every event poster. The redesign uses system fonts, with no third-party font
-requests or content hidden behind reveal animations.
+every event poster. The redesign self-hosts the Manrope variable font. No third-party font requests
+are made. Motion respects reduced-motion preferences; page content is present
+before JavaScript and below-fold reveals remain progressive enhancements.
 
 Run `npm run build` to see the image-byte reduction for the current sources.
 The optimization happens at build time, with no image-processing requests or
@@ -174,27 +178,28 @@ Each event in the array should follow this structure:
 
 ## Editorial frontend and preview workflow
 
-The redesign is on `redesign/editorial-preview`; it is not a production release.
+The redesign is on `redesign/react-depth-preview`; it is not a production release.
 Keep `main` as the Vercel Production Branch. With the repository Git integration
 enabled, pushes to this feature branch create Preview deployments. Open the
 branch’s deployment or draft PR check to review the site. Do not merge or
 promote it until the design has been reviewed.
 
 If a preview does not start automatically, use Vercel’s Create Deployment action
-for this project and select `redesign/editorial-preview` as the Git branch and
+for this project and select `redesign/react-depth-preview` as the Git branch and
 Preview as the environment. Configure `OPENROUTER_API_KEY` and optional
 `OPENROUTER_MODEL` for Preview if model-generated answers are needed there;
 without them the existing source-based answers continue to work.
 
-- `styles.css`: shared color, type, spacing, layouts, and responsive rules.
-- `ui/header.html` and `ui/footer.html`: shared markup inserted at build time.
-- `site.js`: navigation, filters, event listing, and section highlighting.
+- `src/App.tsx` and `src/components/Footer.tsx`: prerendered React page shell, navigation, hero, program explorer, and contextual footer.
+- `src/refined.css`, `src/theme.ts`, and `src/fonts.css`: current visual system and self-hosted typography.
+- `styles.css`: retained layout foundations for detailed page content.
+- `src/enhance.js`: event listing, chatbot launcher, and section highlighting.
 - `event-dates.js`: calendar-date parsing and Colombo date handling.
 - Program pages: shared layout with preserved content and application URLs.
 - `chatbot/widget.css`: matching light chat theme; provider and retrieval unchanged.
 
 Run `npm run build` after frontend edits; the local server serves `dist/`.
-Shared header/footer templates are build inputs, not runtime fetches. The dev
+Header and footer components are rendered into each page at build time, not runtime fetches. The dev
 server also accepts `--host` and `--port` for managed previews.
 
 `npm test` covers retrieval/API behavior, image optimization, internal links and
