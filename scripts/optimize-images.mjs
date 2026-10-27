@@ -54,7 +54,7 @@ export async function optimizeSiteImages(output) {
     const width = rotated ? metadata.height : metadata.width;
     const height = rotated ? metadata.width : metadata.height;
     const logo = source.includes('/logos/'); const avatar = portraits.test(source);
-    const sizes = source === 'images/logos/t2t.png' ? [48,96] : logo ? [120,240,480] : avatar ? [80,160,320] : [480,960,1600];
+    const sizes = source === 'images/logos/t2t.png' ? [240,480] : logo ? [120,240,480] : avatar ? [80,160,320] : [480,960,1600];
     const widths = [...new Set(sizes.map(size => Math.min(size,width)))];
     const hash = createHash('sha256').update(input).update('webp-q82-v1').digest('hex').slice(0,12);
     const stem = basename(source).replace(/\.[^.]+$/, '').replace(/[^a-z0-9_-]/gi,'-').slice(0,60);
@@ -67,7 +67,7 @@ export async function optimizeSiteImages(output) {
     }
     const preferred = variants.find(item => item.width >= (logo || avatar ? 160 : 960)) || variants.at(-1);
     manifest.set(source, { width,height,src:preferred.url,srcset:variants.map(item => `${item.url} ${item.width}w`).join(', '),variants,
-      sizes:source === 'images/logos/t2t.png' ? '44px' : logo ? '180px' : avatar ? '48px' : '(max-width: 800px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px' });
+      sizes:source === 'images/logos/t2t.png' ? '230px' : logo ? '180px' : avatar ? '48px' : '(max-width: 800px) calc(100vw - 40px), (max-width: 1200px) 50vw, 600px' });
     originalBytes += input.length; optimizedBytes += preferred.bytes;
   }
   for (const [page,text] of html) {
