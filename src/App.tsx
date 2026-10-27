@@ -11,6 +11,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import { theme } from "./theme";
+import { PageMotion } from "./components/PageMotion";
 import { programs } from "./programs";
 import type { Payload } from "./types";
 const Assets = createContext<Payload["images"]>({});
@@ -333,6 +334,7 @@ export function App({ payload }: { payload: Payload }) {
     <ThemeProvider theme={theme}>
       <Assets.Provider value={payload.images}>
         <Header />
+        <PageMotion />
         <main id="main" tabIndex={-1}>
           {payload.page.path === "/" && (
             <>

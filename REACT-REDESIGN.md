@@ -25,3 +25,7 @@ The backend and OpenRouter configuration are preserved. Set `OPENROUTER_API_KEY`
 TypeScript and automated retrieval, API, link, image, source, and hydration checks run locally. Browser checks cover program filters, mobile menu/Escape, and widths 360, 768, and 1440 across the homepage, four programs, corporate, event, and privacy pages. The cloud browser has WebGL disabled: fallback behavior is verified; hardware-rendered Three.js still needs a WebGL-capable browser. No production Lighthouse score is claimed.
 
 Publish only `redesign/react-depth-preview` to the GitHub destination `januththedev/t2t_site`. Vercel Git integration creates a Preview deployment. Do not merge or push to main as part of this work.
+
+## Ambient polish
+
+The shared navigation is 72px on desktop and 66px on mobile, with a smaller, readable official mark and a translucent glass background. Glass surfaces also appear in the program facts and hero note. Every page has two restrained motion treatments: low-opacity ambient light in its hero and gentle heading/section entrances. `PageMotion.tsx` observes hero visibility to pause ambient animations offscreen and pauses motion in hidden tabs. Reveals happen once as below-fold sections approach; content remains visible with JavaScript disabled. Reduced-motion preferences disable animation and restore pending content. Unsupported backdrop filters use solid readable surfaces.

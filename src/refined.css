@@ -735,7 +735,259 @@ html {
   }
 }
 /* Keep footer text readable against the deep blue surface. */
-.site-footer { --muted: #becce0; --ink: #e4ebf7; --line: #344762; }
-.site-footer .socials a, .site-footer .footer-bottom, .site-footer .location { color: #becce0; }
-.closing-section { background: #edf2ff; }
-.program-hero.technology, .program-hero.leadership, .program-hero.creative { background: radial-gradient(ellipse at right, #eaf0fc, transparent), #f7f8fb; }
+.site-footer {
+  --muted: #becce0;
+  --ink: #e4ebf7;
+  --line: #344762;
+}
+.site-footer .socials a,
+.site-footer .footer-bottom,
+.site-footer .location {
+  color: #becce0;
+}
+.closing-section {
+  background: #edf2ff;
+}
+.program-hero.technology,
+.program-hero.leadership,
+.program-hero.creative {
+  background: radial-gradient(ellipse at right, #eaf0fc, transparent), #f7f8fb;
+}
+
+/* Quiet glass: a slimmer navigation bar and translucent floating surfaces. */
+.site-header {
+  background: rgba(247, 249, 255, 0.78);
+  -webkit-backdrop-filter: blur(20px) saturate(135%);
+  backdrop-filter: blur(20px) saturate(135%);
+  border-bottom: 1px solid rgba(165, 184, 218, 0.25);
+  box-shadow: 0 4px 24px rgba(40, 65, 110, 0.035);
+}
+.header-inner {
+  height: 72px;
+  min-height: 72px;
+}
+.site-header .brandmark {
+  width: 86px;
+  height: 54px;
+}
+.site-header .brand .brandmark img {
+  width: 177px;
+  height: 177px;
+  left: -46px;
+  top: -68px;
+}
+.site-header .brand {
+  gap: 12px;
+}
+.header-cta.MuiButton-root {
+  padding: 9px 15px;
+  font-size: 11px;
+}
+.primary-nav > a,
+.program-menu > summary {
+  font-size: 12px;
+}
+.primary-nav > a {
+  position: relative;
+}
+.primary-nav > a::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #2855db;
+  opacity: 0.45;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+.primary-nav > a:hover::after,
+.primary-nav > a:focus-visible::after {
+  transform: scaleX(1);
+}
+.program-dropdown,
+.mobile-nav {
+  background: rgba(249, 251, 255, 0.94);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-color: rgba(179, 195, 222, 0.4);
+  box-shadow: 0 18px 42px rgba(26, 57, 106, 0.08);
+}
+.hero-float,
+.quick-facts {
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 12px 32px rgba(30, 66, 120, 0.065),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+.new-program-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(237, 243, 255, 0.5)
+  );
+}
+.new-program-card.aix {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(239, 234, 255, 0.42)
+  );
+}
+.new-program-card.leadx {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(231, 247, 240, 0.42)
+  );
+}
+.new-program-card.ifap {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(251, 241, 227, 0.42)
+  );
+}
+
+/* Two restrained motion treatments on every page: ambient light and gentle reveals. */
+:is(.new-hero, .program-hero, .corporate-hero, .reading-hero) {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+:is(.new-hero, .program-hero, .corporate-hero, .reading-hero)::before,
+:is(.new-hero, .program-hero, .corporate-hero, .reading-hero)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: min(70vw, 850px);
+  height: 680px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(117, 154, 244, 0.12),
+    rgba(137, 170, 247, 0.045) 43%,
+    transparent 69%
+  );
+  top: -230px;
+  right: -10%;
+  animation: ambient-drift 22s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+:is(.new-hero, .program-hero, .corporate-hero, .reading-hero)::after {
+  width: min(55vw, 650px);
+  left: -18%;
+  right: auto;
+  top: 30%;
+  background: radial-gradient(
+    ellipse,
+    rgba(164, 144, 226, 0.075),
+    transparent 68%
+  );
+  animation-name: ambient-return;
+  animation-duration: 28s;
+}
+.ambient-running::before,
+.ambient-running::after {
+  animation-play-state: running;
+}
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(-25px, 0, 0) scale(0.94);
+  }
+  to {
+    transform: translate3d(35px, 40px, 0) scale(1.06);
+  }
+}
+@keyframes ambient-return {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(50px, -35px, 0);
+  }
+}
+:is(.new-hero-copy, .program-hero, .corporate-hero, .reading-hero) h1 {
+  animation: heading-arrive 700ms cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+@keyframes heading-arrive {
+  from {
+    opacity: 0.65;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal-target {
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.reveal-pending {
+  opacity: 0.25;
+  transform: translateY(14px);
+}
+.motion-paused *,
+.motion-paused *::before,
+.motion-paused *::after {
+  animation-play-state: paused !important;
+}
+@media (max-width: 900px) {
+  .header-inner {
+    height: 66px;
+    min-height: 66px;
+  }
+  .site-header .brandmark {
+    width: 80px;
+    height: 50px;
+  }
+  .site-header .brand .brandmark img {
+    width: 165px;
+    height: 165px;
+    left: -43px;
+    top: -64px;
+  }
+  .menu-toggle {
+    min-height: 44px;
+    min-width: 56px;
+    font-size: 12px;
+  }
+  .mobile-nav {
+    border-radius: 0 0 14px 14px;
+  }
+  :is(.new-hero, .program-hero, .corporate-hero, .reading-hero)::before {
+    width: 95vw;
+    height: 500px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .site-header,
+  .program-dropdown,
+  .mobile-nav {
+    background: #f7f9ff;
+  }
+  .hero-float,
+  .quick-facts {
+    background: #f9fbff;
+  }
+}
