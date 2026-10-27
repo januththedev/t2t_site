@@ -1,635 +1,368 @@
 <!doctype html>
+
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IFAP - International Filmmaker Accelerator Program</title>
-    <meta name="description"
-        content="Launchpad for Sri Lankan filmmakers. Take your films global with workshops, mentorship, development labs, and live pitch forums." />
-    <meta name="theme-color" content="#0f172a" />
-    <link rel="icon" type="image/png" href="../../images/logos/t2t.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <meta property="og:title" content="IFAP - International Filmmaker Accelerator Program" />
-    <meta property="og:description" content="Launchpad for Sri Lankan filmmakers. Take your films global." />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="ifap.png" />
-    <style>
-        .ifap-hero {
-            padding-top: 120px;
-            padding-bottom: 60px;
-        }
-
-        .content-block {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-justify {
-            text-align: justify;
-        }
-
-        .flyer-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            margin: 2rem auto;
-            display: block;
-        }
-
-        .mentor-card {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mentor-card h3 {
-            color: var(--brand);
-            margin-bottom: 0.5rem;
-        }
-
-        .mentor-card .role {
-            font-weight: 600;
-            color: var(--brand-2);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .mentor-img {
-            width: 100px;
-            height: 100px;
-            border-radius: var(--radius, 8px);
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 2px solid var(--brand);
-        }
-
-        .requirement-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .requirement-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--muted);
-        }
-
-        .requirement-list li::before {
-            content: "•";
-            color: var(--brand);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .fee-card {
-            background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
-            border: 2px solid var(--brand);
-            padding: 2.5rem;
-            text-align: center;
-        }
-
-        .fee-amount {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text);
-            margin: 1rem 0;
-        }
-
-        .fee-subtitle {
-            color: var(--brand);
-            font-weight: 600;
-        }
-
-        .cta-section {
-            padding: 80px 0;
-            background: radial-gradient(circle at center, #1e293b 0%, #0b1022 100%);
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-
-            .grid.cols-2,
-            .grid.cols-3 {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            aspect-ratio: 1 / 1;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: var(--radius, 8px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            background: #0f172a;
-        }
-
-        .carousel-track {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(15, 23, 42, 0.7);
-            color: white;
-            border: 1px solid var(--brand);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            z-index: 10;
-        }
-
-        .carousel-btn:hover {
-            background: var(--brand);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .prev-btn {
-            left: 1rem;
-        }
-
-        .next-btn {
-            right: 1rem;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 8px 16px;
-            border-radius: 20px;
-        }
-
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .carousel-indicator.current {
-            background: var(--brand);
-            transform: scale(1.3);
-        }
-
-        @media (max-width: 768px) {
-            .carousel-btn {
-                width: 36px;
-                height: 36px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <div class="container nav">
-            <a href="../../index.html#top" class="brand" aria-label="Home">
-                <img src="../../images/logos/t2t.png" alt="Theory to Trade by TRACE logo" loading="eager" />
-                <strong>
-                    <span class="brand-full">Theory to Trade (T2T) by TRACE</span>
-                    <span class="brand-short">T2T by TRACE</span>
-                </strong>
-            </a>
-            <nav aria-label="Primary">
-                <ul>
-                    <li><a href="../../index.html#about">About</a></li>
-                    <li><a href="../../index.html#programs">Programs</a></li>
-                    <li><a href="../../index.html#events">Events</a></li>
-                    <li><a href="../../index.html#testimonials">Alumni</a></li>
-                    <li><a href="../../index.html#partners">Partners</a></li>
-                    <li><a href="https://trace.lk/" target="_blank" rel="noopener">Visit TRACE</a></li>
-                </ul>
-            </nav>
-            <div class="actions">
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/company/trace-theory-to-trade/" target="_blank" rel="noopener"
-                        aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/theory2trade" target="_blank" rel="noopener"
-                        aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/theory2trade" target="_blank" rel="noopener"
-                        aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg>
-                    </a>
-                    <a href="https://youtube.com/@tracet2t" target="_blank" rel="noopener" aria-label="YouTube">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@t2t445" target="_blank" rel="noopener" aria-label="TikTok">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                        </svg>
-                    </a>
-                </div>
-                <button class="menu btn secondary" id="menuBtn" aria-expanded="false"
-                    aria-controls="mobileNav">Menu</button>
-            </div>
-        </div>
-        <div id="mobileNav" class="container hide" role="dialog" aria-modal="false">
-            <nav>
-                <ul style="display:grid; gap:8px; padding:12px 0">
-                    <li><a href="../../index.html#about">About</a></li>
-                    <li><a href="../../index.html#programs">Programs</a></li>
-                    <li><a href="../../index.html#events">Events</a></li>
-                    <li><a href="../../index.html#testimonials">Alumni</a></li>
-                    <li><a href="../../index.html#partners">Partners</a></li>
-                    <li><a href="https://trace.lk/" target="_blank" rel="noopener">Visit TRACE</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- HERO / OVERVIEW -->
-        <section class="ifap-hero">
-            <div class="container content-block text-center">
-                <h1 style="color: var(--brand);">INTERNATIONAL FILMMAKER ACCELERATOR PROGRAM</h1>
-                <p class="lead" style="font-size: 1.3rem; margin-top: 1rem;">Launchpad for Sri Lankan Filmmakers</p>
-
-                <img src="/programs/ifap/ifap.png" alt="IFAP Program Backdrop" class="flyer-img" loading="lazy">
-
-                <div class="card" style="margin-top: 2rem; text-align: left;">
-                    <h2 style="margin-bottom: 1.5rem;">Overview</h2>
-                    <p style="margin-bottom: 1rem;">One of the biggest gaps in the Sri Lankan film education landscape
-                        is that many filmmakers are not equipped to position their projects in front of financiers,
-                        studios, and international markets. Festival strategy, global packaging, and market alignment
-                        remain largely underserved.</p>
-                    <p style="margin-bottom: 1rem;">The <strong>International Filmmaker Accelerator</strong> is designed
-                        for filmmakers who want to operate beyond the local ecosystem and build projects with genuine
-                        global potential.</p>
-                    <p>Each participant develops a single feature film or high-end series project, progressing from
-                        concept refinement to a market-ready package. By the end of the program, every filmmaker leaves
-                        with a professionally assembled development dossier suitable for submission to international
-                        labs, festivals, sales agents, and financiers.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA SECTION -->
-        <section class="cta-section">
-            <div class="container">
-                <h2 style="margin-bottom: 2rem;">Ready to take your film global?</h2>
-                <div class="row" style="justify-content: center; gap: 1.5rem;">
-                    <a href="https://forms.gle/CFRTJTGr4M343xTF7" class="btn" target="_blank" rel="noopener">Apply
-                        Now</a>
-                    <a href="/programs/ifap/IFAP-2026-Student-Brochure-NEW.pdf" class="btn secondary" target="_blank"
-                        rel="noopener" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Brochure
-                    </a>
-                </div>
-                <p style="margin-top: 2rem; color: var(--muted);">Hotline: 0777 643 129</p>
-            </div>
-        </section>
-
-        <!-- STRUCTURE & FOR WHOM -->
-        <section class="program-details" style="background: rgba(15, 23, 42, 0.5);">
-            <div class="container content-block">
-                <div class="grid cols-2">
-                    <div class="card">
-                        <h2 style="margin-bottom: 1.5rem;">Program Structure</h2>
-                        <ul class="requirement-list">
-                            <li><strong>Duration:</strong> 16 Weeks</li>
-                            <li><strong>Total Contact Hours:</strong> 100 Hours</li>
-                            <li><strong>Location:</strong> <a href="https://maps.app.goo.gl/tZFzr47rgiomPVYU8"
-                                    target="_blank" rel="noopener"
-                                    style="color: var(--brand); text-decoration: none;">TRACE Expert City</a></li>
-                            <li><strong>Time:</strong> Saturdays, 9am to 4pm</li>
-                        </ul>
-                        <h3 style="margin: 1.5rem 0 1rem; font-size: 1.1rem; color: var(--brand-2);">Format:</h3>
-                        <ul class="requirement-list">
-                            <li>Workshops</li>
-                            <li>Development Labs</li>
-                            <li>Structured Mentorship</li>
-                            <li>Industry Simulations</li>
-                            <li>Live Pitch Forum</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h2 style="margin-bottom: 1.5rem;">Who This Is For</h2>
-                        <ul class="requirement-list">
-                            <li>Film industry professionals</li>
-                            <li>Emerging and aspiring filmmakers</li>
-                            <li>Writers, directors, and producers seeking international pathways</li>
-                            <li>Creators developing feature films or high-end series</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CORE PILLARS -->
-        <section class="core-pillars">
-            <div class="container content-block">
-                <h2 class="text-center" style="margin-bottom: 3rem;">Core Pillars</h2>
-                <div class="grid cols-2">
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">1. Development and Dramaturgy</h3>
-                        <p style="font-size: 0.95rem;">Advanced structural refinement, character architecture, thematic
-                            cohesion, and tonal calibration. Emphasis is placed on cross cultural accessibility while
-                            preserving authorial identity.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">2. Screenwriting for the International
-                            Market</h3>
-                        <p style="font-size: 0.95rem;">Crafting scripts that are structurally rigorous, emotionally
-                            legible, genre aware, and internationally readable.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">3. Directorial Voice and Genre Strategy
-                        </h3>
-                        <p style="font-size: 0.95rem;">Exploration of genre mechanics, cinematic grammar, and tonal
-                            authorship. Each filmmaker develops a cohesive directorial strategy aligned with target
-                            markets.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">4. Visual Translation and Storyboarding
-                        </h3>
-                        <p style="font-size: 0.95rem;">Translating narrative intention into visual architecture through
-                            shot design, mood frameworks, aesthetic references, and cinematic continuity planning.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">5. International Film Business and
-                            Finance</h3>
-                        <p style="font-size: 0.95rem;">Global financing structures, co production treaties, packaging
-                            strategies, talent attachment models, and navigating key film markets.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">6. Sales, Distribution and Festival
-                            Strategy</h3>
-                        <p style="font-size: 0.95rem;">Territory sales, streaming acquisitions, presales models, and
-                            long term rights strategy. Participants learn how projects are evaluated commercially across
-                            territories.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">7. Pitch and Market Readiness</h3>
-                        <p style="font-size: 0.95rem;">Development of industry standard pitch decks, verbal pitching
-                            frameworks, and investor facing materials.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--brand); margin-bottom: 0.5rem;">8. Film Aesthetics and Cinematic
-                            Identity</h3>
-                        <p style="font-size: 0.95rem;">Cinematic philosophy, authorship, and positioning to ensure each
-                            filmmaker’s creative voice aligns with international audience expectations.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- GALLERY CAROUSEL -->
-        <section class="gallery-carousel">
-            <div class="container content-block">
-                <h2 class="text-center" style="margin-bottom: 3rem;">Program Leads & Mentors</h2>
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <img src="/programs/ifap/carousal/1.png" alt="IFAP Highlight 1" class="carousel-slide current">
-                        <img src="/programs/ifap/carousal/2.png" alt="IFAP Highlight 2" class="carousel-slide">
-                        <img src="/programs/ifap/carousal/3.png" alt="IFAP Highlight 3" class="carousel-slide">
-                        <img src="/programs/ifap/carousal/4.png" alt="IFAP Highlight 4" class="carousel-slide">
-                        <img src="/programs/ifap/carousal/5.png" alt="IFAP Highlight 5" class="carousel-slide">
-                        <img src="/programs/ifap/carousal/6.png" alt="IFAP Highlight 6" class="carousel-slide">
-                    </div>
-                    <button class="carousel-btn prev-btn" aria-label="Previous image">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
-                    </button>
-                    <button class="carousel-btn next-btn" aria-label="Next image">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
-                    <!-- <div class="carousel-nav">
-                        <button class="carousel-indicator current"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
-                        <button class="carousel-indicator"></button>
-                    </div> -->
-                </div>
-            </div>
-        </section>
-
-        <!-- REQUIREMENTS -->
-        <section class="requirements" style="background: rgba(15, 23, 42, 0.5);">
-            <div class="container content-block">
-                <h2 class="text-center" style="margin-bottom: 3rem;">Application Requirements</h2>
-                <div class="grid cols-3">
-                    <div class="card">
-                        <h3 style="margin-bottom: 1rem;">1. Curriculum Vitae (CV)</h3>
-                        <p>A detailed professional resume highlighting your experience in film or related creative
-                            fields.</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-bottom: 1rem;">2. Cover Letter</h3>
-                        <p style="margin-bottom: 0.5rem;">A personal statement explaining:</p>
-                        <ul class="requirement-list">
-                            <li>Motivation for the program</li>
-                            <li>Why you are a strong fit</li>
-                            <li>What you aim to achieve</li>
-                            <li>Long-term professional ambitions</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-bottom: 1rem;">3. Project Submission (optional)</h3>
-                        <p style="margin-bottom: 0.5rem;">A project you intend to develop during the program:</p>
-                        <ul class="requirement-list">
-                            <li><strong>Logline:</strong> Concise summary</li>
-                            <li><strong>Synopsis:</strong> 1-2 pages (Structure, Character, Theme)</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--muted);">Feature films and high-end
-                            series concepts only.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DISCLAIMER -->
-        <section class="disclaimer">
-            <div class="container content-block">
-                <div class="card" style="border: 1px solid var(--brand-2); background: rgba(15, 23, 42, 0.8);">
-                    <h3 style="margin-bottom: 1rem; color: var(--brand);">Project Submission Disclaimer</h3>
-                    <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">Submission of a project as part of the
-                        application process is entirely optional and is requested only to assist the program leaders and
-                        selection committee in evaluating applicants. While applicants may choose to apply without
-                        submitting a project, providing one can help the committee better understand the applicant’s
-                        creative vision and development goals.</p>
-                    <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">All materials submitted will be reviewed
-                        solely for the purpose of the selection process. Access will be limited to the Program Director
-                        and the designated Selection Committee responsible for evaluating applications.</p>
-                    <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">Any project material submitted will remain the
-                        full intellectual property of the applicant. The program, its organizers, and its
-                        representatives will not reproduce, distribute, or share the submitted material outside the
-                        evaluation process. Submission of a project does not transfer, license, or assign any rights to
-                        the program or its organizers.</p>
-                    <p style="font-size: 0.95rem;">By submitting a project, applicants acknowledge that the material is
-                        being shared voluntarily for evaluation purposes only.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEES -->
-        <section class="fees">
-            <div class="container content-block">
-                <div style="max-width: 600px; margin: 0 auto;">
-                    <div class="card fee-card">
-                        <h2>Program Investment</h2>
-                        <div class="fee-amount">LKR 150,000</div>
-                        <div class="fee-subtitle">Program Fee</div>
-                        <p style="margin: 1.5rem 0; color: var(--muted);">+ LKR 2,000 Registration Fee</p>
-                        <p style="font-weight: 600; color: var(--text);">Installment plans available.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA SECTION -->
-        <section class="cta-section">
-            <div class="container">
-                <h2 style="margin-bottom: 2rem;">Ready to take your film global?</h2>
-                <div class="row" style="justify-content: center; gap: 1.5rem;">
-                    <a href="https://forms.gle/CFRTJTGr4M343xTF7" class="btn" target="_blank" rel="noopener">Apply
-                        Now</a>
-                    <a href="/programs/ifap/IFAP-2026-Student-Brochure-NEW.pdf" class="btn secondary" target="_blank"
-                        rel="noopener" download>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Download Brochure
-                    </a>
-                </div>
-                <p style="margin-top: 2rem; color: var(--muted);">Hotline: 0777 643 129</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>IFAP — Film &amp; creative industry | T2T by TRACE</title>
+    <meta
+      content="The International Filmmaker Accelerator Program helps Sri Lankan filmmakers develop, package, and position their projects for international markets."
+      name="description"
+    />
+    <meta content="#F6F5EF" name="theme-color" />
+    <link href="/images/logos/t2t.png" rel="icon" />
+    <link href="/styles.css" rel="stylesheet" />
+    <meta content="IFAP — Film &amp; creative industry" property="og:title" />
+    <meta
+      content="The International Filmmaker Accelerator Program helps Sri Lankan filmmakers develop, package, and position their projects for international markets."
+      property="og:description"
+    />
+    <meta content="website" property="og:type" />
+    <meta
+      content="/images/IMG_20250330_121443-scaled.jpg"
+      property="og:image"
+    />
+    <script type="module" src="/site.js"></script>
+    <script defer="" src="/chatbot/widget.js"></script>
+  </head>
+  <body class="program-page creative">
+    <!--T2T_HEADER-->
+    <main id="main" tabindex="-1">
+      <section class="program-hero creative" id="hero">
         <div class="container">
-            <div class="footer-content">
-                <small>© <span id="year"></span> Theory to Trade by TRACE | <a href="../../privacy_policy/index.html" style="text-decoration: underline; opacity: 0.8; transition: opacity 0.2s;">Privacy Policy</a></small>
+          <div class="breadcrumb">
+            <a href="/">Home</a><span>/</span><a href="/#programs">Programs</a
+            ><span>/</span><span>IFAP</span>
+          </div>
+          <div class="program-hero-grid">
+            <div>
+              <p class="eyebrow">IFAP / Film &amp; creative industry</p>
+              <h1>Your story.<br />A global stage.</h1>
+              <p class="hero-description">
+                The International Filmmaker Accelerator Program helps Sri Lankan
+                filmmakers develop, package, and position their projects for
+                international markets.
+              </p>
+              <div class="actions">
+                <a class="btn" href="https://forms.gle/CFRTJTGr4M343xTF7"
+                  >Apply for IFAP <span aria-hidden="true">↗</span></a
+                ><a class="btn secondary" href="https://wa.me/94777643129"
+                  >Talk to the team <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <p class="small-note">
+                Explore the details below. Confirm current intake dates with the
+                team.
+              </p>
             </div>
+            <figure class="program-hero-photo">
+              <img
+                alt="IFAP Program Backdrop"
+                class=""
+                fetchpriority="high"
+                loading="eager"
+                src="/programs/ifap/ifap.png"
+              />
+              <figcaption>IFAP · Filmmakers &amp; creative talent</figcaption>
+            </figure>
+          </div>
+          <dl class="quick-facts">
+            <div>
+              <dt>Duration</dt>
+              <dd>16 weeks</dd>
+            </div>
+            <div>
+              <dt>Learning format</dt>
+              <dd>100 hours · Saturdays</dd>
+            </div>
+            <div>
+              <dt>Investment</dt>
+              <dd>LKR 150,000 + registration</dd>
+            </div>
+          </dl>
         </div>
-    </footer>
-
-    <script>
-        // Header Logic
-        const btn = document.getElementById('menuBtn');
-        const mobile = document.getElementById('mobileNav');
-        if (btn) btn.addEventListener('click', () => {
-            const open = mobile.classList.toggle('hide');
-            btn.setAttribute('aria-expanded', String(!open));
-        });
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Carousel Logic
-        const track = document.querySelector('.carousel-track');
-        if (track) {
-            const nextButton = document.querySelector('.next-btn');
-            const prevButton = document.querySelector('.prev-btn');
-            const dotsNav = document.querySelector('.carousel-nav');
-            const dots = dotsNav ? Array.from(dotsNav.children) : [];
-            const slides = Array.from(track.children);
-            let currentIndex = 0;
-
-            const moveToSlide = (index) => {
-                track.style.transform = `translateX(-${index * 100}%)`;
-                if (dotsNav) {
-                    const currentDot = dotsNav.querySelector('.current');
-                    if (currentDot) currentDot.classList.remove('current');
-                    if (dots[index]) dots[index].classList.add('current');
-                }
-                currentIndex = index;
-            };
-
-            if (nextButton) {
-                nextButton.addEventListener('click', () => {
-                    const targetIndex = (currentIndex + 1) % slides.length;
-                    moveToSlide(targetIndex);
-                });
-            }
-
-            if (prevButton) {
-                prevButton.addEventListener('click', () => {
-                    const targetIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    moveToSlide(targetIndex);
-                });
-            }
-
-            if (dotsNav) {
-                dotsNav.addEventListener('click', e => {
-                    const targetDot = e.target.closest('button');
-                    if (!targetDot) return;
-                    const targetIndex = dots.findIndex(dot => dot === targetDot);
-                    if (targetIndex !== -1) moveToSlide(targetIndex);
-                });
-            }
-        }
-    </script>
-  <script src="/chatbot/widget.js" defer></script>
-</body>
-
+      </section>
+      <div class="container program-layout">
+        <aside class="page-index">
+          <p class="eyebrow">IN THIS PROGRAM</p>
+          <nav aria-label="On this page">
+            <a href="#structure">Overview</a><a href="#pillars">Pillars</a
+            ><a href="#mentors">Mentors</a
+            ><a href="#requirements">Requirements</a
+            ><a href="#disclaimer">Disclaimer</a
+            ><a href="#investment">Investment</a>
+          </nav>
+          <a class="text-link" href="https://forms.gle/CFRTJTGr4M343xTF7"
+            >Apply for IFAP ↗</a
+          >
+        </aside>
+        <div class="program-content">
+          <section class="program-section" id="structure">
+            <div>
+              <div class="content-grid">
+                <div class="info-card">
+                  <h2>Program Structure</h2>
+                  <ul>
+                    <li><strong>Duration:</strong> 16 Weeks</li>
+                    <li><strong>Total Contact Hours:</strong> 100 Hours</li>
+                    <li>
+                      <strong>Location:</strong>
+                      <a
+                        href="https://maps.app.goo.gl/tZFzr47rgiomPVYU8"
+                        rel="noopener"
+                        target="_blank"
+                        >TRACE Expert City</a
+                      >
+                    </li>
+                    <li><strong>Time:</strong> Saturdays, 9am to 4pm</li>
+                  </ul>
+                  <h3>Format:</h3>
+                  <ul>
+                    <li>Workshops</li>
+                    <li>Development Labs</li>
+                    <li>Structured Mentorship</li>
+                    <li>Industry Simulations</li>
+                    <li>Live Pitch Forum</li>
+                  </ul>
+                </div>
+                <div class="info-card">
+                  <h2>Who This Is For</h2>
+                  <ul>
+                    <li>Film industry professionals</li>
+                    <li>Emerging and aspiring filmmakers</li>
+                    <li>
+                      Writers, directors, and producers seeking international
+                      pathways
+                    </li>
+                    <li>
+                      Creators developing feature films or high-end series
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="pillars">
+            <div>
+              <h2>Core Pillars</h2>
+              <div class="content-grid">
+                <div class="info-card">
+                  <h3>1. Development and Dramaturgy</h3>
+                  <p>
+                    Advanced structural refinement, character architecture,
+                    thematic cohesion, and tonal calibration. Emphasis is placed
+                    on cross cultural accessibility while preserving authorial
+                    identity.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>2. Screenwriting for the International Market</h3>
+                  <p>
+                    Crafting scripts that are structurally rigorous, emotionally
+                    legible, genre aware, and internationally readable.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>3. Directorial Voice and Genre Strategy</h3>
+                  <p>
+                    Exploration of genre mechanics, cinematic grammar, and tonal
+                    authorship. Each filmmaker develops a cohesive directorial
+                    strategy aligned with target markets.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>4. Visual Translation and Storyboarding</h3>
+                  <p>
+                    Translating narrative intention into visual architecture
+                    through shot design, mood frameworks, aesthetic references,
+                    and cinematic continuity planning.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>5. International Film Business and Finance</h3>
+                  <p>
+                    Global financing structures, co production treaties,
+                    packaging strategies, talent attachment models, and
+                    navigating key film markets.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>6. Sales, Distribution and Festival Strategy</h3>
+                  <p>
+                    Territory sales, streaming acquisitions, presales models,
+                    and long term rights strategy. Participants learn how
+                    projects are evaluated commercially across territories.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>7. Pitch and Market Readiness</h3>
+                  <p>
+                    Development of industry standard pitch decks, verbal
+                    pitching frameworks, and investor facing materials.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>8. Film Aesthetics and Cinematic Identity</h3>
+                  <p>
+                    Cinematic philosophy, authorship, and positioning to ensure
+                    each filmmaker’s creative voice aligns with international
+                    audience expectations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="mentors">
+            <div>
+              <h2>Program Leads &amp; Mentors</h2>
+              <div>
+                <div class="mentor-gallery">
+                  <img
+                    alt="IFAP Highlight 1"
+                    loading="lazy"
+                    src="/programs/ifap/carousal/1.png"
+                  />
+                  <img
+                    alt="IFAP Highlight 2"
+                    loading="lazy"
+                    src="/programs/ifap/carousal/2.png"
+                  />
+                  <img
+                    alt="IFAP Highlight 3"
+                    loading="lazy"
+                    src="/programs/ifap/carousal/3.png"
+                  />
+                  <img
+                    alt="IFAP Highlight 4"
+                    loading="lazy"
+                    src="/programs/ifap/carousal/4.png"
+                  />
+                  <img
+                    alt="IFAP Highlight 5"
+                    loading="lazy"
+                    src="/programs/ifap/carousal/5.png"
+                  />
+                  <img
+                    alt="IFAP Highlight 6"
+                    loading="lazy"
+                    src="/programs/ifap/carousal/6.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="requirements">
+            <div>
+              <h2>Application Requirements</h2>
+              <div class="content-grid">
+                <div class="info-card">
+                  <h3>1. Curriculum Vitae (CV)</h3>
+                  <p>
+                    A detailed professional resume highlighting your experience
+                    in film or related creative fields.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>2. Cover Letter</h3>
+                  <p>A personal statement explaining:</p>
+                  <ul>
+                    <li>Motivation for the program</li>
+                    <li>Why you are a strong fit</li>
+                    <li>What you aim to achieve</li>
+                    <li>Long-term professional ambitions</li>
+                  </ul>
+                </div>
+                <div class="info-card">
+                  <h3>3. Project Submission (optional)</h3>
+                  <p>A project you intend to develop during the program:</p>
+                  <ul>
+                    <li><strong>Logline:</strong> Concise summary</li>
+                    <li>
+                      <strong>Synopsis:</strong> 1-2 pages (Structure,
+                      Character, Theme)
+                    </li>
+                  </ul>
+                  <p>Feature films and high-end series concepts only.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="disclaimer">
+            <div>
+              <div class="info-card">
+                <h3>Project Submission Disclaimer</h3>
+                <p>
+                  Submission of a project as part of the application process is
+                  entirely optional and is requested only to assist the program
+                  leaders and selection committee in evaluating applicants.
+                  While applicants may choose to apply without submitting a
+                  project, providing one can help the committee better
+                  understand the applicant’s creative vision and development
+                  goals.
+                </p>
+                <p>
+                  All materials submitted will be reviewed solely for the
+                  purpose of the selection process. Access will be limited to
+                  the Program Director and the designated Selection Committee
+                  responsible for evaluating applications.
+                </p>
+                <p>
+                  Any project material submitted will remain the full
+                  intellectual property of the applicant. The program, its
+                  organizers, and its representatives will not reproduce,
+                  distribute, or share the submitted material outside the
+                  evaluation process. Submission of a project does not transfer,
+                  license, or assign any rights to the program or its
+                  organizers.
+                </p>
+                <p>
+                  By submitting a project, applicants acknowledge that the
+                  material is being shared voluntarily for evaluation purposes
+                  only.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="investment">
+            <div>
+              <div>
+                <div class="info-card">
+                  <h2>Program Investment</h2>
+                  <div>LKR 150,000</div>
+                  <div>Program Fee</div>
+                  <p>+ LKR 2,000 Registration Fee</p>
+                  <p>Installment plans available.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="download-panel">
+            <div>
+              <p class="eyebrow">TAKE A CLOSER LOOK</p>
+              <h3>The IFAP program brochure</h3>
+            </div>
+            <a
+              class="btn secondary"
+              href="/programs/ifap/IFAP-2026-Student-Brochure-NEW.pdf"
+              >Download brochure <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </div>
+      <section class="closing-section" id="apply">
+        <div class="container closing-inner">
+          <p class="eyebrow">MAKE YOUR NEXT MOVE</p>
+          <h2>Ready to put<br /><em>your potential to work?</em></h2>
+          <div class="actions">
+            <a class="btn" href="https://forms.gle/CFRTJTGr4M343xTF7"
+              >Apply for IFAP <span aria-hidden="true">↗</span></a
+            ><a class="btn secondary" href="https://wa.me/94777643129"
+              >Ask the team <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--T2T_FOOTER-->
+  </body>
 </html>

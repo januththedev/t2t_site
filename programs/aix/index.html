@@ -1,2386 +1,662 @@
 <!doctype html>
+
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>T2T AI-X | Elite AI-Native Career Acceleration Cohort</title>
-    <meta name="description"
-        content="Join T2T AI-X, an elite AI-native career acceleration cohort for fresh graduates and early-career professionals in Sri Lanka. Build global-level AI readiness." />
-    <meta name="theme-color" content="#030712" />
-    <link rel="icon" type="image/png" href="../../images/logos/t2t.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="T2T AI-X | Elite AI-Native Career Acceleration Cohort" />
-    <meta property="og:description"
-        content="Select 6-week accelerator designed to transform fresh graduates and early-career software engineers into AI-augmented technical team members." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="../../images/T2T-Website.png" />
-
-    <style>
-        /* T2T AI-X Modern Premium Theme & Layout Extensions */
-        :root {
-            --bg-dark: #030712;
-            --bg-card: #0b0f19;
-            --border-glow: rgba(139, 92, 246, 0.15);
-            --brand-cyan: #06b6d4;
-            --brand-violet: #8b5cf6;
-            --brand-violet-hover: #7c3aed;
-            --brand-emerald: #10b981;
-            --brand-rose: #f43f5e;
-            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        body.aix-theme {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #070b14 50%, #02040a 100%);
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
-
-        /* Scrolled state for sticky header */
-        header.scrolled {
-            background: rgba(3, 7, 18, 0.9);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-bottom-color: rgba(139, 92, 246, 0.15);
-        }
-
-        /* Subnav active states override */
-        nav a {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--brand-cyan), var(--brand-violet));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        nav a.active-link::after,
-        nav a:hover::after {
-            width: 80%;
-        }
-
-        .header-cta {
-            background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-violet) 100%);
-            color: #ffffff !important;
-            border: none !important;
-            padding: 8px 20px !important;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.85rem !important;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
-            transition: all 0.3s ease !important;
-        }
-
-        .header-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-            filter: saturate(1.1);
-        }
-
-        /* Background grid elements */
-        .grid-mask {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-            background-size: 50px 50px;
-            background-position: center top;
-            mask-image: radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%);
-            -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%);
-            pointer-events: none;
-            z-index: -2;
-        }
-
-        /* Glow effects */
-        .ambient-glow {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            filter: blur(80px);
-        }
-
-        /* Section styling defaults overrides */
-        section {
-            border-top-color: rgba(255, 255, 255, 0.03);
-            padding: clamp(60px, 12vw, 100px) 0;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto clamp(40px, 8vw, 60px);
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        /* Glassmorphism Cards */
-        .glass-card {
-            background: rgba(11, 15, 25, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius);
-            padding: clamp(24px, 4vw, 36px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius);
-            padding: 1.5px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 60%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(139, 92, 246, 0.25);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.08);
-        }
-
-        /* 1. HERO SECTION */
-        .hero-aix {
-            padding: 130px 0 clamp(60px, 12vw, 100px);
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-content {
-            text-align: left;
-        }
-
-        .hero-badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .hero-badge {
-            background: rgba(139, 92, 246, 0.08);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            color: #c084fc;
-            padding: 6px 14px;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-        }
-
-        .hero-badge.highlight {
-            background: rgba(6, 182, 212, 0.08);
-            border-color: rgba(6, 182, 212, 0.2);
-            color: #22d3ee;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(3rem, 7vw, 5rem);
-            font-weight: 900;
-            line-height: 0.95;
-            letter-spacing: -0.04em;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #ffffff 30%, #a5f3fc 70%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            font-weight: 500;
-            line-height: 1.3;
-            color: #e5e7eb;
-            margin-bottom: 20px;
-        }
-
-        .hero-desc {
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
-            color: var(--muted);
-            line-height: 1.6;
-            margin-bottom: 36px;
-            max-width: 580px;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-        }
-
-        .btn-premium {
-            background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-violet) 100%);
-            color: #ffffff;
-            border: none;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
-            font-weight: 700;
-        }
-
-        .btn-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
-            color: #ffffff;
-        }
-
-        .hero-scarcity {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .hero-scarcity span {
-            width: 8px;
-            height: 8px;
-            background: var(--brand-cyan);
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
-        }
-
-        /* Interactive AI Terminal Visual */
-        .terminal-visual {
-            background: rgba(10, 15, 30, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-            overflow: hidden;
-            width: 100%;
-            max-width: 480px;
-            margin-inline: auto;
-            position: relative;
-        }
-
-        .terminal-header {
-            background: rgba(3, 7, 18, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .terminal-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .terminal-dot.red {
-            background: #f43f5e;
-        }
-
-        .terminal-dot.yellow {
-            background: #eab308;
-        }
-
-        .terminal-dot.green {
-            background: #10b981;
-        }
-
-        .terminal-title {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: #6b7280;
-        }
-
-        .terminal-body {
-            padding: 20px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #a5f3fc;
-            text-align: left;
-            min-height: 280px;
-        }
-
-        .t-line {
-            margin-bottom: 4px;
-            opacity: 0;
-            transform: translateY(4px);
-            animation: fadeInLine 0.5s forwards;
-        }
-
-        .t-comment {
-            color: #4b5563;
-        }
-
-        .t-keyword {
-            color: #c084fc;
-        }
-
-        .t-func {
-            color: #67e8f9;
-        }
-
-        .t-string {
-            color: #34d399;
-        }
-
-        .t-val {
-            color: #fbbf24;
-        }
-
-        @keyframes fadeInLine {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* 2. THE PROBLEM SECTION */
-        .shift-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .shift-card {
-            border-radius: var(--radius);
-            padding: 32px;
-            position: relative;
-        }
-
-        .shift-card.traditional {
-            background: rgba(244, 63, 94, 0.02);
-            border: 1px solid rgba(244, 63, 94, 0.1);
-        }
-
-        .shift-card.traditional::before {
-            background: linear-gradient(135deg, rgba(244, 63, 94, 0.2), transparent 60%);
-        }
-
-        .shift-card.ai-native {
-            background: rgba(16, 185, 129, 0.03);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.05);
-        }
-
-        .shift-card.ai-native::before {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), transparent 60%);
-        }
-
-        .shift-header-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 4px 12px;
-            border-radius: 999px;
-            margin-bottom: 20px;
-        }
-
-        .shift-card.traditional .shift-header-tag {
-            background: rgba(244, 63, 94, 0.1);
-            color: #fb7185;
-        }
-
-        .shift-card.ai-native .shift-header-tag {
-            background: rgba(16, 185, 129, 0.1);
-            color: #34d399;
-        }
-
-        .shift-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-        }
-
-        .shift-list li {
-            padding-left: 28px;
-            position: relative;
-            margin-bottom: 14px;
-            font-size: 0.95rem;
-            color: #d1d5db;
-        }
-
-        .shift-list li::before {
-            position: absolute;
-            left: 0;
-            top: 2px;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .shift-card.traditional .shift-list li::before {
-            content: '✕';
-            color: var(--brand-rose);
-        }
-
-        .shift-card.ai-native .shift-list li::before {
-            content: '✓';
-            color: var(--brand-emerald);
-        }
-
-        /* 3. WHAT IS T2T AI-X */
-        .phase-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .phase-card {
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: var(--radius);
-            padding: 32px;
-            position: relative;
-            text-align: left;
-        }
-
-        .phase-badge {
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--brand-cyan);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            padding: 4px 14px;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-
-        .phase-card h3 {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 16px;
-        }
-
-        .phase-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .phase-card ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .phase-card ul li::before {
-            content: '▫';
-            position: absolute;
-            left: 0;
-            color: var(--brand-cyan);
-            font-weight: bold;
-        }
-
-        /* 4. WHO THIS IS FOR */
-        .audience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .audience-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: #ffffff;
-        }
-
-        .commitment-banner {
-            background: linear-gradient(90deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            padding: 24px;
-            border-radius: 12px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .commitment-banner p {
-            margin: 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #e5e7eb;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .commitment-banner p span {
-            color: #c084fc;
-        }
-
-        /* 5. WHAT YOU WILL LEARN */
-        .curriculum-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .curriculum-card {
-            padding: 24px;
-            text-align: left;
-        }
-
-        .curr-icon {
-            width: 44px;
-            height: 44px;
-            background: rgba(139, 92, 246, 0.08);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #c084fc;
-            margin-bottom: 16px;
-        }
-
-        .curriculum-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-            color: #f3f4f6;
-        }
-
-        .curriculum-card p {
-            font-size: 0.9rem;
-            margin: 0;
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
-        /* 6. HOW THE PROGRAM WORKS (TIMELINE) */
-        .timeline-wrapper {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 31px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--brand-cyan), var(--brand-violet), rgba(255, 255, 255, 0.05));
-        }
-
-        .timeline-node {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .timeline-dot-indicator {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #030712;
-            border: 4px solid var(--brand-violet);
-            z-index: 2;
-            margin-left: 20px;
-            margin-right: 28px;
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-node:nth-child(2) .timeline-dot-indicator {
-            border-color: var(--brand-cyan);
-            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
-        }
-
-        .timeline-node:nth-child(4) .timeline-dot-indicator {
-            border-color: var(--brand-emerald);
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-        }
-
-        .timeline-content {
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: left;
-            flex-grow: 1;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.25rem;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-
-        .timeline-content p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
-        .timeline-specs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 40px;
-        }
-
-        .spec-item {
-            background: rgba(10, 15, 30, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .spec-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--muted);
-            margin-bottom: 6px;
-        }
-
-        .spec-val {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #f3f4f6;
-        }
-
-        /* 7. WHY ONLY 15 PARTICIPANTS */
-        .scarcity-block {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .scarcity-count {
-            font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 900;
-            line-height: 1;
-            background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.15));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 16px;
-            letter-spacing: -0.05em;
-        }
-
-        .scarcity-reasons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .scarcity-item h3 {
-            font-size: 1.15rem;
-            color: #f3f4f6;
-            margin-bottom: 8px;
-        }
-
-        /* 8. MENTORSHIP & NETWORK */
-        .mentor-focus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin-inline: auto;
-        }
-
-        .mentor-focus-card {
-            text-align: left;
-        }
-
-        /* 11. FAQ ACCORDION */
-        .faq-accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-row {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 16px 0;
-            text-align: left;
-        }
-
-        .faq-trigger {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 12px 8px;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            text-align: left;
-        }
-
-        .faq-trigger span {
-            padding-right: 16px;
-        }
-
-        .faq-icon {
-            font-size: 1.2rem;
-            color: var(--brand-cyan);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            color: var(--muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            padding: 0 8px;
-        }
-
-        .faq-row.active .faq-answer {
-            max-height: 180px;
-            padding: 8px 8px 16px;
-        }
-
-        .faq-row.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* 11b. INVESTMENT SECTION STYLES */
-        .investment-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto 50px;
-            align-items: stretch;
-        }
-
-        .investment-card {
-            display: flex;
-            flex-direction: column;
-            padding: 40px;
-            background: rgba(11, 15, 25, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius);
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .investment-card.merit-scholarship {
-            border-color: rgba(6, 182, 212, 0.2);
-            background: linear-gradient(180deg, rgba(6, 182, 212, 0.02) 0%, rgba(11, 15, 25, 0.7) 100%);
-        }
-
-        .investment-card.merit-scholarship:hover {
-            border-color: rgba(6, 182, 212, 0.4);
-            box-shadow: 0 20px 45px rgba(6, 182, 212, 0.1);
-        }
-
-        .investment-card.monthly-investment {
-            border-color: rgba(139, 92, 246, 0.2);
-            background: linear-gradient(180deg, rgba(139, 92, 246, 0.02) 0%, rgba(11, 15, 25, 0.7) 100%);
-        }
-
-        .investment-card.monthly-investment:hover {
-            border-color: rgba(139, 92, 246, 0.4);
-            box-shadow: 0 20px 45px rgba(139, 92, 246, 0.1);
-        }
-
-        .card-glow-bg {
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius);
-            overflow: hidden;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .merit-scholarship .card-glow-bg::after {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -10%;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
-            filter: blur(20px);
-        }
-
-        .monthly-investment .card-glow-bg::after {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -10%;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
-            filter: blur(20px);
-        }
-
-        .badge-row {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .path-badge {
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 4px 12px;
-            border-radius: 999px;
-        }
-
-        .path-badge.merit {
-            background: rgba(6, 182, 212, 0.1);
-            color: #22d3ee;
-            border: 1px solid rgba(6, 182, 212, 0.2);
-        }
-
-        .path-badge.commitment {
-            background: rgba(139, 92, 246, 0.1);
-            color: #c084fc;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-
-        .path-badge.recovery {
-            background: rgba(16, 185, 129, 0.1);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .investment-card h3 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin: 0 0 12px 0;
-            letter-spacing: -0.02em;
-        }
-
-        .path-desc {
-            font-size: 0.95rem;
-            color: var(--muted);
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
-
-        .price-container {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 24px;
-        }
-
-        .price-container .currency {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--muted);
-        }
-
-        .price-container .price-value {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #ffffff;
-            line-height: 1;
-            letter-spacing: -0.03em;
-        }
-
-        .merit-scholarship .price-value {
-            background: linear-gradient(135deg, #ffffff 40%, #22d3ee 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .monthly-investment .price-value {
-            background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .price-container .period {
-            font-size: 0.95rem;
-            color: var(--muted);
-            font-weight: 500;
-        }
-
-        .gating-process {
-            text-align: left;
-            margin-bottom: 36px;
-        }
-
-        .gating-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #9ca3af;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .gating-process ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .gating-process ul li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: #d1d5db;
-        }
-
-        .gating-process ul li::before {
-            content: '⚡';
-            position: absolute;
-            left: 0;
-            top: 1px;
-            color: #22d3ee;
-            font-size: 0.9rem;
-        }
-
-        .investment-perks {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: left;
-            margin-bottom: 36px;
-        }
-
-        .perk-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-
-        .perk-icon {
-            font-size: 1.35rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .perk-item strong {
-            display: block;
-            font-size: 0.95rem;
-            color: #f3f4f6;
-            margin-bottom: 2px;
-        }
-
-        .perk-item span {
-            font-size: 0.85rem;
-            color: var(--muted);
-            line-height: 1.4;
-            display: block;
-        }
-
-        /* Recovery Loop Visual */
-        .recovery-flow-container {
-            background: rgba(11, 15, 25, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: var(--radius);
-            padding: 32px;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .flow-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0 0 28px 0;
-            text-align: center;
-            letter-spacing: -0.01em;
-        }
-
-        .flow-steps {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-
-        .flow-step {
-            flex: 1;
-            background: rgba(3, 7, 18, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .flow-step:hover {
-            transform: translateY(-2px);
-            border-color: rgba(16, 185, 129, 0.2);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.05);
-        }
-
-        .step-num {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            color: #34d399;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 0.85rem;
-            margin: 0 auto 12px;
-        }
-
-        .flow-step:nth-child(1) .step-num {
-            background: rgba(139, 92, 246, 0.1);
-            border-color: rgba(139, 92, 246, 0.3);
-            color: #c084fc;
-        }
-
-        .flow-step strong {
-            display: block;
-            font-size: 0.95rem;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .flow-step p {
-            font-size: 0.8rem;
-            color: var(--muted);
-            line-height: 1.4;
-            margin: 0;
-        }
-
-        .flow-arrow {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.15);
-            user-select: none;
-            font-weight: 300;
-        }
-
-        @media (max-width: 900px) {
-            .investment-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .flow-steps {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .flow-arrow {
-                transform: rotate(90deg);
-                margin: -5px 0;
-            }
-
-            .flow-step {
-                width: 100%;
-            }
-        }
-
-        /* 12. FINAL CTA */
-        .final-cta-block {
-            background: linear-gradient(135deg, rgba(3, 7, 18, 0.9) 0%, rgba(11, 15, 25, 0.8) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            border-radius: var(--radius);
-            padding: clamp(32px, 8vw, 64px) clamp(20px, 4vw, 40px);
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .final-cta-block::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
-            top: -150px;
-            right: -150px;
-            z-index: -1;
-            filter: blur(40px);
-        }
-
-        .final-cta-block h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 16px;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .final-cta-block p {
-            font-size: 1.15rem;
-            color: var(--muted);
-            margin-bottom: 36px;
-            max-width: 600px;
-            margin-inline: auto;
-        }
-
-        /* MODALS (POPUPS) */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            padding: 16px;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-box {
-            background: #0b0f19;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 16px;
-            width: 100%;
-            max-width: 500px;
-            padding: 32px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            color: #6b7280;
-            font-size: 1.5rem;
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-        }
-
-        .modal-close:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .modal-box h3 {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .modal-box p {
-            color: var(--muted);
-            font-size: 0.9rem;
-            margin-bottom: 24px;
-        }
-
-        /* Modern Form Styles */
-        .modal-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            text-align: left;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-group label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #9ca3af;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            background: rgba(3, 7, 18, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 10px 14px;
-            color: #ffffff;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--brand-violet);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
-        }
-
-        .modal-submit-btn {
-            background: linear-gradient(135deg, var(--brand-cyan) 0%, var(--brand-violet) 100%);
-            color: #ffffff;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .modal-submit-btn:hover {
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-            transform: translateY(-1px);
-        }
-
-        .success-screen {
-            display: none;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .success-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 2px solid var(--brand-emerald);
-            color: var(--brand-emerald);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 20px;
-        }
-
-        /* Pulse animations keyframes */
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
-            }
-
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 8px rgba(6, 182, 212, 0);
-            }
-
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-                text-align: center;
-            }
-
-            .hero-content {
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-ctas {
-                justify-content: center;
-            }
-
-            .hero-scarcity {
-                justify-content: center;
-            }
-
-            .shift-comparison,
-            .phase-container {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline-line {
-                left: 17px;
-            }
-
-            .timeline-dot-indicator {
-                margin-left: 6px;
-                margin-right: 16px;
-            }
-        }
-    </style>
-</head>
-
-<body class="aix-theme">
-    <div class="grid-mask"></div>
-    <div class="ambient-glow" style="width:500px; height:500px; background:rgba(139,92,246,0.06); top:10%; left:-10%;">
-    </div>
-    <div class="ambient-glow" style="width:600px; height:600px; background:rgba(6,182,212,0.05); top:40%; right:-10%;">
-    </div>
-
-    <!-- STICKY HEADER -->
-    <header id="aix-header">
-        <div class="container nav">
-            <a href="../../index.html#top" class="brand" aria-label="Home">
-                <img src="../../images/logos/t2t.png" alt="Theory to Trade by TRACE logo" loading="eager" />
-                <strong>
-                    <span class="brand-full">Theory to Trade (T2T) by TRACE</span>
-                    <span class="brand-short">T2T by TRACE</span>
-                </strong>
-            </a>
-            <nav aria-label="Primary" id="desktop-nav">
-                <ul>
-                    <li><a href="#shift" class="nav-anchor">The Shift</a></li>
-                    <li><a href="#program" class="nav-anchor">Cohort Structure</a></li>
-                    <li><a href="#curriculum" class="nav-anchor">Curriculum</a></li>
-                    <li><a href="#timeline" class="nav-anchor">Timeline</a></li>
-                    <li><a href="#investment" class="nav-anchor">Investment</a></li>
-                    <li><a href="#faq" class="nav-anchor">FAQ</a></li>
-                </ul>
-            </nav>
-            <div class="actions">
-                <a href="https://forms.gle/2V5hW6fKw9fCTFxeA" class="header-cta" target="_blank" rel="noopener">Apply
-                    Now</a>
-                <button class="menu btn secondary" id="menuBtn" aria-expanded="false"
-                    aria-controls="mobileNav">Menu</button>
-            </div>
-        </div>
-        <div id="mobileNav" class="container hide" role="dialog" aria-modal="false">
-            <nav>
-                <ul style="display:grid; gap:8px; padding:12px 0">
-                    <li><a href="#shift" class="nav-anchor">The Shift</a></li>
-                    <li><a href="#program" class="nav-anchor">Cohort Structure</a></li>
-                    <li><a href="#curriculum" class="nav-anchor">Curriculum</a></li>
-                    <li><a href="#timeline" class="nav-anchor">Timeline</a></li>
-                    <li><a href="#investment" class="nav-anchor">Investment</a></li>
-                    <li><a href="#faq" class="nav-anchor">FAQ</a></li>
-                    <li><a href="https://forms.gle/2V5hW6fKw9fCTFxeA" style="color:var(--brand-cyan); font-weight:700"
-                            target="_blank" rel="noopener">Apply for AI-X</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- 1. HERO SECTION -->
-        <section class="hero-aix" id="hero">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-content">
-                        <div class="hero-badge-container">
-                            <span class="hero-badge">AI-Native Technical Training</span>
-                            <span class="hero-badge">Career Accelerator</span>
-                            <span class="hero-badge highlight">High-Touch Mentoring</span>
-                        </div>
-                        <h1>T2T AI-X</h1>
-                        <p class="hero-subtitle">An elite AI-native career acceleration cohort for the next generation
-                            of technical professionals.</p>
-                        <p class="hero-desc">T2T AI-X is a highly selective 6-week accelerator designed to transform
-                            fresh graduates and early-career professionals into AI-augmented technical team members
-                            capable of working in modern AI-driven software environments.</p>
-
-                        <div class="hero-ctas">
-                            <a href="https://forms.gle/2V5hW6fKw9fCTFxeA" class="btn btn-premium" target="_blank"
-                                rel="noopener">Apply for Cohort 01</a>
-                            <button class="btn secondary trigger-brief" disabled aria-disabled="true">Download Program
-                                Brief</button>
-                        </div>
-                        <div class="hero-scarcity">
-                            <span></span> Limited to 15 participants
-                        </div>
-                    </div>
-
-                    <div class="hero-visual">
-                        <!-- MOCK AI ORCHESTRATION TERMINAL -->
-                        <div class="terminal-visual">
-                            <div class="terminal-header">
-                                <div class="terminal-dots">
-                                    <div class="terminal-dot red"></div>
-                                    <div class="terminal-dot yellow"></div>
-                                    <div class="terminal-dot green"></div>
-                                </div>
-                                <div class="terminal-title">t2t-aix-orch.py</div>
-                            </div>
-                            <div class="terminal-body" id="code-terminal">
-                                <div class="t-line" style="animation-delay: 0.2s;"><span class="t-comment"># Initialize
-                                        AI-Native SDLC environment</span></div>
-                                <div class="t-line" style="animation-delay: 0.6s;"><span class="t-keyword">import</span>
-                                    aix_core <span class="t-keyword">as</span> aix</div>
-                                <div class="t-line" style="animation-delay: 1.0s;"><span class="t-keyword">import</span>
-                                    agent_orchestrator</div>
-                                <div class="t-line" style="animation-delay: 1.4s;"></div>
-                                <div class="t-line" style="animation-delay: 1.8s;">cohort = aix.Cohort(capacity=<span
-                                        class="t-val">15</span>, selection_rate=<span class="t-val">0.05</span>)</div>
-                                <div class="t-line" style="animation-delay: 2.2s;">team = aix.AugmentedTeam(size=<span
-                                        class="t-val">5</span>, agent_density=<span class="t-val">0.8</span>)</div>
-                                <div class="t-line" style="animation-delay: 2.6s;"></div>
-                                <div class="t-line" style="animation-delay: 3.0s;"><span class="t-comment"># Execute
-                                        workflow integration</span></div>
-                                <div class="t-line" style="animation-delay: 3.4s;">pipeline =
-                                    agent_orchestrator.load_sdlc_agents()</div>
-                                <div class="t-line" style="animation-delay: 3.8s;">
-                                    pipeline.run_assisted_cycle(metrics=[<span class="t-string">"speed"</span>, <span
-                                        class="t-string">"architecture"</span>])</div>
-                                <div class="t-line" style="animation-delay: 4.2s;"></div>
-                                <div class="t-line" style="animation-delay: 4.6s;"><span
-                                        class="t-keyword">print</span>(<span class="t-string">"AIx Environment:
-                                        ACTIVE"</span>)</div>
-                                <div class="t-line" style="animation-delay: 5.0s;"><span
-                                        class="t-keyword">print</span>(<span class="t-string">"Operational Efficiency:
-                                        10x"</span>)</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. THE PROBLEM SECTION -->
-        <section id="shift" aria-label="The Industry Shift">
-            <div class="container">
-                <div class="section-header">
-                    <h2>The world changed. Most education systems didn’t.</h2>
-                    <p>Traditional learning systems teach you how to write lines of code. The modern software industry
-                        wants developers who know how to direct machines to write systems.</p>
-                </div>
-
-                <div class="shift-comparison">
-                    <!-- Traditional Card -->
-                    <div class="shift-card traditional">
-                        <span class="shift-header-tag">Traditional Graduate</span>
-                        <ul class="shift-list">
-                            <li>Waits for detailed task instructions</li>
-                            <li>Writes everything manually from scratch</li>
-                            <li>Limited or no understanding of business context</li>
-                            <li>Tool-focused classroom learning</li>
-                            <li>Academic-only exposure and hypothetical projects</li>
-                        </ul>
-                    </div>
-
-                    <!-- AI-Native Card -->
-                    <div class="shift-card ai-native">
-                        <span class="shift-header-tag">AI-Native Professional</span>
-                        <ul class="shift-list">
-                            <li>Delivers production code 10x faster</li>
-                            <li>Understands high-level architecture and flow</li>
-                            <li>AI-assisted execution and validation cycles</li>
-                            <li>Portfolio-driven, verifiable real-world capability</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. WHAT IS T2T AI-X -->
-        <section id="program" aria-label="Program Design">
-            <div class="container">
-                <div class="section-header">
-                    <h2>What is T2T AI-X?</h2>
-                    <p>This is not an academic course or a generic prompting camp. It is a high-performance career
-                        acceleration cohort designed for the AI-assisted software engineering era.</p>
-                </div>
-
-                <div class="phase-container">
-                    <!-- Phase 1 Card -->
-                    <div class="phase-card">
-                        <span class="phase-badge">Phase 1</span>
-                        <h3>4-Weeks Intensive AI-Native Acceleration</h3>
-                        <p style="color:var(--muted); margin-bottom: 20px;">A high-density operational phase covering
-                            the mechanics of AI-assisted engineering:</p>
-                        <ul>
-                            <li>Interactive live workshops & technical coaching</li>
-                            <li>Hands-on AI-assisted SDLC workflows</li>
-                            <li>Systems thinking & architecture engineering</li>
-                            <li>Building structural AI-augmented systems</li>
-                            <li>Personal capability tracking & portfolio creation</li>
-                        </ul>
-                    </div>
-
-                    <!-- Phase 2 Card -->
-                    <div class="phase-card" style="border-color: rgba(139, 92, 246, 0.2);">
-                        <span class="phase-badge"
-                            style="background:rgba(139,92,246,0.1); color:var(--brand-violet); border-color:rgba(139,92,246,0.2);">Phase
-                            2</span>
-                        <h3>Guided Industry-Aligned Execution</h3>
-                        <p style="color:var(--muted); margin-bottom: 20px;">Selected cohort members transition into
-                            practical execution spaces:</p>
-                        <ul>
-                            <li>Collaboration on live sandbox projects</li>
-                            <li>Exposure to realistic engineering backlogs</li>
-                            <li>Code reviews and structural audit sessions</li>
-                            <li>Guided production releases & systems optimization</li>
-                            <li>Advanced portfolio hardening for global readiness</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. WHO THIS IS FOR -->
-        <section id="audience" aria-label="Target Profile">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Who is AI-X built for?</h2>
-                    <p>We filter candidates heavily. This acceleration space is designed exclusively for Sri Lankan
-                        technical talent aiming to achieve global competitive competency.</p>
-                </div>
-
-                <div class="audience-grid">
-                    <div class="glass-card audience-card">
-                        <h3>Graduates & Undergrads</h3>
-                        <p>IT/Software Engineering graduates and final-year students who realize classroom concepts lag
-                            behind modern team operations.</p>
-                    </div>
-                    <div class="glass-card audience-card">
-                        <h3>Early-Career Engineers</h3>
-                        <p>Junior software developers and QA engineers who want to stay irreplaceable by shifting from
-                            manual task execution to AI-assisted workflows.</p>
-                    </div>
-                    <div class="glass-card audience-card">
-                        <h3>Ambitious Builders</h3>
-                        <p>Self-taught coders and makers ready to skip standard junior paths by adopting advanced
-                            technical methodologies early.</p>
-                    </div>
-                </div>
-
-                <div class="commitment-banner">
-                    <p>⚠️ <span>Important:</span> T2T AI-X requires absolute commitment, discipline, and daily
-                        consistency. Prepare for a high-intensity acceleration culture.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. WHAT YOU WILL LEARN (CURRICULUM) -->
-        <section id="curriculum" aria-label="Curriculum Details">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Capability Transformation</h2>
-                    <p>We focus on operational capabilities rather than a checklist of syllabus links. This is what you
-                        will master.</p>
-                </div>
-
-                <div class="curriculum-grid">
-                    <!-- Card 1 -->
-                    <div class="glass-card curriculum-card">
-                        <div class="curr-icon">🤖</div>
-                        <h3>AI-Native Engineering</h3>
-                        <p>Leveraging AI models to analyze requirements, construct test frameworks, write codebase
-                            components, and trace bugs instantly.</p>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="glass-card curriculum-card">
-                        <div class="curr-icon">⚙️</div>
-                        <h3>AI-Assisted SDLC</h3>
-                        <p>Re-engineering standard agile processes. Integrating AI capabilities into system design,
-                            execution, validation, and documentation phases.</p>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="glass-card curriculum-card">
-                        <div class="curr-icon">⚡</div>
-                        <h3>Coding Copilots</h3>
-                        <p>Advanced developer practices with GitHub Copilot, Cursor, and custom local code companions
-                            for lightning execution velocity.</p>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="glass-card curriculum-card">
-                        <div class="curr-icon">🕸️</div>
-                        <h3>Agentic Workflows</h3>
-                        <p>Setting up autonomous agent loops for verification, code refactoring, data analysis, and task
-                            execution workflows.</p>
-                    </div>
-                    <!-- Card 6 -->
-                    <div class="glass-card curriculum-card">
-                        <div class="curr-icon">🧩</div>
-                        <h3>Architecture Thinking</h3>
-                        <p>Analyzing structures, components, and communication channels. Let the machine code while you
-                            design systemic flow.</p>
-                    </div>
-                    <!-- Card 7 -->
-                    <div class="glass-card curriculum-card">
-                        <div class="curr-icon">🗣️</div>
-                        <h3>Technical Communication</h3>
-                        <p>Translating complex requirements, drafting precise system prompts, and collaborating
-                            efficiently within hybrid human-AI developer teams.</p>
-                    </div>
-                    <!-- Card 8 -->
-                    <div class="glass-card curriculum-card">
-                        <div class="curr-icon">📂</div>
-                        <h3>Portfolio Production</h3>
-                        <p>Creating concrete, verifiable, and visually-impressive proof-of-concept projects to display
-                            your skills to global employers.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. HOW THE PROGRAM WORKS (TIMELINE) -->
-        <section id="timeline" aria-label="Workflow Timeline">
-            <div class="container">
-                <div class="section-header">
-                    <h2>How the program works</h2>
-                    <p>Your journey from selective application filtering to advanced execution environments.</p>
-                </div>
-
-                <div class="timeline-wrapper">
-                    <div class="timeline-line"></div>
-
-                    <!-- Node 1 -->
-                    <div class="timeline-node">
-                        <div class="timeline-dot-indicator"></div>
-                        <div class="timeline-content">
-                            <h3>1. Selection & Evaluation</h3>
-                            <p>Rigorous filtering based on technical fundamentals, learning velocity, dedication, and
-                                readiness for a high-intensity cohort.</p>
-                        </div>
-                    </div>
-
-                    <!-- Node 2 -->
-                    <div class="timeline-node">
-                        <div class="timeline-dot-indicator"></div>
-                        <div class="timeline-content">
-                            <h3>2. 4-Weeks Intensive Training</h3>
-                            <p>Daily operational challenges, live engineering workshops, technical prompt structures,
-                                and collaborative AI engineering projects.</p>
-                        </div>
-                    </div>
-
-                    <!-- Node 3 -->
-                    <div class="timeline-node">
-                        <div class="timeline-dot-indicator"></div>
-                        <div class="timeline-content">
-                            <h3>3. Mentorship & Coaching</h3>
-                            <p>Weekly milestone audits with experienced technical advisors. Continuous architectural
-                                code reviews and system validation.</p>
-                        </div>
-                    </div>
-
-                    <!-- Node 4 -->
-                    <div class="timeline-node">
-                        <div class="timeline-dot-indicator"></div>
-                        <div class="timeline-content">
-                            <h3>4. Portfolio Building</h3>
-                            <p>Creating concrete AI-native products, publishing structural source code, and preparing
-                                deployment pipelines to prove execution capabilities.</p>
-                        </div>
-                    </div>
-
-                    <!-- Node 5 -->
-                    <div class="timeline-node">
-                        <div class="timeline-dot-indicator"></div>
-                        <div class="timeline-content">
-                            <h3>5. Advanced Industry Execution</h3>
-                            <p>Transition to Phase 2. Sandbox collaborations with industrial sponsors and advanced
-                                project placements for top-tier candidates.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-specs">
-                    <div class="spec-item">
-                        <div class="spec-title">WEEKLY COMMITMENT</div>
-                        <div class="spec-val">Minimum 40+ Hours</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">CULTURE TYPE</div>
-                        <div class="spec-val">Execution-First</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">ACCOUNTABILITY</div>
-                        <div class="spec-val">Individual Milestones</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-title">INSTRUCTION METHOD</div>
-                        <div class="spec-val">Live / Guided Mentor Work</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. WHY ONLY 15 PARTICIPANTS -->
-        <section id="exclusivity" aria-label="Cohort Exclusivity">
-            <div class="ambient-glow"
-                style="width:400px; height:400px; background:rgba(6,182,212,0.04); top:30%; left:50%; transform:translateX(-50%);">
-            </div>
-            <div class="container">
-                <div class="scarcity-block">
-                    <div class="scarcity-count">15</div>
-                    <div class="section-header" style="margin-bottom:20px;">
-                        <h2>Built for depth. Not scale.</h2>
-                        <p>We reject standard education models that scale classes to hundreds of students. AI-X limits
-                            intake to maintain extreme support standards.</p>
-                    </div>
-
-                    <div class="scarcity-reasons">
-                        <div class="scarcity-item">
-                            <h3>1:1 Attention</h3>
-                            <p style="color:var(--muted); font-size:0.9rem;">Every project, prompt architecture, and
-                                repository branch is audited directly by your mentor.</p>
-                        </div>
-                        <div class="scarcity-item">
-                            <h3>Mentorship Density</h3>
-                            <p style="color:var(--muted); font-size:0.9rem;">Daily contact hours with senior engineers
-                                ensuring roadblocks are cleared in minutes, not days.</p>
-                        </div>
-                        <div class="scarcity-item">
-                            <h3>Selective Environment</h3>
-                            <p style="color:var(--muted); font-size:0.9rem;">Work alongside 14 other highly motivated,
-                                highly capable candidates pushing their limits.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. MENTORSHIP & NETWORK -->
-        <section id="mentorship" aria-label="Mentorship and Network">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Mentorship & Professional Network</h2>
-                    <p>Learn directly from software developers and digital architects currently building systems for
-                        local and international markets.</p>
-                </div>
-
-                <div class="mentor-focus-grid">
-                    <div class="glass-card mentor-focus-card">
-                        <h3 style="font-size:1.2rem; color:#fff; margin-bottom:8px;">Senior Tech Guidance</h3>
-                        <p style="color:var(--muted); font-size:0.95rem; margin:0;">Receive granular code reviews and
-                            structural critiques focusing on standard industry protocols and performance metrics.</p>
-                    </div>
-                    <div class="glass-card mentor-focus-card">
-                        <h3 style="font-size:1.2rem; color:#fff; margin-bottom:8px;">CXO-Level Exposure</h3>
-                        <p style="color:var(--muted); font-size:0.95rem; margin:0;">Present products directly to
-                            business leaders and technology decision-makers within the TRACE ecosystem.</p>
-                    </div>
-                    <div class="glass-card mentor-focus-card">
-                        <h3 style="font-size:1.2rem; color:#fff; margin-bottom:8px;">Real-World Insights</h3>
-                        <p style="color:var(--muted); font-size:0.95rem; margin:0;">Benchmarked evaluations based on
-                            actual technical challenges currently faced by modern engineering teams.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. OUTCOMES SECTION -->
-        <section id="outcomes" aria-label="Cohort Outcomes">
-            <div class="container">
-                <div class="section-header">
-                    <h2>What you leave with</h2>
-                    <p>At the end of AI-X, your profile changes from a standard graduate to an AI-native technical team
-                        player.</p>
-                </div>
-
-                <div class="audience-grid">
-                    <!-- Outcome 1 -->
-                    <div class="glass-card">
-                        <h3 style="color:var(--brand-cyan);">AI-Native Engineering Workflows</h3>
-                        <p>Complete confidence using agent models, copilot extensions, code analysis scripts, and system
-                            prompts to ship fast.</p>
-                    </div>
-                    <!-- Outcome 2 -->
-                    <div class="glass-card">
-                        <h3 style="color:var(--brand-violet);">Verifiable Code Portfolio</h3>
-                        <p>A repository profile displaying multiple live deployment pipelines, prompt configurations,
-                            and architecture models.</p>
-                    </div>
-                    <!-- Outcome 3 -->
-                    <div class="glass-card">
-                        <h3 style="color:var(--brand-emerald);">High Operational Velocity</h3>
-                        <p>Understand how to transform a vague requirement into a clean technical system design in
-                            record time.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 10. SELECTIVE ADMISSION SECTION -->
-        <section id="admissions" aria-label="Admissions Vetting">
-            <div class="container">
-                <div class="final-cta-block"
-                    style="background:rgba(15,23,42,0.3); border-color:rgba(255,255,255,0.05); margin-bottom: 0; padding: 48px 32px;">
-                    <div class="section-header" style="margin-bottom:24px;">
-                        <h2 style="font-size: 2.2rem;">Selection matters.</h2>
-                        <p style="font-size:1.05rem;">We only accept candidates who display high learning drive,
-                            resilience, and solid technical foundations.</p>
-                    </div>
-
-                    <div class="scarcity-reasons" style="text-align: left; max-width: 700px; margin: 0 auto 32px;">
-                        <div class="scarcity-item">
-                            <h3 style="font-size:1rem; color:#fff;">1. Technical Vetting</h3>
-                            <p style="font-size:0.85rem;">Evaluation focusing on core coding foundations, logical
-                                architecture logic, and problem comprehension.</p>
-                        </div>
-                        <div class="scarcity-item">
-                            <h3 style="font-size:1rem; color:#fff;">2. Interview Evaluation</h3>
-                            <p style="font-size:0.85rem;">Reviewing your work discipline, operational commitment, and
-                                overall cultural alignment with AI-X.</p>
-                        </div>
-                    </div>
-
-                    <div
-                        style="background:rgba(16, 185, 129, 0.08); border-left:3px solid var(--brand-emerald); padding:16px 20px; border-radius: 0 8px 8px 0; text-align: left; max-width:700px; margin:0 auto;">
-                        <p style="margin:0; font-size:0.95rem; color:#e5e7eb; line-height:1.5;">💡 <strong>Scholarship
-                                Pathway:</strong> Exceptional candidates who excel in our vetting challenges may qualify
-                            for a scholarship pathway after the selection process.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 10b. INVESTMENT & RECOVERY SECTION -->
-        <section id="investment" aria-label="Program Investment">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Your Career Investment</h2>
-                    <p>An acceleration model designed to align our incentives directly with your professional success.
-                        Choose the path that fits your readiness.</p>
-                </div>
-
-                <div class="investment-grid">
-                    <!-- Path 1: Scholarship -->
-                    <div class="glass-card investment-card merit-scholarship">
-                        <div class="card-glow-bg"></div>
-                        <div class="badge-row">
-                            <span class="path-badge merit">Merit Pathway</span>
-                        </div>
-                        <h3>100% Merit Scholarship</h3>
-                        <p class="path-desc">For candidates who demonstrate exceptional readiness, strong coding
-                            fundamentals, and immediate technical capacity during vetting.</p>
-
-                        <div class="price-container">
-                            <span class="currency">LKR</span>
-                            <span class="price-value">0</span>
-                            <span class="period">Fully Funded</span>
-                        </div>
-
-                        <div class="gating-process">
-                            <span class="gating-label">Gating Process Required:</span>
-                            <ul>
-                                <li>Exceptional score in the tech challenge</li>
-                                <li>Proven command over code logic & syntax</li>
-                                <li>Demonstrated learning speed & resourcefulness</li>
-                            </ul>
-                        </div>
-
-                        <a href="https://forms.gle/2V5hW6fKw9fCTFxeA" class="btn btn-premium"
-                            style="width: 100%; margin-top: auto; display:flex; justify-content:center;" target="_blank"
-                            rel="noopener">Apply & Vet Now</a>
-                    </div>
-
-                    <!-- Path 2: Paid with Recovery -->
-                    <div class="glass-card investment-card monthly-investment">
-                        <div class="card-glow-bg"></div>
-                        <div class="badge-row">
-                            <span class="path-badge commitment">Standard Pathway</span>
-                            <span class="path-badge recovery">100% Recoverable</span>
-                        </div>
-                        <h3>Co-Investment Model</h3>
-                        <p class="path-desc">For selected candidates who have the foundations but require intensive
-                            mentoring to reach industry-level engineering velocity.</p>
-
-                        <div class="price-container">
-                            <span class="currency">LKR</span>
-                            <span class="price-value">20,000</span>
-                            <span class="period"> (for 6 weeks)</span>
-                        </div>
-
-                        <div class="investment-perks">
-                            <div class="perk-item">
-                                <span class="perk-icon">🎯</span>
-                                <div>
-                                    <strong>No upfront bulk fees</strong>
-                                    <span>Pay monthly as you progress through Phase 1.</span>
-                                </div>
-                            </div>
-                            <div class="perk-item">
-                                <span class="perk-icon">💼</span>
-                                <div>
-                                    <strong>Potential Paid Internship</strong>
-                                    <span>Depending on your commitment, code delivery, and milestones.</span>
-                                </div>
-                            </div>
-                            <div class="perk-item">
-                                <span class="perk-icon">🔄</span>
-                                <div>
-                                    <strong>High potential Investment Recovery</strong>
-                                    <span>Your internship salary is expected to pay back your investment.</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="https://forms.gle/2V5hW6fKw9fCTFxeA" class="btn secondary"
-                            style="width: 100%; margin-top: auto; border-color: rgba(139, 92, 246, 0.4); display:flex; justify-content:center;"
-                            target="_blank" rel="noopener">Apply & Join Cohort</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 11. FAQ SECTION -->
-        <section id="faq" aria-label="Frequently Asked Questions">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Frequently Asked Questions</h2>
-                    <p>Everything you need to know about the AI-X acceleration structure.</p>
-                </div>
-
-                <div class="faq-accordion">
-                    <!-- Q1 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>Is this a beginner program?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">No. T2T AI-X requires basic programming competency. You should
-                            understand syntax, logic loops, basic data structures, and database calls before applying.
-                        </div>
-                    </div>
-                    <!-- Q2 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>Is this online or physical?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">This is a hybrid accelerator. It includes virtual mentoring sessions,
-                            online backlog operations, and core physical workshop sessions at the TRACE premises in
-                            Colombo.</div>
-                    </div>
-                    <!-- Q3 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>What is the weekly commitment?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">Participants must commit at least 40 hours per week for code building,
-                            prompts creation, peer reviews, and mentorship standups. It is designed to mirror a
-                            full-time software engineering role.</div>
-                    </div>
-                    <!-- Q4 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>Will this help me become industry ready?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">Yes, AI-X is built to replace the standard academic-style project path
-                            with actual software backlog cycles. You will work with production-grade AI tools,
-                            architecture systems, and code review criteria.</div>
-                    </div>
-                    <!-- Q5 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>Is this academic or practical?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">Entirely practical. We skip textbook definitions to focus on real system
-                            execution, prompt pipeline design, software architecture structure, and collaborative
-                            repository operations.</div>
-                    </div>
-                    <!-- Q6 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>Who should apply?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">Final year IT/software engineering undergraduates, fresh graduates,
-                            junior developers, and self-taught coders who want to build global-ready operational
-                            engineering capacity fast.</div>
-                    </div>
-                    <!-- Q7 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>Do I need prior AI experience?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">No prior AI experience is required. We will teach you prompt
-                            engineering, copilot patterns, multi-agent frameworks, and database retrieval models from
-                            the ground up, assuming you have coding logic down.</div>
-                    </div>
-                    <!-- Q8 -->
-                    <div class="faq-row">
-                        <button class="faq-trigger"><span>What happens after the first 3 months?</span><span
-                                class="faq-icon">+</span></button>
-                        <div class="faq-answer">Upon successfully completing the Phase 1 assessment gate, you will
-                            transition to Phase 2, where you will build advanced projects and collaborate on active
-                            sandboxes aligned with industry sponsors.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 12. FINAL CTA SECTION -->
-        <section id="apply" aria-label="Apply Now">
-            <div class="container">
-                <div class="final-cta-block">
-                    <h2>The next generation of technical professionals will be AI-native.</h2>
-                    <p>T2T AI-X is designed for individuals ready to operate at that level. Build your irreplacability
-                        starting today.</p>
-
-                    <div class="hero-ctas" style="justify-content:center; margin-bottom: 24px;">
-                        <a href="https://forms.gle/2V5hW6fKw9fCTFxeA" class="btn btn-premium" target="_blank"
-                            rel="noopener">Apply for Cohort 01</a>
-                        <a href="https://wa.me/94777643129" class="btn secondary" target="_blank" rel="noopener">Speak
-                            to the Team</a>
-                    </div>
-
-                    <div class="hero-scarcity" style="justify-content:center;">
-                        <span></span> Applications close once the cohort reaches capacity.
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>AI-X — Applied AI | T2T by TRACE</title>
+    <meta
+      content="A selective, practical accelerator for technical talent ready to build with AI, collaborate on real workflows, and strengthen their engineering portfolio."
+      name="description"
+    />
+    <meta content="#F6F5EF" name="theme-color" />
+    <link href="/images/logos/t2t.png" rel="icon" />
+    <link href="/styles.css" rel="stylesheet" />
+    <meta content="AI-X — Applied AI" property="og:title" />
+    <meta
+      content="A selective, practical accelerator for technical talent ready to build with AI, collaborate on real workflows, and strengthen their engineering portfolio."
+      property="og:description"
+    />
+    <meta content="website" property="og:type" />
+    <meta
+      content="/images/IMG_20250330_121443-scaled.jpg"
+      property="og:image"
+    />
+    <script type="module" src="/site.js"></script>
+    <script defer="" src="/chatbot/widget.js"></script>
+  </head>
+  <body class="program-page technology">
+    <!--T2T_HEADER-->
+    <main id="main" tabindex="-1">
+      <section class="program-hero technology" id="hero">
         <div class="container">
-            <div class="footer-content">
-                <small>© <span id="year"></span> Theory to Trade by TRACE. All rights reserved. | <a
-                        href="../../privacy_policy/index.html"
-                        style="text-decoration: underline; opacity: 0.8; transition: opacity 0.2s;">Privacy
-                        Policy</a></small>
-                <div class="footer-social-links">
-                    <a href="https://www.linkedin.com/company/trace-theory-to-trade/" target="_blank" rel="noopener"
-                        aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/theory2trade" target="_blank" rel="noopener"
-                        aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/theory2trade" target="_blank" rel="noopener"
-                        aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg>
-                    </a>
-                    <a href="https://youtube.com/@tracet2t" target="_blank" rel="noopener" aria-label="YouTube">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@t2t445" target="_blank" rel="noopener" aria-label="TikTok">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                        </svg>
-                    </a>
+          <div class="breadcrumb">
+            <a href="/">Home</a><span>/</span><a href="/#programs">Programs</a
+            ><span>/</span><span>AI-X</span>
+          </div>
+          <div class="program-hero-grid">
+            <div>
+              <p class="eyebrow">AI-X / Applied AI</p>
+              <h1>Build for an<br />AI-native world.</h1>
+              <p class="hero-description">
+                A selective, practical accelerator for technical talent ready to
+                build with AI, collaborate on real workflows, and strengthen
+                their engineering portfolio.
+              </p>
+              <div class="actions">
+                <a class="btn" href="https://forms.gle/2V5hW6fKw9fCTFxeA"
+                  >Apply for AI-X <span aria-hidden="true">↗</span></a
+                ><a class="btn secondary" href="https://wa.me/94777643129"
+                  >Talk to the team <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <p class="small-note">
+                Explore the details below. Confirm current intake dates with the
+                team.
+              </p>
+            </div>
+            <figure class="program-hero-photo">
+              <img
+                alt="Practical learning at a T2T workshop"
+                class=""
+                fetchpriority="high"
+                loading="eager"
+                src="/images/IMG_20250330_095136-scaled.jpg"
+              />
+              <figcaption>AI-X · Developers &amp; technical talent</figcaption>
+            </figure>
+          </div>
+          <dl class="quick-facts">
+            <div>
+              <dt>Duration</dt>
+              <dd>6 weeks</dd>
+            </div>
+            <div>
+              <dt>Learning format</dt>
+              <dd>Hybrid · intensive</dd>
+            </div>
+            <div>
+              <dt>Investment</dt>
+              <dd>See investment pathways</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+      <div class="container program-layout">
+        <aside class="page-index">
+          <p class="eyebrow">IN THIS PROGRAM</p>
+          <nav aria-label="On this page">
+            <a href="#program">Overview</a><a href="#audience">Audience</a
+            ><a href="#curriculum">Curriculum</a><a href="#timeline">Timeline</a
+            ><a href="#mentorship">Mentorship</a><a href="#outcomes">Outcomes</a
+            ><a href="#admissions">Admissions</a
+            ><a href="#investment">Investment</a><a href="#faq">FAQs</a>
+          </nav>
+          <a class="text-link" href="https://forms.gle/2V5hW6fKw9fCTFxeA"
+            >Apply for AI-X ↗</a
+          >
+        </aside>
+        <div class="program-content">
+          <section class="program-section" id="program">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>What is T2T AI-X?</h2>
+                <p>
+                  This is not an academic course or a generic prompting camp. It
+                  is a high-performance career acceleration cohort designed for
+                  the AI-assisted software engineering era.
+                </p>
+              </div>
+              <div class="content-grid">
+                <div class="info-card">
+                  <span>Phase 1</span>
+                  <h3>4-Weeks Intensive AI-Native Acceleration</h3>
+                  <p>
+                    A high-density operational phase covering the mechanics of
+                    AI-assisted engineering:
+                  </p>
+                  <ul>
+                    <li>Interactive live workshops &amp; technical coaching</li>
+                    <li>Hands-on AI-assisted SDLC workflows</li>
+                    <li>Systems thinking &amp; architecture engineering</li>
+                    <li>Building structural AI-augmented systems</li>
+                    <li>
+                      Personal capability tracking &amp; portfolio creation
+                    </li>
+                  </ul>
                 </div>
+                <div class="info-card">
+                  <span>Phase 2</span>
+                  <h3>Guided Industry-Aligned Execution</h3>
+                  <p>
+                    Selected cohort members transition into practical execution
+                    spaces:
+                  </p>
+                  <ul>
+                    <li>Collaboration on live sandbox projects</li>
+                    <li>Exposure to realistic engineering backlogs</li>
+                    <li>Code reviews and structural audit sessions</li>
+                    <li>
+                      Guided production releases &amp; systems optimization
+                    </li>
+                    <li>Advanced portfolio hardening for global readiness</li>
+                  </ul>
+                </div>
+              </div>
             </div>
+          </section>
+          <section class="program-section" id="audience">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>Who is AI-X built for?</h2>
+                <p>
+                  We filter candidates heavily. This acceleration space is
+                  designed exclusively for Sri Lankan technical talent aiming to
+                  achieve global competitive competency.
+                </p>
+              </div>
+              <div class="content-grid">
+                <div class="info-card">
+                  <h3>Graduates &amp; Undergrads</h3>
+                  <p>
+                    IT/Software Engineering graduates and final-year students
+                    who realize classroom concepts lag behind modern team
+                    operations.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Early-Career Engineers</h3>
+                  <p>
+                    Junior software developers and QA engineers who want to stay
+                    irreplaceable by shifting from manual task execution to
+                    AI-assisted workflows.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Ambitious Builders</h3>
+                  <p>
+                    Self-taught coders and makers ready to skip standard junior
+                    paths by adopting advanced technical methodologies early.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p>
+                  ⚠️ <span>Important:</span> T2T AI-X requires absolute
+                  commitment, discipline, and daily consistency. Prepare for a
+                  high-intensity acceleration culture.
+                </p>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="curriculum">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>Capability Transformation</h2>
+                <p>
+                  We focus on operational capabilities rather than a checklist
+                  of syllabus links. This is what you will master.
+                </p>
+              </div>
+              <div class="content-grid">
+                <div class="info-card">
+                  <h3>AI-Native Engineering</h3>
+                  <p>
+                    Leveraging AI models to analyze requirements, construct test
+                    frameworks, write codebase components, and trace bugs
+                    instantly.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>AI-Assisted SDLC</h3>
+                  <p>
+                    Re-engineering standard agile processes. Integrating AI
+                    capabilities into system design, execution, validation, and
+                    documentation phases.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Coding Copilots</h3>
+                  <p>
+                    Advanced developer practices with GitHub Copilot, Cursor,
+                    and custom local code companions for lightning execution
+                    velocity.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Agentic Workflows</h3>
+                  <p>
+                    Setting up autonomous agent loops for verification, code
+                    refactoring, data analysis, and task execution workflows.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Architecture Thinking</h3>
+                  <p>
+                    Analyzing structures, components, and communication
+                    channels. Let the machine code while you design systemic
+                    flow.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Technical Communication</h3>
+                  <p>
+                    Translating complex requirements, drafting precise system
+                    prompts, and collaborating efficiently within hybrid
+                    human-AI developer teams.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Portfolio Production</h3>
+                  <p>
+                    Creating concrete, verifiable, and visually-impressive
+                    proof-of-concept projects to display your skills to global
+                    employers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="timeline">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>How the program works</h2>
+                <p>
+                  Your journey from selective application filtering to advanced
+                  execution environments.
+                </p>
+              </div>
+              <div>
+                <div>
+                  <div>
+                    <h3>1. Selection &amp; Evaluation</h3>
+                    <p>
+                      Rigorous filtering based on technical fundamentals,
+                      learning velocity, dedication, and readiness for a
+                      high-intensity cohort.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h3>2. 4-Weeks Intensive Training</h3>
+                    <p>
+                      Daily operational challenges, live engineering workshops,
+                      technical prompt structures, and collaborative AI
+                      engineering projects.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h3>3. Mentorship &amp; Coaching</h3>
+                    <p>
+                      Weekly milestone audits with experienced technical
+                      advisors. Continuous architectural code reviews and system
+                      validation.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h3>4. Portfolio Building</h3>
+                    <p>
+                      Creating concrete AI-native products, publishing
+                      structural source code, and preparing deployment pipelines
+                      to prove execution capabilities.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h3>5. Advanced Industry Execution</h3>
+                    <p>
+                      Transition to Phase 2. Sandbox collaborations with
+                      industrial sponsors and advanced project placements for
+                      top-tier candidates.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div>WEEKLY COMMITMENT</div>
+                  <div>Minimum 40+ Hours</div>
+                </div>
+                <div>
+                  <div>CULTURE TYPE</div>
+                  <div>Execution-First</div>
+                </div>
+                <div>
+                  <div>ACCOUNTABILITY</div>
+                  <div>Individual Milestones</div>
+                </div>
+                <div>
+                  <div>INSTRUCTION METHOD</div>
+                  <div>Live / Guided Mentor Work</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="mentorship">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>Mentorship &amp; Professional Network</h2>
+                <p>
+                  Learn directly from software developers and digital architects
+                  currently building systems for local and international
+                  markets.
+                </p>
+              </div>
+              <div class="content-grid">
+                <div class="info-card">
+                  <h3>Senior Tech Guidance</h3>
+                  <p>
+                    Receive granular code reviews and structural critiques
+                    focusing on standard industry protocols and performance
+                    metrics.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>CXO-Level Exposure</h3>
+                  <p>
+                    Present products directly to business leaders and technology
+                    decision-makers within the TRACE ecosystem.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Real-World Insights</h3>
+                  <p>
+                    Benchmarked evaluations based on actual technical challenges
+                    currently faced by modern engineering teams.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="outcomes">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>What you leave with</h2>
+                <p>
+                  At the end of AI-X, your profile changes from a standard
+                  graduate to an AI-native technical team player.
+                </p>
+              </div>
+              <div class="content-grid">
+                <div class="info-card">
+                  <h3>AI-Native Engineering Workflows</h3>
+                  <p>
+                    Complete confidence using agent models, copilot extensions,
+                    code analysis scripts, and system prompts to ship fast.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>Verifiable Code Portfolio</h3>
+                  <p>
+                    A repository profile displaying multiple live deployment
+                    pipelines, prompt configurations, and architecture models.
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h3>High Operational Velocity</h3>
+                  <p>
+                    Understand how to transform a vague requirement into a clean
+                    technical system design in record time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="admissions">
+            <div class="section-content">
+              <div>
+                <div class="section-heading">
+                  <h2>Selection matters.</h2>
+                  <p>
+                    We only accept candidates who display high learning drive,
+                    resilience, and solid technical foundations.
+                  </p>
+                </div>
+                <div>
+                  <div>
+                    <h3>1. Technical Vetting</h3>
+                    <p>
+                      Evaluation focusing on core coding foundations, logical
+                      architecture logic, and problem comprehension.
+                    </p>
+                  </div>
+                  <div>
+                    <h3>2. Interview Evaluation</h3>
+                    <p>
+                      Reviewing your work discipline, operational commitment,
+                      and overall cultural alignment with AI-X.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <p>
+                    💡 <strong>Scholarship Pathway:</strong> Exceptional
+                    candidates who excel in our vetting challenges may qualify
+                    for a scholarship pathway after the selection process.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="investment">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>Your Career Investment</h2>
+                <p>
+                  An acceleration model designed to align our incentives
+                  directly with your professional success. Choose the path that
+                  fits your readiness.
+                </p>
+              </div>
+              <div class="content-grid">
+                <div class="info-card">
+                  <div class="actions">
+                    <span>Merit Pathway</span>
+                  </div>
+                  <h3>100% Merit Scholarship</h3>
+                  <p>
+                    For candidates who demonstrate exceptional readiness, strong
+                    coding fundamentals, and immediate technical capacity during
+                    vetting.
+                  </p>
+                  <div class="price">
+                    <span>LKR</span>
+                    <span>0</span>
+                    <span>Fully Funded</span>
+                  </div>
+                  <div>
+                    <span>Gating Process Required:</span>
+                    <ul>
+                      <li>Exceptional score in the tech challenge</li>
+                      <li>Proven command over code logic &amp; syntax</li>
+                      <li>Demonstrated learning speed &amp; resourcefulness</li>
+                    </ul>
+                  </div>
+                  <a
+                    class="btn secondary"
+                    href="https://forms.gle/2V5hW6fKw9fCTFxeA"
+                    rel="noopener"
+                    target="_blank"
+                    >Apply &amp; Vet Now</a
+                  >
+                </div>
+                <div class="info-card">
+                  <div class="actions">
+                    <span>Standard Pathway</span>
+                    <span>100% Recoverable</span>
+                  </div>
+                  <h3>Co-Investment Model</h3>
+                  <p>
+                    For selected candidates who have the foundations but require
+                    intensive mentoring to reach industry-level engineering
+                    velocity.
+                  </p>
+                  <div class="price">
+                    <span>LKR</span>
+                    <span>20,000</span>
+                    <span> (for 6 weeks)</span>
+                  </div>
+                  <div>
+                    <div>
+                      <div>
+                        <strong>No upfront bulk fees</strong>
+                        <span
+                          >Pay monthly as you progress through Phase 1.</span
+                        >
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <strong>Potential Paid Internship</strong>
+                        <span
+                          >Depending on your commitment, code delivery, and
+                          milestones.</span
+                        >
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <strong>High potential Investment Recovery</strong>
+                        <span
+                          >Your internship salary is expected to pay back your
+                          investment.</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <a
+                    class="btn secondary"
+                    href="https://forms.gle/2V5hW6fKw9fCTFxeA"
+                    rel="noopener"
+                    target="_blank"
+                    >Apply &amp; Join Cohort</a
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="program-section" id="faq">
+            <div class="section-content">
+              <div class="section-heading">
+                <h2>Frequently Asked Questions</h2>
+                <p>
+                  Everything you need to know about the AI-X acceleration
+                  structure.
+                </p>
+              </div>
+              <div class="faq-list">
+                <details class="faq">
+                  <summary>Is this a beginner program?</summary>
+                  <div>
+                    <p>
+                      No. T2T AI-X requires basic programming competency. You
+                      should understand syntax, logic loops, basic data
+                      structures, and database calls before applying.
+                    </p>
+                  </div>
+                </details>
+                <details class="faq">
+                  <summary>Is this online or physical?</summary>
+                  <div>
+                    <p>
+                      This is a hybrid accelerator. It includes virtual
+                      mentoring sessions, online backlog operations, and core
+                      physical workshop sessions at the TRACE premises in
+                      Colombo.
+                    </p>
+                  </div>
+                </details>
+                <details class="faq">
+                  <summary>What is the weekly commitment?</summary>
+                  <div>
+                    <p>
+                      Participants must commit at least 40 hours per week for
+                      code building, prompts creation, peer reviews, and
+                      mentorship standups. It is designed to mirror a full-time
+                      software engineering role.
+                    </p>
+                  </div>
+                </details>
+                <details class="faq">
+                  <summary>Will this help me become industry ready?</summary>
+                  <div>
+                    <p>
+                      Yes, AI-X is built to replace the standard academic-style
+                      project path with actual software backlog cycles. You will
+                      work with production-grade AI tools, architecture systems,
+                      and code review criteria.
+                    </p>
+                  </div>
+                </details>
+                <details class="faq">
+                  <summary>Is this academic or practical?</summary>
+                  <div>
+                    <p>
+                      Entirely practical. We skip textbook definitions to focus
+                      on real system execution, prompt pipeline design, software
+                      architecture structure, and collaborative repository
+                      operations.
+                    </p>
+                  </div>
+                </details>
+                <details class="faq">
+                  <summary>Who should apply?</summary>
+                  <div>
+                    <p>
+                      Final year IT/software engineering undergraduates, fresh
+                      graduates, junior developers, and self-taught coders who
+                      want to build global-ready operational engineering
+                      capacity fast.
+                    </p>
+                  </div>
+                </details>
+                <details class="faq">
+                  <summary>Do I need prior AI experience?</summary>
+                  <div>
+                    <p>
+                      No prior AI experience is required. We will teach you
+                      prompt engineering, copilot patterns, multi-agent
+                      frameworks, and database retrieval models from the ground
+                      up, assuming you have coding logic down.
+                    </p>
+                  </div>
+                </details>
+                <details class="faq">
+                  <summary>What happens after the first 3 months?</summary>
+                  <div>
+                    <p>
+                      Upon successfully completing the Phase 1 assessment gate,
+                      you will transition to Phase 2, where you will build
+                      advanced projects and collaborate on active sandboxes
+                      aligned with industry sponsors.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </section>
         </div>
-    </footer>
-
-    <!-- MODAL 1: APPLY NOW FORM OVERLAY -->
-    <div class="modal-overlay" id="apply-modal">
-        <div class="modal-box">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-initial-screen">
-                <h3>Apply for T2T AI-X Cohort 01</h3>
-                <p>Submit your details to start the selective evaluation process. Limited to 15 seats.</p>
-                <form class="modal-form" id="aix-apply-form">
-                    <div class="form-group">
-                        <label for="apply-name">Full Name</label>
-                        <input type="text" id="apply-name" required placeholder="John Doe" />
-                    </div>
-                    <div class="form-group">
-                        <label for="apply-email">Email Address</label>
-                        <input type="email" id="apply-email" required placeholder="john@example.com" />
-                    </div>
-                    <div class="form-group">
-                        <label for="apply-linkedin">LinkedIn Profile URL</label>
-                        <input type="url" id="apply-linkedin" required placeholder="https://linkedin.com/in/username" />
-                    </div>
-                    <div class="form-group">
-                        <label for="apply-status">Current Status</label>
-                        <select id="apply-status" required>
-                            <option value="" disabled selected>Select status</option>
-                            <option value="undergraduate">Final Year Undergraduate</option>
-                            <option value="graduate">Fresh Graduate</option>
-                            <option value="junior-dev">Early-Career Engineer / Developer</option>
-                            <option value="self-taught">Ambitious Self-Learner</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="apply-motivation">Why do you want to become AI-Native? (Briefly)</label>
-                        <textarea id="apply-motivation" rows="3" required
-                            placeholder="Tell us about your learning goal..."></textarea>
-                    </div>
-                    <button type="submit" class="modal-submit-btn">Submit Application</button>
-                </form>
-            </div>
-            <div class="success-screen">
-                <div class="success-icon">✓</div>
-                <h3>Application Received</h3>
-                <p>Thank you for applying to Cohort 01. Our technical evaluation team will contact you within 48 hours
-                    with the next steps.</p>
-                <button class="modal-submit-btn modal-dismiss-btn" style="width: 100%;">Close</button>
-            </div>
+      </div>
+      <section class="closing-section" id="apply">
+        <div class="container closing-inner">
+          <p class="eyebrow">MAKE YOUR NEXT MOVE</p>
+          <h2>Ready to put<br /><em>your potential to work?</em></h2>
+          <div class="actions">
+            <a class="btn" href="https://forms.gle/2V5hW6fKw9fCTFxeA"
+              >Apply for AI-X <span aria-hidden="true">↗</span></a
+            ><a class="btn secondary" href="https://wa.me/94777643129"
+              >Ask the team <span aria-hidden="true">↗</span></a
+            >
+          </div>
         </div>
-    </div>
-
-    <!-- MODAL 2: DOWNLOAD BRIEF FORM OVERLAY -->
-    <div class="modal-overlay" id="brief-modal">
-        <div class="modal-box">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-initial-screen">
-                <h3>Download Program Brief</h3>
-                <p>Enter your email to receive the T2T AI-X comprehensive cohort guide PDF.</p>
-                <form class="modal-form" id="aix-brief-form">
-                    <div class="form-group">
-                        <label for="brief-name">Your Name</label>
-                        <input type="text" id="brief-name" required placeholder="John Doe" />
-                    </div>
-                    <div class="form-group">
-                        <label for="brief-email">Email Address</label>
-                        <input type="email" id="brief-email" required placeholder="john@example.com" />
-                    </div>
-                    <button type="submit" class="modal-submit-btn">Download Guide PDF</button>
-                </form>
-            </div>
-            <div class="success-screen">
-                <div class="success-icon">✓</div>
-                <h3>Check Your Inbox</h3>
-                <p>The T2T AI-X Comprehensive Brief has been dispatched to your email address. Please check your
-                    promotions or spam folder if it doesn't arrive shortly.</p>
-                <button class="modal-submit-btn modal-dismiss-btn" style="width: 100%;">Got it</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Sticky Header scroll styling
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('aix-header');
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            // Scroll spy active link updater
-            updateActiveLink();
-        });
-
-        // Mobile menu toggle
-        const btn = document.getElementById('menuBtn');
-        const mobile = document.getElementById('mobileNav');
-        if (btn) btn.addEventListener('click', () => {
-            const open = mobile.classList.toggle('hide');
-            btn.setAttribute('aria-expanded', String(!open));
-        });
-
-        // Close mobile nav on link click
-        document.querySelectorAll('#mobileNav .nav-anchor').forEach(link => {
-            link.addEventListener('click', () => {
-                mobile.classList.add('hide');
-                btn.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Footer year auto setup
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // FAQ accordion interactivity
-        const faqTriggers = document.querySelectorAll('.faq-trigger');
-        faqTriggers.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const parent = trigger.parentElement;
-                const isActive = parent.classList.contains('active');
-
-                // Close all rows
-                document.querySelectorAll('.faq-row').forEach(row => {
-                    row.classList.remove('active');
-                });
-
-                // Toggle selected
-                if (!isActive) {
-                    parent.classList.add('active');
-                }
-            });
-        });
-
-        // MODALS FUNCTIONALITY
-        const applyModal = document.getElementById('apply-modal');
-        const briefModal = document.getElementById('brief-modal');
-
-        // Open Triggers
-        document.querySelectorAll('.trigger-apply').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                applyModal.classList.add('active');
-            });
-        });
-
-        document.querySelectorAll('.trigger-brief').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.preventDefault();
-                briefModal.classList.add('active');
-            });
-        });
-
-        // Close Actions
-        document.querySelectorAll('.modal-close, .modal-dismiss-btn').forEach(el => {
-            el.addEventListener('click', () => {
-                document.querySelectorAll('.modal-overlay').forEach(overlay => {
-                    overlay.classList.remove('active');
-                    // Reset modal screen sequence after animation delay
-                    setTimeout(() => {
-                        overlay.querySelector('.modal-initial-screen').style.display = 'block';
-                        overlay.querySelector('.success-screen').style.display = 'none';
-                    }, 300);
-                });
-            });
-        });
-
-        // Close when clicking overlay backdrop
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    setTimeout(() => {
-                        overlay.querySelector('.modal-initial-screen').style.display = 'block';
-                        overlay.querySelector('.success-screen').style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-
-        // Form Submit Handler simulation
-        document.getElementById('aix-apply-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Perform basic validation checks
-            const box = e.target.closest('.modal-box');
-            box.querySelector('.modal-initial-screen').style.display = 'none';
-            box.querySelector('.success-screen').style.display = 'block';
-            e.target.reset();
-        });
-
-        document.getElementById('aix-brief-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const box = e.target.closest('.modal-box');
-            box.querySelector('.modal-initial-screen').style.display = 'none';
-            box.querySelector('.success-screen').style.display = 'block';
-            e.target.reset();
-        });
-
-        // Scroll Spy algorithm to keep navigation active state in sync
-        const anchors = document.querySelectorAll('.nav-anchor');
-        const sections = Array.from(anchors).map(anchor => {
-            const id = anchor.getAttribute('href');
-            return document.querySelector(id);
-        }).filter(el => el !== null);
-
-        function updateActiveLink() {
-            let index = sections.length;
-            while (--index && window.scrollY + 120 < sections[index].offsetTop) { }
-
-            anchors.forEach(a => a.classList.remove('active-link'));
-            if (sections[index]) {
-                const activeAnchor = document.querySelector(`.nav-anchor[href="#${sections[index].id}"]`);
-                if (activeAnchor) {
-                    activeAnchor.classList.add('active-link');
-                }
-            }
-        }
-        updateActiveLink();
-    </script>
-  <script src="/chatbot/widget.js" defer></script>
-</body>
-
+      </section>
+    </main>
+    <!--T2T_FOOTER-->
+  </body>
 </html>

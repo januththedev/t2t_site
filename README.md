@@ -70,15 +70,15 @@ Variants have content-hashed URLs under `/assets/images/` and immutable browser
 caching. HTML remains revalidated. Images receive intrinsic dimensions to
 reduce layout shifts, responsive `srcset`/`sizes`, async decoding, and lazy
 loading except for logos and the main hero images. Homepage and IFAP hero images
-are loaded eagerly with high fetch priority. Dynamic event cards use the same
-optimized variants. Lead-x fonts no longer block rendering, and its content is
-not hidden while waiting for reveal animations.
+are loaded eagerly with high fetch priority. The homepage event list uses lightweight text rows rather than downloading
+every event poster. The redesign uses system fonts, with no third-party font
+requests or content hidden behind reveal animations.
 
 Run `npm run build` to see the image-byte reduction for the current sources.
 The optimization happens at build time, with no image-processing requests or
 additional services needed when visitors load a page.
 
-A local cold-cache mobile check (390 × 844, DPR 2, measured through 1.2 seconds
+Before the editorial redesign, a local cold-cache mobile check (390 × 844, DPR 2, measured through 1.2 seconds
 after load) reduced initial image payload from 9.80 MB to 0.95 MB on the homepage
 and from 54.95 MB to 0.05 MB on IFAP. External Google Fonts was blocked in both
 runs to isolate local assets. These are image-byte measurements, not production
@@ -91,7 +91,7 @@ keyboard controls, source links, suggested follow-ups, clear-chat, stop/retry,
 and conversation continuity in this browser tab's session storage. Shadow DOM
 keeps widget styling separate from each program page's styles.
 
-The knowledge layer includes **50 curated FAQs and 144 total passages** from
+The knowledge layer includes **50 curated FAQs plus extracted source passages** from
 eight current source pages and 12 event listings. `npm run build` rebuilds the
 dataset from the website. BM25-style retrieval combines synonyms, program
 topics, question intent, recent conversation, and the current page. It sends
@@ -130,8 +130,11 @@ a key and separately verify live model responses before launch.
 
 The events showcased on the main site are loaded dynamically. Instead of updating the `index.html`, all event data should be maintained inside `data/events.json`.
 
-**Order Rule:**
-When adding new events to the JSON array, ensure they are ordered **chronologically from oldest to newest** (i.e., older events at the top of the file, and the newest/latest events appended to the very bottom). The frontend automatically reverses the array before rendering so that the most recent events are always displayed first.
+**Display order:**
+The frontend sorts upcoming events by their next date, followed by past events
+from newest to oldest. Dates are parsed as calendar dates, independent of the
+visitor’s time zone; upcoming status uses Asia/Colombo. Missing years are not
+guessed. Three events appear initially; View all events reveals the rest.
 
 **Event JSON Structure:**
 Each event in the array should follow this structure:
@@ -162,9 +165,38 @@ Each event in the array should follow this structure:
 ```
 
 **Key Points:**
-- `image`: Supported event images will be rendered with `object-fit: contain` to prevent truncation. Place new images in the `events/` or `images/` directory.
+- `image`: Keep the source image path for event records and future detail views. The homepage list does not load posters. Place images in `events/` or `images/`.
 - `date`: Clearly specified dates (e.g., "Wed, 17 Dec 2025").
-- `buttons`: An array of buttons to render for the event.
+- `buttons`: Existing event destinations. The list uses an available details/recap link; registration links are offered only for upcoming events. Otherwise the action opens the T2T contact route.
   - If it's a clickable link, specify the `link`, `target`, and `rel`.
   - If it's an inactive or regular `<button>` tag instead of an anchor `<a>` tag, set `"isButton": true`.
   - Button styling uses CSS classes such as `"btn"`, `"btn secondary"`, or `"btn disabled"`.
+
+## Editorial frontend and preview workflow
+
+The redesign is on `redesign/editorial-preview`; it is not a production release.
+Keep `main` as the Vercel Production Branch. With the repository Git integration
+enabled, pushes to this feature branch create Preview deployments. Open the
+branch’s deployment or draft PR check to review the site. Do not merge or
+promote it until the design has been reviewed.
+
+If a preview does not start automatically, use Vercel’s Create Deployment action
+for this project and select `redesign/editorial-preview` as the Git branch and
+Preview as the environment. Configure `OPENROUTER_API_KEY` and optional
+`OPENROUTER_MODEL` for Preview if model-generated answers are needed there;
+without them the existing source-based answers continue to work.
+
+- `styles.css`: shared color, type, spacing, layouts, and responsive rules.
+- `ui/header.html` and `ui/footer.html`: shared markup inserted at build time.
+- `site.js`: navigation, filters, event listing, and section highlighting.
+- `event-dates.js`: calendar-date parsing and Colombo date handling.
+- Program pages: shared layout with preserved content and application URLs.
+- `chatbot/widget.css`: matching light chat theme; provider and retrieval unchanged.
+
+Run `npm run build` after frontend edits; the local server serves `dist/`.
+Shared header/footer templates are build inputs, not runtime fetches. The dev
+server also accepts `--host` and `--port` for managed previews.
+
+`npm test` covers retrieval/API behavior, image optimization, internal links and
+anchors, calendar dates, shared markup, and real application destinations.
+The frontend stays usable for core reading and navigation without JavaScript.

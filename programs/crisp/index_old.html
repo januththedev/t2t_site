@@ -1,293 +1,218 @@
 <!doctype html>
+
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CRISP - Career Readiness and Industry Skills Program</title>
-    <meta name="description"
-        content="CRISP is a structured path to rebuild from the basics and practice the exact skills, tools, and workflows employers expect." />
-    <meta name="theme-color" content="#0f172a" />
-    <link rel="icon" type="image/png" href="../../images/logos/t2t.png" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <meta property="og:title" content="CRISP - Career Readiness and Industry Skills Program" />
-    <meta property="og:description"
-        content="CRISP is a structured path to rebuild from the basics and practice the exact skills, tools, and workflows employers expect." />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="/programs/crisp/batch/1/crisp-batch-1.jpg" />
-    <style>
-        .crisp-hero {
-            padding-top: 120px;
-            padding-bottom: 60px;
-        }
-
-        .content-block {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .content-block h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .content-block .lead {
-            color: var(--muted);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-        }
-
-        .batch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Responsive Grid Adjustments */
-        @media (max-width: 768px) {
-
-            .grid.cols-2,
-            .batch-grid,
-            .quotes {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <div class="container nav">
-            <a href="../../index.html#top" class="brand" aria-label="Home">
-                <img src="../../images/logos/t2t.png" alt="Theory to Trade by TRACE logo" loading="eager" />
-                <strong>
-                    <span class="brand-full">Theory to Trade (T2T) by TRACE</span>
-                    <span class="brand-short">T2T by TRACE</span>
-                </strong>
-            </a>
-            <nav aria-label="Primary">
-                <ul>
-                    <li><a href="../../index.html#about">About</a></li>
-                    <li><a href="../../index.html#programs">Programs</a></li>
-                    <li><a href="../../index.html#events">Events</a></li>
-                    <li><a href="../../index.html#testimonials">Alumni</a></li>
-                    <li><a href="../../index.html#partners">Partners</a></li>
-                    <li><a href="https://trace.lk/" target="_blank" rel="noopener">Visit TRACE</a></li>
-                </ul>
-            </nav>
-            <div class="actions">
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/company/trace-theory-to-trade/" target="_blank" rel="noopener"
-                        aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/theory2trade" target="_blank" rel="noopener"
-                        aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/theory2trade" target="_blank" rel="noopener"
-                        aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg>
-                    </a>
-                    <a href="https://youtube.com/@tracet2t" target="_blank" rel="noopener" aria-label="YouTube">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@t2t445" target="_blank" rel="noopener" aria-label="TikTok">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                        </svg>
-                    </a>
-                </div>
-                <button class="menu btn secondary" id="menuBtn" aria-expanded="false"
-                    aria-controls="mobileNav">Menu</button>
-            </div>
-        </div>
-        <div id="mobileNav" class="container hide" role="dialog" aria-modal="false">
-            <nav>
-                <ul style="display:grid; gap:8px; padding:12px 0">
-                    <li><a href="../../index.html#about">About</a></li>
-                    <li><a href="../../index.html#programs">Programs</a></li>
-                    <li><a href="../../index.html#events">Events</a></li>
-                    <li><a href="../../index.html#testimonials">Alumni</a></li>
-                    <li><a href="../../index.html#partners">Partners</a></li>
-                    <li><a href="https://trace.lk/" target="_blank" rel="noopener">Visit TRACE</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="crisp-hero">
-            <div class="container content-block">
-                <h1>T2T CRISP - Career Readiness and Industry Skills Program</h1>
-                <p class="lead" style="text-align: justify; max-width: none;">Still searching for a first job or
-                    internship? Feeling
-                    unprepared? CRISP is a structured path to rebuild from the basics and practice the exact skills,
-                    tools, and workflows employers expect. Work
-                    on real projects guided by industry experts and graduate with confidence.</p>
-                <div class="grid cols-2" style="text-align:left;">
-                    <div class="card">
-                        <h3>CRISP Foundation</h3>
-                        <p>Not sure where to start an IT career? Build confidence, gain essential skills, and be ready
-                            for the next
-                            opportunity.</p>
-                        <div class="spacer"></div>
-                        <div class="row">
-                            <a class="btn" href="../../docs/CRISP-Foundation.pdf" target="_blank" rel="noopener">Show
-                                details</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>CRISP Practitioner</h3>
-                        <p>Completed Foundation? Work on industry projects, collaborate with real clients, and level up
-                            with mentor
-                            guidance.</p>
-                        <div class="spacer"></div>
-                        <div class="row">
-                            <a class="btn" href="../../docs/CRISP-Practitioner.pdf" target="_blank" rel="noopener">Show
-                                details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="crisp-batches" style="padding-bottom: 60px;">
-            <div class="container content-block">
-                <h2 style="font-size: 2rem; margin-bottom: 2rem;">T2T CRISP Batches</h2>
-                <div class="batch-grid" style="text-align: left;">
-
-                    <a href="/programs/crisp/batch/1/index.html"
-                        style="text-decoration: none; color: inherit; display: block;">
-                        <div class="card"
-                            style="display: flex; flex-direction: column; gap: 16px; transition: transform 0.2s; height: 100%;">
-                            <img src="/programs/crisp/batch/1/crisp-batch-1.jpg" alt="CRISP Batch 1"
-                                style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" />
-                            <div>
-                                <h3 style="margin-bottom: 8px;">T2T CRISP Batch 1</h3>
-                                <p>Batch 1 was in 2024</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="/programs/crisp/batch/2/index.html"
-                        style="text-decoration: none; color: inherit; display: block;">
-                        <div class="card"
-                            style="display: flex; flex-direction: column; gap: 16px; transition: transform 0.2s; height: 100%;">
-                            <img src="/programs/crisp/batch/2/crisp-batch-2.jpg" alt="CRISP Batch 2"
-                                style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" />
-                            <div>
-                                <h3 style="margin-bottom: 8px;">T2T CRISP Batch 2</h3>
-                                <p>Batch 2 was in 2025</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="/programs/crisp/batch/3/index.html"
-                        style="text-decoration: none; color: inherit; display: block;">
-                        <div class="card"
-                            style="display: flex; flex-direction: column; gap: 16px; transition: transform 0.2s; height: 100%;">
-                            <img src="/programs/crisp/batch/3/crisp-batch-3.jpg" alt="CRISP Batch 3"
-                                style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" />
-                            <div>
-                                <h3 style="margin-bottom: 8px;">T2T CRISP Batch 3</h3>
-                                <p>Batch 3 is ongoing in 2026 now</p>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section id="testimonials" aria-label="Testimonials">
-            <div class="container content-block">
-                <h2 style="font-size: 2rem; margin-bottom: 2rem;">Trained with us. Hired by the best.</h2>
-                <p class="lead">See how alumni turned potential into paychecks.</p>
-                <div class="quotes">
-                    <div class="quote card" style="text-align: left;">
-                        <blockquote style="margin-bottom: 1rem; font-style: italic;">"During the middle of my academic
-                            journey, I discovered the T2T program. I applied with
-                            curiosity and it became one of the best decisions I made. Under professionals, I gained
-                            experience and
-                            learned how to establish myself. Thanks to T2T, I joined HNB Assurance PLC as an IT
-                            Technician."
-                        </blockquote>
-                        <div class="who" style="display: flex; align-items: center; gap: 16px;"><img class="avatar"
-                                src="/images/P.K.U-Dewaki.jpg" alt="P. K. U. Devaki"
-                                style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                            <div><strong>P. K. U. Devaki</strong><br><span class="meta"
-                                    style="color: var(--muted); font-size: 0.9em;">T2T Batch 1</span></div>
-                        </div>
-                    </div>
-                    <div class="quote card" style="text-align: left;">
-                        <blockquote style="margin-bottom: 1rem; font-style: italic;">"The T2T training program is one of
-                            the best. The team matched internship roles to our
-                            strengths, gave hands‑on technologies, and we followed Agile Scrum to stay organized and
-                            deliver. Thank
-                            you to the whole T2T team for the opportunity."</blockquote>
-                        <div class="who" style="display: flex; align-items: center; gap: 16px;"><img class="avatar"
-                                src="/images/Sivalingam-Lakshanan.jpg" alt="Sivalingam Lakshanan"
-                                style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                            <div><strong>Sivalingam Lakshanan</strong><br><span class="meta"
-                                    style="color: var(--muted); font-size: 0.9em;">T2T Batch 1</span></div>
-                        </div>
-                    </div>
-                    <div class="quote card" style="text-align: left;">
-                        <blockquote style="margin-bottom: 1rem; font-style: italic;">"My training at T2T through TRACE
-                            Sri Lanka was eye‑opening. I bridged the gap between academic
-                            learning and real‑world software development. I worked on a logbook and reservation system,
-                            improved
-                            backend and database skills, and learned to collaborate with Git and agile workflows."
-                        </blockquote>
-                        <div class="who" style="display: flex; align-items: center; gap: 16px;"><img class="avatar"
-                                src="/images/Shazan-Shazan.jpg" alt="Mohamed Shazan"
-                                style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                            <div><strong>Mohamed Shazan</strong><br><span class="meta"
-                                    style="color: var(--muted); font-size: 0.9em;">T2T Batch 1</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>
+      CRISP - Career Readiness and Industry Skills Program | T2T by TRACE
+    </title>
+    <meta
+      content="Published information from Theory to Trade by TRACE."
+      name="description"
+    />
+    <meta content="#F6F5EF" name="theme-color" />
+    <link href="/images/logos/t2t.png" rel="icon" />
+    <link href="/styles.css" rel="stylesheet" />
+    <meta
+      content="CRISP - Career Readiness and Industry Skills Program"
+      property="og:title"
+    />
+    <meta
+      content="Published information from Theory to Trade by TRACE."
+      property="og:description"
+    />
+    <meta content="website" property="og:type" />
+    <meta
+      content="/images/IMG_20250330_121443-scaled.jpg"
+      property="og:image"
+    />
+    <script type="module" src="/site.js"></script>
+    <script defer="" src="/chatbot/widget.js"></script>
+  </head>
+  <body class="reading-page">
+    <!--T2T_HEADER-->
+    <main id="main" tabindex="-1">
+      <section class="reading-hero">
         <div class="container">
-            <div class="footer-content">
-                <small>© <span id="year"></span> Theory to Trade by TRACE</small>
-            </div>
+          <div class="breadcrumb">
+            <a href="/">Home</a><span>/</span><span>Our archive</span>
+          </div>
+          <p class="eyebrow">THEORY TO TRADE BY TRACE</p>
+          <h1>T2T CRISP - Career Readiness and Industry Skills Program</h1>
+          <div class="archive-note">
+            <strong>From the T2T archive</strong
+            ><span
+              >This page describes a previous version or cohort.
+              <a href="/programs/crisp/"
+                >Explore the current CRISP program ↗</a
+              ></span
+            >
+          </div>
         </div>
-    </footer>
-
-    <script>
-        // Header Logic
-        const btn = document.getElementById('menuBtn');
-        const mobile = document.getElementById('mobileNav');
-        if (btn) btn.addEventListener('click', () => {
-            const open = mobile.classList.toggle('hide');
-            btn.setAttribute('aria-expanded', String(!open));
-        });
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  <script src="/chatbot/widget.js" defer></script>
-</body>
-
+      </section>
+      <div class="container reading-content">
+        <div>
+          <p>
+            Still searching for a first job or internship? Feeling unprepared?
+            CRISP is a structured path to rebuild from the basics and practice
+            the exact skills, tools, and workflows employers expect. Work on
+            real projects guided by industry experts and graduate with
+            confidence.
+          </p>
+          <div class="content-grid">
+            <div class="info-card">
+              <h3>CRISP Foundation</h3>
+              <p>
+                Not sure where to start an IT career? Build confidence, gain
+                essential skills, and be ready for the next opportunity.
+              </p>
+              <div class="actions">
+                <a
+                  class="btn secondary"
+                  href="../../docs/CRISP-Foundation.pdf"
+                  rel="noopener"
+                  target="_blank"
+                  >Show details</a
+                >
+              </div>
+            </div>
+            <div class="info-card">
+              <h3>CRISP Practitioner</h3>
+              <p>
+                Completed Foundation? Work on industry projects, collaborate
+                with real clients, and level up with mentor guidance.
+              </p>
+              <div class="actions">
+                <a
+                  class="btn secondary"
+                  href="../../docs/CRISP-Practitioner.pdf"
+                  rel="noopener"
+                  target="_blank"
+                  >Show details</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <section>
+          <div>
+            <h2>T2T CRISP Batches</h2>
+            <div class="content-grid">
+              <a href="/programs/crisp/batch/1/index.html">
+                <div class="info-card">
+                  <img
+                    alt="CRISP Batch 1"
+                    loading="lazy"
+                    src="/programs/crisp/batch/1/crisp-batch-1.jpg"
+                  />
+                  <div>
+                    <h3>T2T CRISP Batch 1</h3>
+                    <p>Batch 1 was in 2024</p>
+                  </div>
+                </div>
+              </a>
+              <a href="/programs/crisp/batch/2/index.html">
+                <div class="info-card">
+                  <img
+                    alt="CRISP Batch 2"
+                    loading="lazy"
+                    src="/programs/crisp/batch/2/crisp-batch-2.jpg"
+                  />
+                  <div>
+                    <h3>T2T CRISP Batch 2</h3>
+                    <p>Batch 2 was in 2025</p>
+                  </div>
+                </div>
+              </a>
+              <a href="/programs/crisp/batch/3/index.html">
+                <div class="info-card">
+                  <img
+                    alt="CRISP Batch 3"
+                    loading="lazy"
+                    src="/programs/crisp/batch/3/crisp-batch-3.jpg"
+                  />
+                  <div>
+                    <h3>T2T CRISP Batch 3</h3>
+                    <p>Batch 3 is ongoing in 2026 now</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+        <section id="testimonials">
+          <div>
+            <h2>Trained with us. Hired by the best.</h2>
+            <p>See how alumni turned potential into paychecks.</p>
+            <div class="stories">
+              <div class="info-card">
+                <blockquote>
+                  "During the middle of my academic journey, I discovered the
+                  T2T program. I applied with curiosity and it became one of the
+                  best decisions I made. Under professionals, I gained
+                  experience and learned how to establish myself. Thanks to T2T,
+                  I joined HNB Assurance PLC as an IT Technician."
+                </blockquote>
+                <div class="person">
+                  <img
+                    alt="P. K. U. Devaki"
+                    loading="lazy"
+                    src="/images/P.K.U-Dewaki.jpg"
+                  />
+                  <div>
+                    <strong>P. K. U. Devaki</strong><br /><span
+                      >T2T Batch 1</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="info-card">
+                <blockquote>
+                  "The T2T training program is one of the best. The team matched
+                  internship roles to our strengths, gave hands‑on technologies,
+                  and we followed Agile Scrum to stay organized and deliver.
+                  Thank you to the whole T2T team for the opportunity."
+                </blockquote>
+                <div class="person">
+                  <img
+                    alt="Sivalingam Lakshanan"
+                    loading="lazy"
+                    src="/images/Sivalingam-Lakshanan.jpg"
+                  />
+                  <div>
+                    <strong>Sivalingam Lakshanan</strong><br /><span
+                      >T2T Batch 1</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="info-card">
+                <blockquote>
+                  "My training at T2T through TRACE Sri Lanka was eye‑opening. I
+                  bridged the gap between academic learning and real‑world
+                  software development. I worked on a logbook and reservation
+                  system, improved backend and database skills, and learned to
+                  collaborate with Git and agile workflows."
+                </blockquote>
+                <div class="person">
+                  <img
+                    alt="Mohamed Shazan"
+                    loading="lazy"
+                    src="/images/Shazan-Shazan.jpg"
+                  />
+                  <div>
+                    <strong>Mohamed Shazan</strong><br /><span
+                      >T2T Batch 1</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!--T2T_FOOTER-->
+  </body>
 </html>

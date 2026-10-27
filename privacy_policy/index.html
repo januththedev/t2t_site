@@ -1,468 +1,262 @@
 <!doctype html>
+
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy | Theory to Trade by TRACE</title>
-  <meta name="description"
-    content="Understand how Theory to Trade (T2T) by TRACE collects, uses, protects, and handles your personal information." />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="icon" type="image/png" href="../images/logos/t2t.png" />
-  <link rel="stylesheet" href="../styles.css" />
-  <meta property="og:title" content="Privacy Policy | Theory to Trade by TRACE" />
-  <meta property="og:description"
-    content="Learn how we safeguard your data and privacy when registering for T2T programs." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="../images/T2T-Website.png" />
-  <style>
-    /* Privacy Policy Custom Styling */
-    .privacy-hero {
-      padding: clamp(100px, 15vw, 130px) 0 clamp(40px, 8vw, 60px);
-      background: linear-gradient(180deg, rgba(34, 197, 94, 0.08) 0%, rgba(6, 9, 20, 0) 100%);
-      position: relative;
-    }
-
-    .privacy-hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.1) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .privacy-hero .badge {
-      display: inline-block;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      padding: 4px 12px;
-      border-radius: 99px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--brand);
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .privacy-hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      margin: 0 0 12px;
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.2;
-    }
-
-    .privacy-hero p {
-      color: var(--muted);
-      font-size: clamp(15px, 2.5vw, 17px);
-      max-width: 600px;
-      margin: 0;
-    }
-
-    .privacy-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: clamp(20px, 5vw, 40px);
-      align-items: start;
-      padding-bottom: 80px;
-    }
-
-    .privacy-sidebar {
-      position: sticky;
-      top: 100px;
-      background: rgba(15, 23, 42, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      padding: 24px;
-      backdrop-filter: blur(12px);
-    }
-
-    .privacy-sidebar h4 {
-      margin: 0 0 16px 0;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .privacy-nav {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .privacy-nav a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
-      display: block;
-      padding: 4px 0;
-    }
-
-    .privacy-nav a:hover,
-    .privacy-nav a.active {
-      color: var(--text);
-    }
-
-    .privacy-nav a.active {
-      font-weight: 600;
-      border-left: 2px solid var(--brand);
-      padding-left: 10px;
-    }
-
-    .privacy-body {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.3) 0%, rgba(10, 15, 29, 0.3) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 18px;
-      padding: clamp(20px, 5vw, 40px);
-      backdrop-filter: blur(8px);
-    }
-
-    .privacy-section {
-      margin-bottom: 48px;
-      scroll-margin-top: 100px;
-    }
-
-    .privacy-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .privacy-section h2 {
-      font-size: clamp(1.4rem, 3.5vw, 1.8rem);
-      margin: 0 0 16px;
-      color: #ffffff;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .privacy-section h2 span {
-      color: var(--brand);
-      font-weight: 800;
-      font-size: 1.15em;
-    }
-
-    .privacy-section p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0 0 16px;
-      font-size: 1rem;
-    }
-
-    .privacy-section ul {
-      margin: 0 0 20px;
-      padding-left: 20px;
-      color: var(--muted);
-    }
-
-    .privacy-section li {
-      margin-bottom: 10px;
-      line-height: 1.6;
-      font-size: 0.98rem;
-    }
-
-    .privacy-section li strong {
-      color: var(--text);
-    }
-
-    .contact-card {
-      background: rgba(34, 197, 94, 0.03);
-      border: 1px solid rgba(34, 197, 94, 0.15);
-      border-radius: 12px;
-      padding: 24px;
-      margin-top: 24px;
-    }
-
-    .contact-card h3 {
-      font-size: 1.15rem;
-      margin: 0 0 12px 0;
-      color: #ffffff;
-    }
-
-    .contact-card p {
-      margin-bottom: 8px !important;
-    }
-
-    .contact-card p:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    @media (max-width: 900px) {
-      .privacy-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .privacy-sidebar {
-        display: none;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <div class="container nav">
-      <a href="../index.html#top" class="brand" aria-label="Home">
-        <img src="../images/logos/t2t.png" alt="Theory to Trade by TRACE logo" loading="eager" />
-        <strong>
-          <span class="brand-full">Theory to Trade (T2T) by TRACE</span>
-          <span class="brand-short">T2T by TRACE</span>
-        </strong>
-      </a>
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="../index.html#about">About</a></li>
-          <li><a href="../index.html#programs">Programs</a></li>
-          <li><a href="../index.html#events">Events</a></li>
-          <li><a href="../index.html#testimonials">Alumni</a></li>
-          <li><a href="../index.html#partners">Partners</a></li>
-          <li><a href="https://trace.lk/" target="_blank" rel="noopener">Visit TRACE</a></li>
-        </ul>
-      </nav>
-      <div class="actions">
-        <div class="social-links">
-          <a href="https://www.linkedin.com/company/trace-theory-to-trade/" target="_blank" rel="noopener"
-            aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/theory2trade" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/theory2trade" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-            </svg>
-          </a>
-          <a href="https://youtube.com/@tracet2t" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-            </svg>
-          </a>
-          <a href="https://www.tiktok.com/@t2t445" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-            </svg>
-          </a>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Privacy Policy | T2T by TRACE</title>
+    <meta
+      content="Published information from Theory to Trade by TRACE."
+      name="description"
+    />
+    <meta content="#F6F5EF" name="theme-color" />
+    <link href="/images/logos/t2t.png" rel="icon" />
+    <link href="/styles.css" rel="stylesheet" />
+    <meta
+      content="Privacy Policy | Theory to Trade by TRACE"
+      property="og:title"
+    />
+    <meta
+      content="Published information from Theory to Trade by TRACE."
+      property="og:description"
+    />
+    <meta content="website" property="og:type" />
+    <meta
+      content="/images/IMG_20250330_121443-scaled.jpg"
+      property="og:image"
+    />
+    <script type="module" src="/site.js"></script>
+    <script defer="" src="/chatbot/widget.js"></script>
+  </head>
+  <body class="reading-page">
+    <!--T2T_HEADER-->
+    <main id="main" tabindex="-1">
+      <section class="reading-hero">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="/">Home</a><span>/</span><span>Information</span>
+          </div>
+          <p class="eyebrow">THEORY TO TRADE BY TRACE</p>
+          <h1>Privacy Policy</h1>
         </div>
-        <button class="menu btn secondary" id="menuBtn" aria-expanded="false" aria-controls="mobileNav">Menu</button>
-      </div>
-    </div>
-    <div id="mobileNav" class="container hide" role="dialog" aria-modal="false">
-      <nav>
-        <ul style="display:grid; gap:8px; padding:12px 0">
-          <li><a href="../index.html#about">About</a></li>
-          <li><a href="../index.html#programs">Programs</a></li>
-          <li><a href="../index.html#events">Events</a></li>
-          <li><a href="../index.html#testimonials">Alumni</a></li>
-          <li><a href="../index.html#partners">Partners</a></li>
-          <li><a href="https://trace.lk/" target="_blank" rel="noopener">Visit TRACE</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="privacy-hero" aria-label="Privacy Policy Title">
-      <div class="container">
-        <span class="badge">Policy Document</span>
-        <h1>Privacy Policy</h1>
-        <p>Last Updated: June 9, 2026. Learn how Theory to Trade (T2T) by TRACE manages, stores, and protects your personal information.</p>
-      </div>
-    </section>
-
-    <!-- CONTENT LAYOUT -->
-    <section style="border-top: none; padding-top: 0;">
-      <div class="container">
-        <div class="privacy-layout">
-          <!-- SIDEBAR -->
-          <aside class="privacy-sidebar">
-            <h4>Sections</h4>
-            <ul class="privacy-nav">
-              <li><a href="#intro" class="active">1. Introduction</a></li>
-              <li><a href="#collect">2. Information We Collect</a></li>
-              <li><a href="#use">3. How We Use Information</a></li>
-              <li><a href="#share">4. Information Sharing</a></li>
-              <li><a href="#security">5. Data Security</a></li>
-              <li><a href="#rights">6. Your Rights</a></li>
-              <li><a href="#contact">7. Contact Us</a></li>
-            </ul>
-          </aside>
-
-          <!-- BODY CONTENT -->
-          <article class="privacy-body">
-            <section id="intro" class="privacy-section">
-              <h2><span>01</span> Introduction</h2>
-              <p>Welcome to Theory to Trade (T2T) by TRACE. We respect your privacy and are committed to protecting the personal data you share with us. This Privacy Policy details how we collect, process, utilize, and protect your information when you enroll in our programs (CRISP, IFAP, Lead-x, etc.), visit our website, or interact with our learning management systems.</p>
-              <p>By using our services, registering as a student, or supporting as an industrial mentor, you agree to the practices outlined in this policy.</p>
-            </section>
-
-            <section id="collect" class="privacy-section">
-              <h2><span>02</span> Information We Collect</h2>
-              <p>We collect personal information to provide you with the best possible educational and professional matchmaking experiences. The information we collect falls into the following categories:</p>
-              <ul>
-                <li><strong>Registration Details:</strong> When you register as a student or mentor, we collect personal identifiers such as your full name, email address, contact phone number, university or professional affiliation, and academic details.</li>
-                <li><strong>Professional Dossier & CV:</strong> If you apply for programs or internship matchmaking, you may share your Curriculum Vitae (CV), academic transcripts, portfolio links, GitHub username, and LinkedIn profile.</li>
-                <li><strong>Usage Data:</strong> When visiting our website, we may collect technical details such as your IP address, browser type, operating system, pages visited, and duration of stay.</li>
-              </ul>
-            </section>
-
-            <section id="use" class="privacy-section">
-              <h2><span>03</span> How We Use Information</h2>
-              <p>We use your personal information strictly for educational, administrative, and professional development purposes, specifically to:</p>
-              <ul>
-                <li>Evaluate applications and process enrollment for training cohorts (such as CRISP Practitioner or Lead-x).</li>
-                <li>Provide guided project structures, assign students to team spaces, and pair student groups with appropriate mentors.</li>
-                <li>Coordinate and facilitate live physical workshops and virtual mentoring sessions.</li>
-                <li>Reach out to you with important updates, program announcements, newsletters, and registration materials.</li>
-                <li>Benchmark program progress and monitor training cohort metrics.</li>
-              </ul>
-            </section>
-
-            <section id="share" class="privacy-section">
-              <h2><span>04</span> Information Sharing</h2>
-              <p>TRACE does not sell, lease, or distribute your personal data to third-party advertising or marketing services. However, in order to bridge the gap between academic theory and trade, we share candidate profiles under strict guidelines:</p>
-              <ul>
-                <li><strong>With Mentors:</strong> Academic credentials, CVs, and project submissions are shared with certified TRACE mentors to facilitate code reviews and professional guidance.</li>
-                <li><strong>With Corporate Partners:</strong> CVs and project portfolios of students enrolled in Practitioner tracks are shared with our partner network (e.g. Nagarro, 99x, ThinkTank, Worklenz, etc.) to evaluate candidates for internships or employment positions.</li>
-                <li><strong>Legal Compliance:</strong> We may disclose information if required by Sri Lankan law or regulatory authorities.</li>
-              </ul>
-
-              <p><strong>T2T Guide chat:</strong> When AI assistance is used, your question, recent conversation, and relevant public website passages are sent to OpenRouter and its selected model provider to generate a reply. Recent messages are stored in this browser tab’s session storage; use Start a new chat to clear them. Please do not send passwords, payment details, or sensitive personal information. Learn more in <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">OpenRouter’s privacy policy</a>.</p>
-            </section>
-
-            <section id="security" class="privacy-section">
-              <h2><span>05</span> Data Security</h2>
-              <p>The security of your personal data is critical to us. We employ standard technical and administrative safeguards to protect your personal information against unauthorized access, theft, alteration, or loss. This includes secure hosting servers, access control boundaries, and encrypted communication channels.</p>
-              <p>Please remember that no method of transmission over the Internet or method of electronic storage is 100% secure, and we cannot guarantee its absolute safety.</p>
-            </section>
-
-            <section id="rights" class="privacy-section">
-              <h2><span>06</span> Your Rights</h2>
-              <p>You have control over how your data is managed. Depending on your program enrollment state, you hold the following rights:</p>
-              <ul>
-                <li><strong>Right of Access:</strong> You can request a summary of the personal information we currently hold for you.</li>
-                <li><strong>Right to Correct:</strong> You can ask us to update or modify outdated or incorrect information in our system at any time.</li>
-                <li><strong>Right to Erasure:</strong> You can request that we delete your application records or registration data. Please note that requesting deletion may affect your ability to participate in ongoing programs or receive program credentials.</li>
-              </ul>
-            </section>
-
-            <section id="contact" class="privacy-section">
-              <h2><span>07</span> Contact Us</h2>
-              <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data management, please contact the TRACE team.</p>
-
-              <div class="contact-card">
-                <h3>Theory to Trade (T2T) Admin Office</h3>
-                <p><strong>Email:</strong> info@trace.lk</p>
-                <p><strong>Address:</strong> TRACE Expert City, Tripoli Market Square, Maradana, Colombo 10, Sri Lanka.</p>
-                <p><strong>Official Web:</strong> <a href="https://trace.lk" target="_blank" rel="noopener" style="text-decoration: underline; color: var(--brand);">trace.lk</a></p>
-              </div>
-            </section>
-          </article>
+      </section>
+      <div class="container reading-content">
+        <div class="section-content">
+          <span>Policy Document</span>
+          <p>
+            Last Updated: June 9, 2026. Learn how Theory to Trade (T2T) by TRACE
+            manages, stores, and protects your personal information.
+          </p>
         </div>
+        <section>
+          <div class="section-content">
+            <div>
+              <aside>
+                <h4>Sections</h4>
+                <ul>
+                  <li><a href="#intro">1. Introduction</a></li>
+                  <li><a href="#collect">2. Information We Collect</a></li>
+                  <li><a href="#use">3. How We Use Information</a></li>
+                  <li><a href="#share">4. Information Sharing</a></li>
+                  <li><a href="#security">5. Data Security</a></li>
+                  <li><a href="#rights">6. Your Rights</a></li>
+                  <li><a href="#contact">7. Contact Us</a></li>
+                </ul>
+              </aside>
+              <article>
+                <section id="intro">
+                  <h2><span>01</span> Introduction</h2>
+                  <p>
+                    Welcome to Theory to Trade (T2T) by TRACE. We respect your
+                    privacy and are committed to protecting the personal data
+                    you share with us. This Privacy Policy details how we
+                    collect, process, utilize, and protect your information when
+                    you enroll in our programs (CRISP, IFAP, Lead-x, etc.),
+                    visit our website, or interact with our learning management
+                    systems.
+                  </p>
+                  <p>
+                    By using our services, registering as a student, or
+                    supporting as an industrial mentor, you agree to the
+                    practices outlined in this policy.
+                  </p>
+                </section>
+                <section id="collect">
+                  <h2><span>02</span> Information We Collect</h2>
+                  <p>
+                    We collect personal information to provide you with the best
+                    possible educational and professional matchmaking
+                    experiences. The information we collect falls into the
+                    following categories:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Registration Details:</strong> When you register
+                      as a student or mentor, we collect personal identifiers
+                      such as your full name, email address, contact phone
+                      number, university or professional affiliation, and
+                      academic details.
+                    </li>
+                    <li>
+                      <strong>Professional Dossier &amp; CV:</strong> If you
+                      apply for programs or internship matchmaking, you may
+                      share your Curriculum Vitae (CV), academic transcripts,
+                      portfolio links, GitHub username, and LinkedIn profile.
+                    </li>
+                    <li>
+                      <strong>Usage Data:</strong> When visiting our website, we
+                      may collect technical details such as your IP address,
+                      browser type, operating system, pages visited, and
+                      duration of stay.
+                    </li>
+                  </ul>
+                </section>
+                <section id="use">
+                  <h2><span>03</span> How We Use Information</h2>
+                  <p>
+                    We use your personal information strictly for educational,
+                    administrative, and professional development purposes,
+                    specifically to:
+                  </p>
+                  <ul>
+                    <li>
+                      Evaluate applications and process enrollment for training
+                      cohorts (such as CRISP Practitioner or Lead-x).
+                    </li>
+                    <li>
+                      Provide guided project structures, assign students to team
+                      spaces, and pair student groups with appropriate mentors.
+                    </li>
+                    <li>
+                      Coordinate and facilitate live physical workshops and
+                      virtual mentoring sessions.
+                    </li>
+                    <li>
+                      Reach out to you with important updates, program
+                      announcements, newsletters, and registration materials.
+                    </li>
+                    <li>
+                      Benchmark program progress and monitor training cohort
+                      metrics.
+                    </li>
+                  </ul>
+                </section>
+                <section id="share">
+                  <h2><span>04</span> Information Sharing</h2>
+                  <p>
+                    TRACE does not sell, lease, or distribute your personal data
+                    to third-party advertising or marketing services. However,
+                    in order to bridge the gap between academic theory and
+                    trade, we share candidate profiles under strict guidelines:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>With Mentors:</strong> Academic credentials, CVs,
+                      and project submissions are shared with certified TRACE
+                      mentors to facilitate code reviews and professional
+                      guidance.
+                    </li>
+                    <li>
+                      <strong>With Corporate Partners:</strong> CVs and project
+                      portfolios of students enrolled in Practitioner tracks are
+                      shared with our partner network (e.g. Nagarro, 99x,
+                      ThinkTank, Worklenz, etc.) to evaluate candidates for
+                      internships or employment positions.
+                    </li>
+                    <li>
+                      <strong>Legal Compliance:</strong> We may disclose
+                      information if required by Sri Lankan law or regulatory
+                      authorities.
+                    </li>
+                  </ul>
+                  <p>
+                    <strong>T2T Guide chat:</strong> When AI assistance is used,
+                    your question, recent conversation, and relevant public
+                    website passages are sent to OpenRouter and its selected
+                    model provider to generate a reply. Recent messages are
+                    stored in this browser tab’s session storage; use Start a
+                    new chat to clear them. Please do not send passwords,
+                    payment details, or sensitive personal information. Learn
+                    more in
+                    <a
+                      href="https://openrouter.ai/privacy"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      >OpenRouter’s privacy policy</a
+                    >.
+                  </p>
+                </section>
+                <section id="security">
+                  <h2><span>05</span> Data Security</h2>
+                  <p>
+                    The security of your personal data is critical to us. We
+                    employ standard technical and administrative safeguards to
+                    protect your personal information against unauthorized
+                    access, theft, alteration, or loss. This includes secure
+                    hosting servers, access control boundaries, and encrypted
+                    communication channels.
+                  </p>
+                  <p>
+                    Please remember that no method of transmission over the
+                    Internet or method of electronic storage is 100% secure, and
+                    we cannot guarantee its absolute safety.
+                  </p>
+                </section>
+                <section id="rights">
+                  <h2><span>06</span> Your Rights</h2>
+                  <p>
+                    You have control over how your data is managed. Depending on
+                    your program enrollment state, you hold the following
+                    rights:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Right of Access:</strong> You can request a
+                      summary of the personal information we currently hold for
+                      you.
+                    </li>
+                    <li>
+                      <strong>Right to Correct:</strong> You can ask us to
+                      update or modify outdated or incorrect information in our
+                      system at any time.
+                    </li>
+                    <li>
+                      <strong>Right to Erasure:</strong> You can request that we
+                      delete your application records or registration data.
+                      Please note that requesting deletion may affect your
+                      ability to participate in ongoing programs or receive
+                      program credentials.
+                    </li>
+                  </ul>
+                </section>
+                <section id="contact">
+                  <h2><span>07</span> Contact Us</h2>
+                  <p>
+                    If you have any questions, concerns, or requests regarding
+                    this Privacy Policy or your data management, please contact
+                    the TRACE team.
+                  </p>
+                  <div class="info-card">
+                    <h3>Theory to Trade (T2T) Admin Office</h3>
+                    <p><strong>Email:</strong> info@trace.lk</p>
+                    <p>
+                      <strong>Address:</strong> TRACE Expert City, Tripoli
+                      Market Square, Maradana, Colombo 10, Sri Lanka.
+                    </p>
+                    <p>
+                      <strong>Official Web:</strong>
+                      <a href="https://trace.lk" rel="noopener" target="_blank"
+                        >trace.lk</a
+                      >
+                    </p>
+                  </div>
+                </section>
+              </article>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <small>© <span id="year"></span> Theory to Trade by TRACE. All Rights Reserved.</small>
-        <div class="footer-social-links" style="display: flex;">
-          <a href="https://www.linkedin.com/company/trace-theory-to-trade/" target="_blank" rel="noopener"
-            aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/theory2trade" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/theory2trade" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-            </svg>
-          </a>
-          <a href="https://youtube.com/@tracet2t" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-            </svg>
-          </a>
-          <a href="https://www.tiktok.com/@t2t445" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const btn = document.getElementById('menuBtn');
-    const mobile = document.getElementById('mobileNav');
-    if (btn) btn.addEventListener('click', () => {
-      const open = mobile.classList.toggle('hide');
-      btn.setAttribute('aria-expanded', String(!open));
-    });
-
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Highlight sidebar links based on intersection observer
-    const sections = document.querySelectorAll('.privacy-section');
-    const navLinks = document.querySelectorAll('.privacy-nav a');
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => observer.observe(section));
-  </script>
-
-  <noscript>This site works without JavaScript.</noscript>
-  <script src="/chatbot/widget.js" defer></script>
-</body>
-
+    </main>
+    <!--T2T_FOOTER-->
+  </body>
 </html>
