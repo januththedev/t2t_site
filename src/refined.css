@@ -734,3 +734,8 @@ html {
     display: none;
   }
 }
+/* Keep footer text readable against the deep blue surface. */
+.site-footer { --muted: #becce0; --ink: #e4ebf7; --line: #344762; }
+.site-footer .socials a, .site-footer .footer-bottom, .site-footer .location { color: #becce0; }
+.closing-section { background: #edf2ff; }
+.program-hero.technology, .program-hero.leadership, .program-hero.creative { background: radial-gradient(ellipse at right, #eaf0fc, transparent), #f7f8fb; }
