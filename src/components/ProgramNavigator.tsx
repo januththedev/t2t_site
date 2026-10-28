@@ -1,13 +1,15 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 import { Arrow } from "./Arrow";
 import { ProgramGlyph } from "./ProgramGlyph";
 import { programs } from "../programs";
+import { useProgramScroll } from "../useProgramScroll";
 
 export function ProgramNavigator() {
-  const [activeId, setActiveId] = useState(programs[0].id);
+  const { activeIndex, selectStep, track, stage, scrollDriven, compact } =
+    useProgramScroll(programs.length);
   const tabs = useRef<Array<HTMLAnchorElement | null>>([]);
-  const active = programs.find((program) => program.id === activeId)!;
+  const active = programs[activeIndex];
   const navigate = (event: KeyboardEvent<HTMLAnchorElement>, index: number) => {
     if (event.altKey || event.ctrlKey || event.metaKey) return;
     let next = index;
@@ -19,14 +21,13 @@ export function ProgramNavigator() {
     else if (event.key === "End") next = programs.length - 1;
     else return;
     event.preventDefault();
-    setActiveId(programs[next].id);
-    tabs.current[next]?.focus();
+    tabs.current[next]?.focus({ preventScroll: true });
+    selectStep(next);
   };
-  const select = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
-      return;
+  const select = (event: MouseEvent<HTMLAnchorElement>, index: number) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    setActiveId(id);
+    selectStep(index);
   };
   return (
     <section className="section programs-section" id="programs">
@@ -45,70 +46,89 @@ export function ProgramNavigator() {
             further. Start with what matters to you.
           </p>
         </div>
-        <div className="program-navigator">
-          <div
-            className="program-choices"
-            role="tablist"
-            aria-label="Choose a T2T program"
-            aria-orientation="vertical"
-          >
-            {programs.map((program, index) => (
-              <a
-                key={program.id}
-                ref={(node) => {
-                  tabs.current[index] = node;
-                }}
-                id={`program-tab-${program.id}`}
-                role="tab"
-                href={`/programs/${program.id}/`}
-                aria-selected={program.id === activeId}
-                aria-controls="program-panel"
-                tabIndex={program.id === activeId ? 0 : -1}
-                onClick={(event) => select(event, program.id)}
-                onKeyDown={(event) => navigate(event, index)}
-                className="program-choice"
+        <div
+          className="program-scroll-track"
+          ref={track}
+          data-scroll-driven={scrollDriven || undefined}
+        >
+          <div className="program-scroll-stage" ref={stage}>
+            <div className="program-navigator">
+              <div
+                className="program-choices"
+                role="tablist"
+                aria-label="Choose a T2T program"
+                aria-orientation={compact ? "horizontal" : "vertical"}
               >
-                <span className="choice-number">{program.number}</span>
-                <span className="choice-copy">
-                  <strong>{program.name}</strong>
-                  <span>{program.audience}</span>
-                </span>
-                <span className="choice-arrow">
-                  <Arrow />
-                </span>
-              </a>
-            ))}
-          </div>
-          <div
-            className={`program-spotlight ${active.id}`}
-            id="program-panel"
-            role="tabpanel"
-            aria-labelledby={`program-tab-${active.id}`}
-            tabIndex={0}
-          >
-            <div className="spotlight-content" key={active.id}>
-              <div className="spotlight-top">
-                <p className="eyebrow">{active.category}</p>
-                <span>{active.number} / 04</span>
+                {programs.map((program, index) => (
+                  <a
+                    key={program.id}
+                    ref={(node) => {
+                      tabs.current[index] = node;
+                    }}
+                    id={`program-tab-${program.id}`}
+                    role="tab"
+                    href={`/programs/${program.id}/`}
+                    aria-selected={index === activeIndex}
+                    aria-controls="program-panel"
+                    tabIndex={index === activeIndex ? 0 : -1}
+                    onClick={(event) => select(event, index)}
+                    onKeyDown={(event) => navigate(event, index)}
+                    className="program-choice"
+                  >
+                    <span className="choice-number">{program.number}</span>
+                    <span className="choice-copy">
+                      <strong>{program.name}</strong>
+                      <span>{program.audience}</span>
+                    </span>
+                    <span className="choice-arrow">
+                      <Arrow />
+                    </span>
+                  </a>
+                ))}
               </div>
-              <ProgramGlyph id={active.id} />
-              <h3>{active.name}</h3>
-              <p className="spotlight-description">{active.description}</p>
-              <dl className="spotlight-facts">
-                <div>
-                  <dt>Duration</dt>
-                  <dd>{active.duration}</dd>
+              <div
+                className={`program-spotlight ${active.id}`}
+                id="program-panel"
+                role="tabpanel"
+                aria-labelledby={`program-tab-${active.id}`}
+                tabIndex={0}
+              >
+                <div className="spotlight-content">
+                  <div className="spotlight-story" key={active.id}>
+                    <div className="spotlight-top">
+                      <p className="eyebrow">{active.category}</p>
+                      <span>{active.number} / 04</span>
+                    </div>
+                    <ProgramGlyph id={active.id} />
+                    <h3>{active.name}</h3>
+                    <p className="spotlight-description">{active.description}</p>
+                  </div>
+                  <dl className="spotlight-facts">
+                    <div>
+                      <dt>Duration</dt>
+                      <dd>{active.duration}</dd>
+                    </div>
+                    <div>
+                      <dt>Experience</dt>
+                      <dd>{active.format}</dd>
+                    </div>
+                  </dl>
+                  <a href={`/programs/${active.id}/`} className="spotlight-link">
+                    Explore {active.name}
+                    <span>
+                      <Arrow diagonal />
+                    </span>
+                  </a>
                 </div>
-                <div>
-                  <dt>Experience</dt>
-                  <dd>{active.format}</dd>
-                </div>
-              </dl>
-              <a href={`/programs/${active.id}/`} className="spotlight-link">
-                Explore {active.name}
-                <span>
-                  <Arrow diagonal />
-                </span>
+              </div>
+            </div>
+            <div className="program-scroll-cue">
+              <span>
+                <span aria-hidden="true">↓</span>
+                {scrollDriven ? "Scroll to explore" : "Choose a program"}
+              </span>
+              <a href="#about">
+                Continue to our approach <span aria-hidden="true">↓</span>
               </a>
             </div>
           </div>
