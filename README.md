@@ -95,7 +95,7 @@ keyboard controls, source links, suggested follow-ups, clear-chat, stop/retry,
 and conversation continuity in this browser tab's session storage. Shadow DOM
 keeps widget styling separate from each program page's styles.
 
-The knowledge layer includes **50 curated FAQs plus extracted source passages** from
+The knowledge layer includes **50+ curated FAQs plus extracted source passages** from
 eight current source pages and 12 event listings. `npm run build` rebuilds the
 dataset from the website. BM25-style retrieval combines synonyms, program
 topics, question intent, recent conversation, and the current page. It sends

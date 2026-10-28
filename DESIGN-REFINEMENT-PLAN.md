@@ -32,4 +32,6 @@ Make the website feel deliberately composed, distinctive to T2T, and easy to use
 
 The hero, partner ribbon, program navigator, and compact footer are implemented. The official T2T logo is used at both ends of the page. The program navigator was checked with pointer, arrow, Home, End, and Ctrl+End navigation. Eight current page types passed 48 layout checks across the six target widths. Application destinations and source-grounded chatbot checks remain in the automated suite.
 
-A preview rebuild could previously expose HTML before its CSS and React links were attached. The build now prepares the full output before replacing the served directory. A new asset-loading check guards this case. TypeScript and all 71 automated checks pass. Hardware WebGL remains unavailable in the cloud browser; the static fallback is used for visual review.
+A preview rebuild could previously expose HTML before its CSS and React links were attached. The build now prepares the full output before replacing the served directory. A new asset-loading check guards this case. TypeScript and all 72 automated checks pass. Hardware WebGL remains unavailable in the cloud browser; the static fallback is used for visual review.
+
+The live guide check exposed a missing AI-X duration FAQ. The dataset now includes the published 6-week duration and 4-week intensive phase, with source links and a regression check that confirms no model quota is needed.

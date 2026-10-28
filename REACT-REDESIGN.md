@@ -22,7 +22,7 @@ The browser receives only its own page payload. Essential content and links exis
 
 ## Chatbot
 
-The backend and OpenRouter configuration are preserved. Set `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in Vercel's Preview environment for model-backed preview testing. Keys remain server-only. The existing free-model restrictions and factual FAQ fallback still apply. Knowledge is now generated from rendered React pages, so current content is indexed together with the 50 curated FAQs.
+The backend and OpenRouter configuration are preserved. Set `OPENROUTER_API_KEY` and `OPENROUTER_MODEL` in Vercel's Preview environment for model-backed preview testing. Keys remain server-only. The existing free-model restrictions and factual FAQ fallback still apply. Knowledge is now generated from rendered React pages, so current content is indexed together with the 50+ curated FAQs.
 
 ## Validation
 

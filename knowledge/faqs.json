@@ -1,52 +1,650 @@
 [
-  {"id":"about-t2t","topic":"general","intent":"overview","question":"What is Theory to Trade?","aliases":["What is T2T?","Tell me about TRACE T2T"],"answer":"Theory to Trade (T2T) by TRACE helps students and graduates bridge academic learning and industry expectations through practical training, projects, mentorship, and career preparation.","source":"/#about"},
-  {"id":"choose-program","topic":"general","intent":"recommendation","question":"Which program is right for me?","aliases":["Find my program","Help me choose a course","What courses do you offer?","Compare your programs"],"answer":"Choose by your goal: CRISP builds career readiness and a practical portfolio; AI-X focuses on AI-native software engineering; Lead-x prepares future managers and leaders; IFAP develops feature-film or high-end series projects for international markets. What are you studying, or what career are you aiming for?","source":"/#programs"},
-  {"id":"university-degree","topic":"general","intent":"qualification","question":"Is T2T a university or a degree?","aliases":["Is this a degree course?"],"answer":"T2T is not a degree-awarding university program. It provides industry-readiness and skill-bridging programs that support students and graduates.","source":"/programs/crisp/"},
-  {"id":"jobs-guarantee","topic":"general","intent":"outcomes","question":"Do you guarantee a job?","aliases":["Will I definitely get hired?","Is an internship guaranteed?"],"answer":"No job or internship is guaranteed. T2T aims to improve your readiness, confidence, project experience, and portfolio. Some pathways describe potential internships, subject to performance and selection; those are opportunities, not promises.","source":"/programs/leadx/#faq"},
-  {"id":"location","topic":"general","intent":"location","question":"Where is T2T located?","aliases":["Where is TRACE Expert City?","What is the venue?"],"answer":"Program pages identify TRACE Expert City, Colombo, as a physical training location. Delivery varies by program: check the relevant program page and confirm the venue and session arrangements with the team.","source":"/programs/ifap/"},
-  {"id":"contact","topic":"general","intent":"contact","question":"How can I contact the team?","aliases":["Talk to the team","WhatsApp number","Can I speak to a human?","Phone number"],"answer":"You can reach the T2T team on WhatsApp at +94 77 764 3129. For corporate training, email corporate@trace.lk. The team can confirm intake dates, availability, and payment arrangements.","source":"/programs/crisp/"},
-  {"id":"general-fees","topic":"general","intent":"fees","question":"What are the program fees?","aliases":["Fees and funding","How much do courses cost?","Prices"],"answer":"The published fees are CRISP Foundation: LKR 20,000; CRISP Practitioner: LKR 60,000; Lead-x core training: LKR 30,000, paid as LKR 10,000 per month for 3 months; IFAP: LKR 150,000 plus LKR 2,000 registration. AI-X lists a conditional merit scholarship and a co-investment pathway. Which program would you like to explore? Confirm current fees with the team before paying.","source":"/#programs","relatedSources":["/programs/crisp/","/programs/leadx/#details","/programs/ifap/","/programs/aix/#investment"]},
-  {"id":"apply-general","topic":"general","intent":"application","question":"How do I register?","aliases":["Apply now","I want to join","How do applications work?"],"answer":"Each program has its own application process and Apply button. Choose CRISP, AI-X, Lead-x, or IFAP first, then use its official application link. I can guide you, but I cannot submit an application or confirm a place for you.","source":"/#programs"},
-  {"id":"crisp-overview","topic":"crisp","intent":"overview","question":"What is CRISP?","aliases":["Tell me about CRISP","Career readiness course"],"answer":"CRISP is the Career Readiness and Industry Skills Program. It combines practical workshops, mentorship, career preparation, project exposure, and portfolio building. The page lists Foundation and Practitioner pathways for students and early-career talent.","source":"/programs/crisp/"},
-  {"id":"crisp-fees","topic":"crisp","intent":"fees","question":"How much does CRISP cost?","aliases":["CRISP fees","CRISP price","CRISP Foundation cost","CRISP Practitioner cost"],"answer":"CRISP Foundation is listed at LKR 20,000 for 2 months. CRISP Practitioner is listed at LKR 60,000 for 6 months and includes Foundation plus 4 months of mentor-driven industry project exposure. Confirm the current payment terms with the team.","source":"/programs/crisp/"},
-  {"id":"crisp-duration","topic":"crisp","intent":"duration","question":"How long is CRISP?","aliases":["CRISP duration","How many months is Foundation or Practitioner?"],"answer":"Foundation runs for 2 months. Practitioner runs for 6 months: Foundation followed by 4 months of mentor-driven industry project exposure.","source":"/programs/crisp/"},
-  {"id":"crisp-compare","topic":"crisp","intent":"comparison","question":"What is the difference between CRISP Foundation and Practitioner?","aliases":["Foundation versus Practitioner","Compare CRISP pathways"],"answer":"Foundation is a 2-month pathway covering career readiness, industry skills, workshops, a mini project, and assessment. Practitioner is a 6-month pathway that includes Foundation plus 4 months of mentor-driven industry project exposure, feedback, and stronger portfolio evidence.","source":"/programs/crisp/"},
-  {"id":"crisp-eligibility","topic":"crisp","intent":"eligibility","question":"Who can join CRISP?","aliases":["Am I eligible for CRISP?","Is CRISP only for IT students?"],"answer":"CRISP is mainly suitable for IT, computing, software engineering, and related students, recent graduates, and students preparing for internships. Related-field applicants seeking digital and industry-readiness skills may also apply. You need willingness to learn and participate, not expert-level ability.","source":"/programs/crisp/"},
-  {"id":"crisp-curriculum","topic":"crisp","intent":"curriculum","question":"What will I learn in CRISP?","aliases":["CRISP syllabus","CRISP subjects"],"answer":"Foundation lists communication, Agile, UI/UX, quality, innovation, ethics, AI trends, value creation, and career branding through your CV, LinkedIn, and portfolio. It includes a mini project, an industry visit, assessment, and certification. Practitioner adds mentor-driven industry project work.","source":"/programs/crisp/"},
-  {"id":"crisp-format","topic":"crisp","intent":"format","question":"Is CRISP online or physical?","aliases":["CRISP workshops","CRISP delivery mode"],"answer":"The Foundation pathway lists 2 physical workshops and 8 virtual workshops. Ask the team for the current timetable and locations before committing.","source":"/programs/crisp/"},
-  {"id":"crisp-certificate","topic":"crisp","intent":"qualification","question":"Does CRISP offer a certificate?","aliases":["CRISP certification"],"answer":"Participants who complete the required activities may receive certification or recognition based on their completion level. The program is not a university degree.","source":"/programs/crisp/"},
-  {"id":"crisp-apply","topic":"crisp","intent":"application","question":"How do I apply for CRISP?","aliases":["Register for CRISP","CRISP Batch 4 application"],"answer":"Use the Apply for Batch 4 button on the CRISP page, or contact the T2T team through WhatsApp. The page advertises Batch 4 applications; confirm that the intake is still accepting applicants with the team.","source":"/programs/crisp/"},
-  {"id":"crisp-experience","topic":"crisp","intent":"prerequisites","question":"Do I need to be technically strong for CRISP?","aliases":["I am a beginner in IT","CRISP experience requirements"],"answer":"You do not need to be an expert. CRISP asks for a basic learning foundation, willingness to improve, active participation, and openness to feedback.","source":"/programs/crisp/"},
-  {"id":"aix-overview","topic":"aix","intent":"overview","question":"What is AI-X?","aliases":["Tell me about AI X","AI native engineering program","AI software development course"],"answer":"AI-X is T2T's practical accelerator for AI-native software engineering. It focuses on building real systems with AI tools, prompt pipelines, software architecture, collaborative repositories, and industry-aligned project work.","source":"/programs/aix/#program"},
-  {"id":"aix-fees","topic":"aix","intent":"fees","question":"How much does AI-X cost?","aliases":["AI-X fees","AI X price","AI-X scholarship","Is AI-X free?","AI-X funding"],"answer":"The AI-X page lists a 100% merit scholarship for exceptional candidates after vetting, and a co-investment pathway displaying LKR 20,000 for 6 weeks. The same page also mentions monthly payments, so confirm the exact schedule with the team. Scholarship selection, internships, and recovering your investment are not guaranteed.","source":"/programs/aix/#investment"},
-  {"id":"aix-eligibility","topic":"aix","intent":"eligibility","question":"Who should apply for AI-X?","aliases":["Am I eligible for AI-X?","AI-X entry requirements"],"answer":"AI-X targets final-year IT or software-engineering undergraduates, fresh graduates, junior developers, and self-taught coders with coding foundations. It is aimed at building practical, industry-ready engineering capacity.","source":"/programs/aix/#faq"},
-  {"id":"aix-prerequisites","topic":"aix","intent":"prerequisites","question":"Do I need AI experience for AI-X?","aliases":["Do I need coding for AI-X?","Can a beginner join AI-X?"],"answer":"Prior AI experience is not required, but coding logic and software foundations are expected. The program teaches prompt engineering, copilot patterns, multi-agent frameworks, and database retrieval from the ground up.","source":"/programs/aix/#faq"},
-  {"id":"aix-format","topic":"aix","intent":"format","question":"Is AI-X online or in person?","aliases":["AI-X delivery mode","AI-X location"],"answer":"AI-X is a hybrid accelerator: virtual mentoring, online backlog operations, and physical workshop sessions at the TRACE premises in Colombo. Confirm the current session schedule with the team.","source":"/programs/aix/#faq"},
-  {"id":"aix-apply","topic":"aix","intent":"application","question":"How do I apply for AI-X?","aliases":["Register for AI-X","AI-X selection process"],"answer":"Use Apply for Cohort 01 on the AI-X page. The admissions process includes technical vetting and an interview; scholarship consideration follows selection. Check with the team whether the advertised cohort is still accepting applications.","source":"/programs/aix/#admissions"},
-  {"id":"aix-curriculum","topic":"aix","intent":"curriculum","question":"What does AI-X teach?","aliases":["AI-X syllabus","AI-X coding tools"],"answer":"AI-X covers practical AI-assisted development, coding copilots, prompt and system design, architecture, technical communication, and portfolio production. Its page describes working with tools such as GitHub Copilot and Cursor alongside project-based engineering practices.","source":"/programs/aix/#curriculum"},
-  {"id":"leadx-overview","topic":"leadx","intent":"overview","question":"What is Lead-x?","aliases":["Tell me about Lead X","Management trainee course","Leadership course"],"answer":"Lead-x prepares students, graduates, and early-career professionals for management-trainee and future leadership roles. It combines business problem-solving, data and AI tools, communication, practical assignments, and a Boardroom Challenge.","source":"/programs/leadx/#about"},
-  {"id":"leadx-fees","topic":"leadx","intent":"fees","question":"How much is Lead-x?","aliases":["Lead-x fees","Lead X price","Lead-x monthly payments","Lead-x cost"],"answer":"Lead-x lists LKR 10,000 per month for the first 3 months, totaling LKR 30,000 for the initial core training. The full learning journey is 20 weeks. Confirm current fees and any later-stage terms with the team.","source":"/programs/leadx/#details"},
-  {"id":"leadx-duration","topic":"leadx","intent":"duration","question":"How long is Lead-x?","aliases":["Lead-x duration","Is Lead-x 3 months or 20 weeks?"],"answer":"Lead-x is a 20-week journey: 12 weeks of core training followed by 8 weeks solving a real business problem through the Boardroom Challenge. The 3-month wording refers to the initial core training.","source":"/programs/leadx/#curriculum"},
-  {"id":"leadx-eligibility","topic":"leadx","intent":"eligibility","question":"Who can join Lead-x?","aliases":["Is Lead-x only for management students?","Lead-x entry requirements"],"answer":"Lead-x welcomes final-year undergraduates, fresh graduates, early-career professionals, and aspiring leaders. It is open to backgrounds including business, management, IT, finance, HR, marketing, engineering, logistics, and hospitality; a management degree is not required.","source":"/programs/leadx/#who"},
-  {"id":"leadx-prerequisites","topic":"leadx","intent":"prerequisites","question":"Do I need coding or AI knowledge for Lead-x?","aliases":["Lead-x for beginners","Lead-x data knowledge"],"answer":"No prior AI or data knowledge is required. Lead-x starts with practical foundations and focuses on how managers use dashboards and AI tools in business. It does not teach coding or machine-learning algorithms.","source":"/programs/leadx/#faq"},
-  {"id":"leadx-format","topic":"leadx","intent":"format","question":"Is Lead-x online or physical?","aliases":["Lead-x delivery mode","Lead-x location"],"answer":"Lead-x lists hybrid delivery: online sessions and physical workshops at TRACE Expert City, Colombo, with arrangements to be confirmed. Its format includes workshops, mentoring, weekly assignments, and a capstone project.","source":"/programs/leadx/#details"},
-  {"id":"leadx-apply","topic":"leadx","intent":"application","question":"How do I apply for Lead-x?","aliases":["Register for Lead-x","Lead-x application CV"],"answer":"Use Apply Now / Upload Your CV on the Lead-x page. The published process is application, PDF CV submission, short screening, cohort selection, and starting core training. Confirm intake availability with the team.","source":"/programs/leadx/#process"},
-  {"id":"leadx-internship","topic":"leadx","intent":"outcomes","question":"Does Lead-x guarantee an internship?","aliases":["Lead-x job guarantee","Lead-x paid internship"],"answer":"No. The Lead-x page says top performers may be offered a paid internship after the first 3 months, and explicitly says no program can guarantee a job. Selection and performance matter.","source":"/programs/leadx/#faq"},
-  {"id":"ifap-overview","topic":"ifap","intent":"overview","question":"What is IFAP?","aliases":["International Filmmaker Accelerator","Filmmaking course","I want to make films"],"answer":"The International Filmmaker Accelerator Program (IFAP) helps filmmakers develop a feature film or high-end series from concept refinement to a market-ready development dossier for international labs, festivals, sales agents, and financiers.","source":"/programs/ifap/"},
-  {"id":"ifap-fees","topic":"ifap","intent":"fees","question":"How much does IFAP cost?","aliases":["IFAP fees","Film course price","Filmmaker accelerator payment plan"],"answer":"IFAP lists a program fee of LKR 150,000 plus a LKR 2,000 registration fee. Installment plans are available; ask the team for current terms and the payment schedule.","source":"/programs/ifap/"},
-  {"id":"ifap-duration","topic":"ifap","intent":"duration","question":"How long is IFAP?","aliases":["IFAP timetable","IFAP contact hours","When are filmmaking classes?"],"answer":"IFAP lists 16 weeks and 100 contact hours. Sessions are listed for Saturdays, 9 am to 4 pm, at TRACE Expert City. Confirm the current cohort timetable with the team.","source":"/programs/ifap/"},
-  {"id":"ifap-eligibility","topic":"ifap","intent":"eligibility","question":"Who is IFAP for?","aliases":["Who can apply for filmmaking?","IFAP entry requirements"],"answer":"IFAP is for film-industry professionals, emerging and aspiring filmmakers, writers, directors, and producers seeking international pathways, especially creators developing feature films or high-end series.","source":"/programs/ifap/"},
-  {"id":"ifap-apply","topic":"ifap","intent":"application","question":"How do I apply for IFAP?","aliases":["IFAP application documents","Register for filmmaking"],"answer":"Use Apply Now on the IFAP page. Application requirements list a CV and a cover letter explaining your motivation, fit, goals, and ambitions. A feature-film or high-end series project submission is optional.","source":"/programs/ifap/"},
-  {"id":"ifap-project","topic":"ifap","intent":"prerequisites","question":"Is a project required for IFAP?","aliases":["IFAP optional project","Do I need a script to apply?"],"answer":"Project submission is optional. If you submit one, the page asks for a logline and a 1–2 page synopsis covering structure, character, and theme. Feature-film and high-end series concepts are accepted.","source":"/programs/ifap/"},
-  {"id":"ifap-rights","topic":"ifap","intent":"privacy","question":"Who owns my IFAP project?","aliases":["IFAP intellectual property","Will you share my film idea?"],"answer":"The IFAP page says submitted project materials remain the applicant's intellectual property. They are reviewed solely for selection by the Program Director and designated Selection Committee; submission does not transfer, license, or assign project rights.","source":"/programs/ifap/"},
-  {"id":"ifap-curriculum","topic":"ifap","intent":"curriculum","question":"What will I learn in IFAP?","aliases":["IFAP syllabus","Filmmaking curriculum"],"answer":"IFAP's pillars cover development and dramaturgy, international screenwriting, directorial voice and genre, visual translation and storyboarding, film business and finance, sales and festival strategy, pitch readiness, and cinematic identity.","source":"/programs/ifap/"},
-  {"id":"corporate-overview","topic":"corporate","intent":"overview","question":"Do you offer corporate training?","aliases":["Training for our company","Corporate programs","University staff training"],"answer":"T2T works with enterprises, public institutions, and universities on digital readiness, leadership alignment, and AI-augmented workflows. Engagements begin with a readiness diagnostic and are tailored to the organization's maturity and needs.","source":"/corporate-programs/"},
-  {"id":"corporate-contact","topic":"corporate","intent":"contact","question":"How do we request corporate training?","aliases":["Corporate contact email","Request a readiness assessment","Corporate training price"],"answer":"Email corporate@trace.lk to request an executive diagnostic or readiness assessment. The site describes tailored engagements rather than a fixed public corporate-training price, so ask for a proposal based on your needs.","source":"/corporate-programs/#diagnose"},
-  {"id":"corporate-method","topic":"corporate","intent":"curriculum","question":"How is corporate training delivered?","aliases":["Corporate workshops and coaching","Corporate training method"],"answer":"The published delivery method combines applied workshops, structured self-work, direct coaching, and embedded follow-through. The page describes check-ins at 30, 60, and 90 days.","source":"/corporate-programs/#deliver"},
-  {"id":"events-upcoming","topic":"events","intent":"events","question":"What events are coming up?","aliases":["Explore events","Upcoming workshops","Next event","Latest events"],"answer":"The events page contains dated workshop listings, many from 2025 and a Research Excellence workshop dated 7 March 2026. Those dates are historical, so a visible Register button is not proof of a future session. Check the events section and ask the team for the next confirmed dates.","source":"/#events","relatedSources":["/events/research-excellence/"]},
-  {"id":"research-event","topic":"events","intent":"details","question":"Tell me about the Research Excellence Workshop","aliases":["Research workshop fee","Research workshop date","Research Excellence"],"answer":"The published Research Excellence Workshop was dated 7 March 2026, from 9:30 am to 4:30 pm at TRACE Expert City, Colombo. It listed a fee of LKR 15,000 including the reference book. This is a past dated listing; ask the team about future sessions.","source":"/events/research-excellence/","eventDate":"2026-03-07"},
-  {"id":"privacy","topic":"general","intent":"privacy","question":"Where can I read your privacy policy?","aliases":["How do you use my personal data?","Privacy policy"],"answer":"The website's Privacy Policy explains the information collected, its uses, sharing, security, and your rights. For this chat, messages may be sent to OpenRouter and its selected model provider when AI responses are enabled. Avoid sharing passwords, payment details, or sensitive personal information.","source":"/privacy_policy/"},
-  {"id":"booking-status","topic":"general","intent":"status","question":"Can you check my application status?","aliases":["Was I accepted?","Did you receive my CV?","Have you submitted my application?"],"answer":"I cannot access applications, CV uploads, payments, or selection records, and I cannot submit an application for you. Please contact the T2T team through the contact details on your program page for a status update.","source":"/programs/crisp/"},
-  {"id":"registration-redirect","topic":"ifap","intent":"application","question":"Why does register open the film program?","aliases":["Where does the register page go?"],"answer":"The website's /register/ page currently redirects to the International Filmmaker Accelerator Program. For CRISP, AI-X, or Lead-x, use the application button on that specific program page.","source":"/register/"},
-  {"id":"unknown-dates","topic":"general","intent":"dates","question":"When does the next intake start?","aliases":["Application deadline","Next batch date","Are seats still available?"],"answer":"I cannot verify live seat availability or a future intake date from the published information alone. Some pages advertise applications, but that does not confirm current availability. Which program are you considering? The team can confirm its next intake and deadline.","source":"/#programs"}
+  {
+    "id": "about-t2t",
+    "topic": "general",
+    "intent": "overview",
+    "question": "What is Theory to Trade?",
+    "aliases": [
+      "What is T2T?",
+      "Tell me about TRACE T2T"
+    ],
+    "answer": "Theory to Trade (T2T) by TRACE helps students and graduates bridge academic learning and industry expectations through practical training, projects, mentorship, and career preparation.",
+    "source": "/#about"
+  },
+  {
+    "id": "choose-program",
+    "topic": "general",
+    "intent": "recommendation",
+    "question": "Which program is right for me?",
+    "aliases": [
+      "Find my program",
+      "Help me choose a course",
+      "What courses do you offer?",
+      "Compare your programs"
+    ],
+    "answer": "Choose by your goal: CRISP builds career readiness and a practical portfolio; AI-X focuses on AI-native software engineering; Lead-x prepares future managers and leaders; IFAP develops feature-film or high-end series projects for international markets. What are you studying, or what career are you aiming for?",
+    "source": "/#programs"
+  },
+  {
+    "id": "university-degree",
+    "topic": "general",
+    "intent": "qualification",
+    "question": "Is T2T a university or a degree?",
+    "aliases": [
+      "Is this a degree course?"
+    ],
+    "answer": "T2T is not a degree-awarding university program. It provides industry-readiness and skill-bridging programs that support students and graduates.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "jobs-guarantee",
+    "topic": "general",
+    "intent": "outcomes",
+    "question": "Do you guarantee a job?",
+    "aliases": [
+      "Will I definitely get hired?",
+      "Is an internship guaranteed?"
+    ],
+    "answer": "No job or internship is guaranteed. T2T aims to improve your readiness, confidence, project experience, and portfolio. Some pathways describe potential internships, subject to performance and selection; those are opportunities, not promises.",
+    "source": "/programs/leadx/#faq"
+  },
+  {
+    "id": "location",
+    "topic": "general",
+    "intent": "location",
+    "question": "Where is T2T located?",
+    "aliases": [
+      "Where is TRACE Expert City?",
+      "What is the venue?"
+    ],
+    "answer": "Program pages identify TRACE Expert City, Colombo, as a physical training location. Delivery varies by program: check the relevant program page and confirm the venue and session arrangements with the team.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "contact",
+    "topic": "general",
+    "intent": "contact",
+    "question": "How can I contact the team?",
+    "aliases": [
+      "Talk to the team",
+      "WhatsApp number",
+      "Can I speak to a human?",
+      "Phone number"
+    ],
+    "answer": "You can reach the T2T team on WhatsApp at +94 77 764 3129. For corporate training, email corporate@trace.lk. The team can confirm intake dates, availability, and payment arrangements.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "general-fees",
+    "topic": "general",
+    "intent": "fees",
+    "question": "What are the program fees?",
+    "aliases": [
+      "Fees and funding",
+      "How much do courses cost?",
+      "Prices"
+    ],
+    "answer": "The published fees are CRISP Foundation: LKR 20,000; CRISP Practitioner: LKR 60,000; Lead-x core training: LKR 30,000, paid as LKR 10,000 per month for 3 months; IFAP: LKR 150,000 plus LKR 2,000 registration. AI-X lists a conditional merit scholarship and a co-investment pathway. Which program would you like to explore? Confirm current fees with the team before paying.",
+    "source": "/#programs",
+    "relatedSources": [
+      "/programs/crisp/",
+      "/programs/leadx/#details",
+      "/programs/ifap/",
+      "/programs/aix/#investment"
+    ]
+  },
+  {
+    "id": "apply-general",
+    "topic": "general",
+    "intent": "application",
+    "question": "How do I register?",
+    "aliases": [
+      "Apply now",
+      "I want to join",
+      "How do applications work?"
+    ],
+    "answer": "Each program has its own application process and Apply button. Choose CRISP, AI-X, Lead-x, or IFAP first, then use its official application link. I can guide you, but I cannot submit an application or confirm a place for you.",
+    "source": "/#programs"
+  },
+  {
+    "id": "crisp-overview",
+    "topic": "crisp",
+    "intent": "overview",
+    "question": "What is CRISP?",
+    "aliases": [
+      "Tell me about CRISP",
+      "Career readiness course"
+    ],
+    "answer": "CRISP is the Career Readiness and Industry Skills Program. It combines practical workshops, mentorship, career preparation, project exposure, and portfolio building. The page lists Foundation and Practitioner pathways for students and early-career talent.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-fees",
+    "topic": "crisp",
+    "intent": "fees",
+    "question": "How much does CRISP cost?",
+    "aliases": [
+      "CRISP fees",
+      "CRISP price",
+      "CRISP Foundation cost",
+      "CRISP Practitioner cost"
+    ],
+    "answer": "CRISP Foundation is listed at LKR 20,000 for 2 months. CRISP Practitioner is listed at LKR 60,000 for 6 months and includes Foundation plus 4 months of mentor-driven industry project exposure. Confirm the current payment terms with the team.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-duration",
+    "topic": "crisp",
+    "intent": "duration",
+    "question": "How long is CRISP?",
+    "aliases": [
+      "CRISP duration",
+      "How many months is Foundation or Practitioner?"
+    ],
+    "answer": "Foundation runs for 2 months. Practitioner runs for 6 months: Foundation followed by 4 months of mentor-driven industry project exposure.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-compare",
+    "topic": "crisp",
+    "intent": "comparison",
+    "question": "What is the difference between CRISP Foundation and Practitioner?",
+    "aliases": [
+      "Foundation versus Practitioner",
+      "Compare CRISP pathways"
+    ],
+    "answer": "Foundation is a 2-month pathway covering career readiness, industry skills, workshops, a mini project, and assessment. Practitioner is a 6-month pathway that includes Foundation plus 4 months of mentor-driven industry project exposure, feedback, and stronger portfolio evidence.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-eligibility",
+    "topic": "crisp",
+    "intent": "eligibility",
+    "question": "Who can join CRISP?",
+    "aliases": [
+      "Am I eligible for CRISP?",
+      "Is CRISP only for IT students?"
+    ],
+    "answer": "CRISP is mainly suitable for IT, computing, software engineering, and related students, recent graduates, and students preparing for internships. Related-field applicants seeking digital and industry-readiness skills may also apply. You need willingness to learn and participate, not expert-level ability.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-curriculum",
+    "topic": "crisp",
+    "intent": "curriculum",
+    "question": "What will I learn in CRISP?",
+    "aliases": [
+      "CRISP syllabus",
+      "CRISP subjects"
+    ],
+    "answer": "Foundation lists communication, Agile, UI/UX, quality, innovation, ethics, AI trends, value creation, and career branding through your CV, LinkedIn, and portfolio. It includes a mini project, an industry visit, assessment, and certification. Practitioner adds mentor-driven industry project work.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-format",
+    "topic": "crisp",
+    "intent": "format",
+    "question": "Is CRISP online or physical?",
+    "aliases": [
+      "CRISP workshops",
+      "CRISP delivery mode"
+    ],
+    "answer": "The Foundation pathway lists 2 physical workshops and 8 virtual workshops. Ask the team for the current timetable and locations before committing.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-certificate",
+    "topic": "crisp",
+    "intent": "qualification",
+    "question": "Does CRISP offer a certificate?",
+    "aliases": [
+      "CRISP certification"
+    ],
+    "answer": "Participants who complete the required activities may receive certification or recognition based on their completion level. The program is not a university degree.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-apply",
+    "topic": "crisp",
+    "intent": "application",
+    "question": "How do I apply for CRISP?",
+    "aliases": [
+      "Register for CRISP",
+      "CRISP Batch 4 application"
+    ],
+    "answer": "Use the Apply for Batch 4 button on the CRISP page, or contact the T2T team through WhatsApp. The page advertises Batch 4 applications; confirm that the intake is still accepting applicants with the team.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "crisp-experience",
+    "topic": "crisp",
+    "intent": "prerequisites",
+    "question": "Do I need to be technically strong for CRISP?",
+    "aliases": [
+      "I am a beginner in IT",
+      "CRISP experience requirements"
+    ],
+    "answer": "You do not need to be an expert. CRISP asks for a basic learning foundation, willingness to improve, active participation, and openness to feedback.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "aix-overview",
+    "topic": "aix",
+    "intent": "overview",
+    "question": "What is AI-X?",
+    "aliases": [
+      "Tell me about AI X",
+      "AI native engineering program",
+      "AI software development course"
+    ],
+    "answer": "AI-X is T2T's practical accelerator for AI-native software engineering. It focuses on building real systems with AI tools, prompt pipelines, software architecture, collaborative repositories, and industry-aligned project work.",
+    "source": "/programs/aix/#program"
+  },
+  {
+    "id": "aix-duration",
+    "topic": "aix",
+    "intent": "duration",
+    "question": "How long is AI-X?",
+    "aliases": [
+      "How long does AI-X take?",
+      "AI-X duration",
+      "How many weeks is AI-X?"
+    ],
+    "answer": "The AI-X page lists a 6-week accelerator, including a 4-week intensive training phase. Ask the team for the current cohort dates and the guided-execution schedule.",
+    "source": "/programs/aix/#hero",
+    "relatedSources": [
+      "/programs/aix/#timeline"
+    ]
+  },
+  {
+    "id": "aix-fees",
+    "topic": "aix",
+    "intent": "fees",
+    "question": "How much does AI-X cost?",
+    "aliases": [
+      "AI-X fees",
+      "AI X price",
+      "AI-X scholarship",
+      "Is AI-X free?",
+      "AI-X funding"
+    ],
+    "answer": "The AI-X page lists a 100% merit scholarship for exceptional candidates after vetting, and a co-investment pathway displaying LKR 20,000 for 6 weeks. The same page also mentions monthly payments, so confirm the exact schedule with the team. Scholarship selection, internships, and recovering your investment are not guaranteed.",
+    "source": "/programs/aix/#investment"
+  },
+  {
+    "id": "aix-eligibility",
+    "topic": "aix",
+    "intent": "eligibility",
+    "question": "Who should apply for AI-X?",
+    "aliases": [
+      "Am I eligible for AI-X?",
+      "AI-X entry requirements"
+    ],
+    "answer": "AI-X targets final-year IT or software-engineering undergraduates, fresh graduates, junior developers, and self-taught coders with coding foundations. It is aimed at building practical, industry-ready engineering capacity.",
+    "source": "/programs/aix/#faq"
+  },
+  {
+    "id": "aix-prerequisites",
+    "topic": "aix",
+    "intent": "prerequisites",
+    "question": "Do I need AI experience for AI-X?",
+    "aliases": [
+      "Do I need coding for AI-X?",
+      "Can a beginner join AI-X?"
+    ],
+    "answer": "Prior AI experience is not required, but coding logic and software foundations are expected. The program teaches prompt engineering, copilot patterns, multi-agent frameworks, and database retrieval from the ground up.",
+    "source": "/programs/aix/#faq"
+  },
+  {
+    "id": "aix-format",
+    "topic": "aix",
+    "intent": "format",
+    "question": "Is AI-X online or in person?",
+    "aliases": [
+      "AI-X delivery mode",
+      "AI-X location"
+    ],
+    "answer": "AI-X is a hybrid accelerator: virtual mentoring, online backlog operations, and physical workshop sessions at the TRACE premises in Colombo. Confirm the current session schedule with the team.",
+    "source": "/programs/aix/#faq"
+  },
+  {
+    "id": "aix-apply",
+    "topic": "aix",
+    "intent": "application",
+    "question": "How do I apply for AI-X?",
+    "aliases": [
+      "Register for AI-X",
+      "AI-X selection process"
+    ],
+    "answer": "Use Apply for Cohort 01 on the AI-X page. The admissions process includes technical vetting and an interview; scholarship consideration follows selection. Check with the team whether the advertised cohort is still accepting applications.",
+    "source": "/programs/aix/#admissions"
+  },
+  {
+    "id": "aix-curriculum",
+    "topic": "aix",
+    "intent": "curriculum",
+    "question": "What does AI-X teach?",
+    "aliases": [
+      "AI-X syllabus",
+      "AI-X coding tools"
+    ],
+    "answer": "AI-X covers practical AI-assisted development, coding copilots, prompt and system design, architecture, technical communication, and portfolio production. Its page describes working with tools such as GitHub Copilot and Cursor alongside project-based engineering practices.",
+    "source": "/programs/aix/#curriculum"
+  },
+  {
+    "id": "leadx-overview",
+    "topic": "leadx",
+    "intent": "overview",
+    "question": "What is Lead-x?",
+    "aliases": [
+      "Tell me about Lead X",
+      "Management trainee course",
+      "Leadership course"
+    ],
+    "answer": "Lead-x prepares students, graduates, and early-career professionals for management-trainee and future leadership roles. It combines business problem-solving, data and AI tools, communication, practical assignments, and a Boardroom Challenge.",
+    "source": "/programs/leadx/#about"
+  },
+  {
+    "id": "leadx-fees",
+    "topic": "leadx",
+    "intent": "fees",
+    "question": "How much is Lead-x?",
+    "aliases": [
+      "Lead-x fees",
+      "Lead X price",
+      "Lead-x monthly payments",
+      "Lead-x cost"
+    ],
+    "answer": "Lead-x lists LKR 10,000 per month for the first 3 months, totaling LKR 30,000 for the initial core training. The full learning journey is 20 weeks. Confirm current fees and any later-stage terms with the team.",
+    "source": "/programs/leadx/#details"
+  },
+  {
+    "id": "leadx-duration",
+    "topic": "leadx",
+    "intent": "duration",
+    "question": "How long is Lead-x?",
+    "aliases": [
+      "Lead-x duration",
+      "Is Lead-x 3 months or 20 weeks?"
+    ],
+    "answer": "Lead-x is a 20-week journey: 12 weeks of core training followed by 8 weeks solving a real business problem through the Boardroom Challenge. The 3-month wording refers to the initial core training.",
+    "source": "/programs/leadx/#curriculum"
+  },
+  {
+    "id": "leadx-eligibility",
+    "topic": "leadx",
+    "intent": "eligibility",
+    "question": "Who can join Lead-x?",
+    "aliases": [
+      "Is Lead-x only for management students?",
+      "Lead-x entry requirements"
+    ],
+    "answer": "Lead-x welcomes final-year undergraduates, fresh graduates, early-career professionals, and aspiring leaders. It is open to backgrounds including business, management, IT, finance, HR, marketing, engineering, logistics, and hospitality; a management degree is not required.",
+    "source": "/programs/leadx/#who"
+  },
+  {
+    "id": "leadx-prerequisites",
+    "topic": "leadx",
+    "intent": "prerequisites",
+    "question": "Do I need coding or AI knowledge for Lead-x?",
+    "aliases": [
+      "Lead-x for beginners",
+      "Lead-x data knowledge"
+    ],
+    "answer": "No prior AI or data knowledge is required. Lead-x starts with practical foundations and focuses on how managers use dashboards and AI tools in business. It does not teach coding or machine-learning algorithms.",
+    "source": "/programs/leadx/#faq"
+  },
+  {
+    "id": "leadx-format",
+    "topic": "leadx",
+    "intent": "format",
+    "question": "Is Lead-x online or physical?",
+    "aliases": [
+      "Lead-x delivery mode",
+      "Lead-x location"
+    ],
+    "answer": "Lead-x lists hybrid delivery: online sessions and physical workshops at TRACE Expert City, Colombo, with arrangements to be confirmed. Its format includes workshops, mentoring, weekly assignments, and a capstone project.",
+    "source": "/programs/leadx/#details"
+  },
+  {
+    "id": "leadx-apply",
+    "topic": "leadx",
+    "intent": "application",
+    "question": "How do I apply for Lead-x?",
+    "aliases": [
+      "Register for Lead-x",
+      "Lead-x application CV"
+    ],
+    "answer": "Use Apply Now / Upload Your CV on the Lead-x page. The published process is application, PDF CV submission, short screening, cohort selection, and starting core training. Confirm intake availability with the team.",
+    "source": "/programs/leadx/#process"
+  },
+  {
+    "id": "leadx-internship",
+    "topic": "leadx",
+    "intent": "outcomes",
+    "question": "Does Lead-x guarantee an internship?",
+    "aliases": [
+      "Lead-x job guarantee",
+      "Lead-x paid internship"
+    ],
+    "answer": "No. The Lead-x page says top performers may be offered a paid internship after the first 3 months, and explicitly says no program can guarantee a job. Selection and performance matter.",
+    "source": "/programs/leadx/#faq"
+  },
+  {
+    "id": "ifap-overview",
+    "topic": "ifap",
+    "intent": "overview",
+    "question": "What is IFAP?",
+    "aliases": [
+      "International Filmmaker Accelerator",
+      "Filmmaking course",
+      "I want to make films"
+    ],
+    "answer": "The International Filmmaker Accelerator Program (IFAP) helps filmmakers develop a feature film or high-end series from concept refinement to a market-ready development dossier for international labs, festivals, sales agents, and financiers.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "ifap-fees",
+    "topic": "ifap",
+    "intent": "fees",
+    "question": "How much does IFAP cost?",
+    "aliases": [
+      "IFAP fees",
+      "Film course price",
+      "Filmmaker accelerator payment plan"
+    ],
+    "answer": "IFAP lists a program fee of LKR 150,000 plus a LKR 2,000 registration fee. Installment plans are available; ask the team for current terms and the payment schedule.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "ifap-duration",
+    "topic": "ifap",
+    "intent": "duration",
+    "question": "How long is IFAP?",
+    "aliases": [
+      "IFAP timetable",
+      "IFAP contact hours",
+      "When are filmmaking classes?"
+    ],
+    "answer": "IFAP lists 16 weeks and 100 contact hours. Sessions are listed for Saturdays, 9 am to 4 pm, at TRACE Expert City. Confirm the current cohort timetable with the team.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "ifap-eligibility",
+    "topic": "ifap",
+    "intent": "eligibility",
+    "question": "Who is IFAP for?",
+    "aliases": [
+      "Who can apply for filmmaking?",
+      "IFAP entry requirements"
+    ],
+    "answer": "IFAP is for film-industry professionals, emerging and aspiring filmmakers, writers, directors, and producers seeking international pathways, especially creators developing feature films or high-end series.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "ifap-apply",
+    "topic": "ifap",
+    "intent": "application",
+    "question": "How do I apply for IFAP?",
+    "aliases": [
+      "IFAP application documents",
+      "Register for filmmaking"
+    ],
+    "answer": "Use Apply Now on the IFAP page. Application requirements list a CV and a cover letter explaining your motivation, fit, goals, and ambitions. A feature-film or high-end series project submission is optional.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "ifap-project",
+    "topic": "ifap",
+    "intent": "prerequisites",
+    "question": "Is a project required for IFAP?",
+    "aliases": [
+      "IFAP optional project",
+      "Do I need a script to apply?"
+    ],
+    "answer": "Project submission is optional. If you submit one, the page asks for a logline and a 1–2 page synopsis covering structure, character, and theme. Feature-film and high-end series concepts are accepted.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "ifap-rights",
+    "topic": "ifap",
+    "intent": "privacy",
+    "question": "Who owns my IFAP project?",
+    "aliases": [
+      "IFAP intellectual property",
+      "Will you share my film idea?"
+    ],
+    "answer": "The IFAP page says submitted project materials remain the applicant's intellectual property. They are reviewed solely for selection by the Program Director and designated Selection Committee; submission does not transfer, license, or assign project rights.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "ifap-curriculum",
+    "topic": "ifap",
+    "intent": "curriculum",
+    "question": "What will I learn in IFAP?",
+    "aliases": [
+      "IFAP syllabus",
+      "Filmmaking curriculum"
+    ],
+    "answer": "IFAP's pillars cover development and dramaturgy, international screenwriting, directorial voice and genre, visual translation and storyboarding, film business and finance, sales and festival strategy, pitch readiness, and cinematic identity.",
+    "source": "/programs/ifap/"
+  },
+  {
+    "id": "corporate-overview",
+    "topic": "corporate",
+    "intent": "overview",
+    "question": "Do you offer corporate training?",
+    "aliases": [
+      "Training for our company",
+      "Corporate programs",
+      "University staff training"
+    ],
+    "answer": "T2T works with enterprises, public institutions, and universities on digital readiness, leadership alignment, and AI-augmented workflows. Engagements begin with a readiness diagnostic and are tailored to the organization's maturity and needs.",
+    "source": "/corporate-programs/"
+  },
+  {
+    "id": "corporate-contact",
+    "topic": "corporate",
+    "intent": "contact",
+    "question": "How do we request corporate training?",
+    "aliases": [
+      "Corporate contact email",
+      "Request a readiness assessment",
+      "Corporate training price"
+    ],
+    "answer": "Email corporate@trace.lk to request an executive diagnostic or readiness assessment. The site describes tailored engagements rather than a fixed public corporate-training price, so ask for a proposal based on your needs.",
+    "source": "/corporate-programs/#diagnose"
+  },
+  {
+    "id": "corporate-method",
+    "topic": "corporate",
+    "intent": "curriculum",
+    "question": "How is corporate training delivered?",
+    "aliases": [
+      "Corporate workshops and coaching",
+      "Corporate training method"
+    ],
+    "answer": "The published delivery method combines applied workshops, structured self-work, direct coaching, and embedded follow-through. The page describes check-ins at 30, 60, and 90 days.",
+    "source": "/corporate-programs/#deliver"
+  },
+  {
+    "id": "events-upcoming",
+    "topic": "events",
+    "intent": "events",
+    "question": "What events are coming up?",
+    "aliases": [
+      "Explore events",
+      "Upcoming workshops",
+      "Next event",
+      "Latest events"
+    ],
+    "answer": "The events page contains dated workshop listings, many from 2025 and a Research Excellence workshop dated 7 March 2026. Those dates are historical, so a visible Register button is not proof of a future session. Check the events section and ask the team for the next confirmed dates.",
+    "source": "/#events",
+    "relatedSources": [
+      "/events/research-excellence/"
+    ]
+  },
+  {
+    "id": "research-event",
+    "topic": "events",
+    "intent": "details",
+    "question": "Tell me about the Research Excellence Workshop",
+    "aliases": [
+      "Research workshop fee",
+      "Research workshop date",
+      "Research Excellence"
+    ],
+    "answer": "The published Research Excellence Workshop was dated 7 March 2026, from 9:30 am to 4:30 pm at TRACE Expert City, Colombo. It listed a fee of LKR 15,000 including the reference book. This is a past dated listing; ask the team about future sessions.",
+    "source": "/events/research-excellence/",
+    "eventDate": "2026-03-07"
+  },
+  {
+    "id": "privacy",
+    "topic": "general",
+    "intent": "privacy",
+    "question": "Where can I read your privacy policy?",
+    "aliases": [
+      "How do you use my personal data?",
+      "Privacy policy"
+    ],
+    "answer": "The website's Privacy Policy explains the information collected, its uses, sharing, security, and your rights. For this chat, messages may be sent to OpenRouter and its selected model provider when AI responses are enabled. Avoid sharing passwords, payment details, or sensitive personal information.",
+    "source": "/privacy_policy/"
+  },
+  {
+    "id": "booking-status",
+    "topic": "general",
+    "intent": "status",
+    "question": "Can you check my application status?",
+    "aliases": [
+      "Was I accepted?",
+      "Did you receive my CV?",
+      "Have you submitted my application?"
+    ],
+    "answer": "I cannot access applications, CV uploads, payments, or selection records, and I cannot submit an application for you. Please contact the T2T team through the contact details on your program page for a status update.",
+    "source": "/programs/crisp/"
+  },
+  {
+    "id": "registration-redirect",
+    "topic": "ifap",
+    "intent": "application",
+    "question": "Why does register open the film program?",
+    "aliases": [
+      "Where does the register page go?"
+    ],
+    "answer": "The website's /register/ page currently redirects to the International Filmmaker Accelerator Program. For CRISP, AI-X, or Lead-x, use the application button on that specific program page.",
+    "source": "/register/"
+  },
+  {
+    "id": "unknown-dates",
+    "topic": "general",
+    "intent": "dates",
+    "question": "When does the next intake start?",
+    "aliases": [
+      "Application deadline",
+      "Next batch date",
+      "Are seats still available?"
+    ],
+    "answer": "I cannot verify live seat availability or a future intake date from the published information alone. Some pages advertise applications, but that does not confirm current availability. Which program are you considering? The team can confirm its next intake and deadline.",
+    "source": "/#programs"
+  }
 ]
