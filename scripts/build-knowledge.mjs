@@ -29,7 +29,7 @@ export function plainText(html) {
     }).split('\n').map(line => line.replace(/\s+/g, ' ').trim()).filter(Boolean).join('\n');
 }
 
-export function buildKnowledge() {
+export function buildKnowledge(contentRoot = root) {
   const faqs = JSON.parse(readFileSync(join(root, 'knowledge/faqs.json'), 'utf8'));
   const ids = new Set();
   const documents = faqs.map(faq => {
@@ -38,8 +38,8 @@ export function buildKnowledge() {
     let published = '';
     for (const source of [faq.source, ...(faq.relatedSources || [])]) {
       const path = source.split('#')[0];
-      if (!source.startsWith('/') || !existsSync(join(root, path, 'index.html'))) throw new Error(`Invalid FAQ source: ${source}`);
-      published += plainText(readFileSync(join(root, path, 'index.html'),'utf8')).replace(/[\s,]/g,'');
+      if (!source.startsWith('/') || !existsSync(join(contentRoot, path, 'index.html'))) throw new Error(`Invalid FAQ source: ${source}`);
+      published += plainText(readFileSync(join(contentRoot, path, 'index.html'),'utf8')).replace(/[\s,]/g,'');
     }
     for (const match of faq.answer.matchAll(/(?:LKR|Rs\.?)[\s:]*([\d,]+)/g)) {
       if (!published.includes(match[1].replaceAll(',',''))) throw new Error(`Review stale fee in ${faq.id}: amount no longer appears in its source pages.`);
@@ -48,7 +48,7 @@ export function buildKnowledge() {
   });
   const inputs = [readFileSync(join(root, 'knowledge/faqs.json'), 'utf8')];
   for (const [path, topic, label] of pages) {
-    const html = readFileSync(join(root, path), 'utf8');
+    const html = readFileSync(join(contentRoot, path), 'utf8');
     inputs.push(html);
     const source = path === 'index.html' ? '/' : '/' + path.replace(/index\.html$/, '');
     let sectionNumber = 0;

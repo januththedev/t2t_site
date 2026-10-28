@@ -16,8 +16,8 @@ for (const item of evaluation) test(`retrieval: ${item.question}`, () => {
     assert.ok(result.documents.slice(0,3).some(doc => doc.id === item.expected),`Expected ${item.expected} in top 3, got ${result.documents.map(doc=>doc.id).join(', ')}`);
   }
 });
-test('knowledge includes 50 curated answers and excludes scripts and fake form successes', () => {
-  assert.equal(knowledge.faqCount,50); assert.ok(knowledge.documents.length >= 100);
+test('knowledge includes at least 50 curated answers and excludes scripts and fake form successes', () => {
+  assert.equal(knowledge.faqCount,JSON.parse(readFileSync(new URL('../knowledge/faqs.json',import.meta.url))).length); assert.ok(knowledge.faqCount>=50); assert.ok(knowledge.documents.length >= 100);
   assert.equal(new Set(knowledge.documents.map(doc=>doc.id)).size,knowledge.documents.length);
   for (const doc of knowledge.documents) assert.doesNotMatch(doc.text,/<script|document\.getElementById|successfully received your information and CV|has been dispatched to your email/i);
 });
@@ -105,4 +105,17 @@ test('public build has the widget but never server code or raw knowledge files',
   for(const path of ['lib','api','knowledge','.env.local','scripts']) assert.equal(existsSync(new URL('../dist/'+path,import.meta.url)),false);
   const visit=dir=>{for(const entry of readdirSync(dir,{withFileTypes:true})) {const path=new URL(entry.name+(entry.isDirectory()?'/':''),dir);if(entry.isDirectory())visit(path);else if(entry.name.endsWith('.html'))assert.match(readFileSync(path,'utf8'),/\/chatbot\/widget\.js/);}};
   visit(new URL('../dist/',import.meta.url));
+});
+
+
+test('AI-X duration questions return duration without spending model quota', async () => {
+  let providerCalls = 0;
+  const chat = createChatService({ knowledge, env: { OPENROUTER_API_KEY: 'test-not-a-real-key' }, fetchImpl: () => { providerCalls++; throw Error('should not call provider'); } });
+  const answer = await chat({ message: 'How long is AI-X?' });
+  assert.equal(answer.mode, 'knowledge');
+  assert.match(answer.answer, /6-week/);
+  assert.match(answer.answer, /4-week/);
+  assert.doesNotMatch(answer.answer, /LKR|scholarship|20,000/);
+  assert.ok(answer.sources.some(source => source.url === '/programs/aix/#hero'));
+  assert.equal(providerCalls, 0);
 });

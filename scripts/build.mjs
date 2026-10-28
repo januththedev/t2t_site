@@ -1,29 +1,78 @@
-import { cpSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
-import { basename, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { buildKnowledge } from './build-knowledge.mjs';
-import { optimizeSiteImages } from './optimize-images.mjs';
+import {
+  cpSync,
+  mkdirSync,
+  readdirSync,
+  rmSync,
+  readFileSync,
+  writeFileSync,
+  renameSync,
+} from "node:fs";
+import { basename, join } from "node:path";
+import { fileURLToPath } from "node:url";
+import { build } from "vite";
+import { renderPages } from "../src/render.tsx";
+import { buildKnowledge } from "./build-knowledge.mjs";
+import { optimizeSiteImages } from "./optimize-images.mjs";
 
-const root = fileURLToPath(new URL('../', import.meta.url));
-const output = join(root, 'dist');
+const root = fileURLToPath(new URL("../", import.meta.url));
+// Never serve half-rendered pages while a local rebuild is still in progress.
+const output = join(root, ".build-stage");
+const published = join(root, "dist");
 // Publish only website content, never repository metadata or local tooling.
 const directories = [
-  'corporate-programs', 'data', 'docs', 'events', 'images',
-  'privacy_policy', 'programs', 'register',
-  'chatbot',
+  "corporate-programs",
+  "data",
+  "docs",
+  "events",
+  "images",
+  "privacy_policy",
+  "programs",
+  "register",
+  "chatbot",
+  "licenses",
 ];
 const files = readdirSync(root).filter((name) => /\.(html|css|js)$/.test(name));
 
-buildKnowledge();
 rmSync(output, { recursive: true, force: true });
 mkdirSync(output, { recursive: true });
 
 for (const name of [...files, ...directories]) {
   cpSync(join(root, name), join(output, name), {
     recursive: true,
-    filter: (source) => !basename(source).startsWith('.'),
+    filter: (source) => !basename(source).startsWith("."),
   });
 }
 
-await optimizeSiteImages(output);
-console.log(`Static site built in dist/ (${files.length} root files, ${directories.length} content directories).`);
+// Generate real HTML before indexing: pages and chatbot use the same published content.
+renderPages(output);
+const images = await optimizeSiteImages(output);
+renderPages(output, Object.fromEntries(images));
+buildKnowledge(output);
+await build({ build: { outDir: output } });
+const manifest = JSON.parse(
+  readFileSync(join(output, ".vite/manifest.json"), "utf8"),
+);
+const entry = manifest["src/client.tsx"];
+if (!entry?.file || !entry.css?.length)
+  throw new Error("React entry script or stylesheet missing from Vite output");
+const assets = [
+  ...(entry.css || []).map((path) => `<link rel="stylesheet" href="/${path}">`),
+  `<script type="module" src="/${entry.file}"></script>`,
+].join("");
+function inject(directory) {
+  for (const item of readdirSync(directory, { withFileTypes: true })) {
+    const path = join(directory, item.name);
+    if (item.isDirectory()) inject(path);
+    else if (item.name.endsWith(".html"))
+      writeFileSync(
+        path,
+        readFileSync(path, "utf8").replace("<!--REACT_ASSETS-->", assets),
+      );
+  }
+}
+inject(output);
+rmSync(published, { recursive: true, force: true });
+renameSync(output, published);
+console.log(
+  "React pages prerendered; chatbot knowledge and responsive images generated.",
+);
