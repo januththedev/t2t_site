@@ -8,3 +8,5 @@ dist/
 *.log
 knowledge/generated.json
 test-results/
+
+.build-stage/

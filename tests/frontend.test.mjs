@@ -121,3 +121,52 @@ test("Three.js is deferred and program content is available before React loads",
     !JSON.stringify(manifest["src/client.tsx"].imports || []).includes("three"),
   );
 });
+
+test("program chooser preserves direct links and a coherent accessible initial selection", () => {
+  const html = readFileSync(join(dist, "index.html"), "utf8");
+  const tabs = [...html.matchAll(/<a\b[^>]*role="tab"[^>]*>/g)].map(
+    (match) => match[0],
+  );
+  assert.equal(tabs.length, 4);
+  assert.equal(
+    tabs.filter((tag) => tag.includes('aria-selected="true"')).length,
+    1,
+  );
+  assert.equal(tabs.filter((tag) => tag.includes('tabindex="0"')).length, 1);
+  for (const name of ["crisp", "aix", "leadx", "ifap"]) {
+    const tab = tabs.find((tag) => tag.includes(`id="program-tab-${name}"`));
+    assert.ok(tab?.includes(`href="/programs/${name}/"`), name);
+    assert.ok(tab.includes('aria-controls="program-panel"'));
+  }
+  assert.ok(
+    /id="program-panel"[^>]*role="tabpanel"[^>]*aria-labelledby="program-tab-crisp"/.test(
+      html,
+    ),
+  );
+});
+
+test("published React pages include working stylesheet and module assets", () => {
+  for (const file of walk(dist)) {
+    if (file.includes("/register/")) continue;
+    const html = readFileSync(file, "utf8");
+    assert.ok(
+      !html.includes("<!--REACT_ASSETS-->"),
+      `${file}: build did not finish asset injection`,
+    );
+    const script = html.match(/<script type="module" src="([^"]+)"/);
+    const css = [
+      ...html.matchAll(/<link rel="stylesheet" href="([^"]+)"/g),
+    ].map((match) => match[1]);
+    assert.ok(script, `${file}: React entry missing`);
+    assert.ok(
+      existsSync(join(dist, script[1])),
+      `${file}: React script missing on disk`,
+    );
+    assert.ok(
+      css.some((path) => path.startsWith("/assets/client-")),
+      `${file}: design stylesheet missing`,
+    );
+    for (const path of css)
+      assert.ok(existsSync(join(dist, path)), `${file}: missing ${path}`);
+  }
+});

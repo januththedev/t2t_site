@@ -5,6 +5,7 @@ import {
   rmSync,
   readFileSync,
   writeFileSync,
+  renameSync,
 } from "node:fs";
 import { basename, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,7 +15,9 @@ import { buildKnowledge } from "./build-knowledge.mjs";
 import { optimizeSiteImages } from "./optimize-images.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const output = join(root, "dist");
+// Never serve half-rendered pages while a local rebuild is still in progress.
+const output = join(root, ".build-stage");
+const published = join(root, "dist");
 // Publish only website content, never repository metadata or local tooling.
 const directories = [
   "corporate-programs",
@@ -45,11 +48,13 @@ renderPages(output);
 const images = await optimizeSiteImages(output);
 renderPages(output, Object.fromEntries(images));
 buildKnowledge(output);
-await build();
+await build({ build: { outDir: output } });
 const manifest = JSON.parse(
   readFileSync(join(output, ".vite/manifest.json"), "utf8"),
 );
 const entry = manifest["src/client.tsx"];
+if (!entry?.file || !entry.css?.length)
+  throw new Error("React entry script or stylesheet missing from Vite output");
 const assets = [
   ...(entry.css || []).map((path) => `<link rel="stylesheet" href="/${path}">`),
   `<script type="module" src="/${entry.file}"></script>`,
@@ -66,6 +71,8 @@ function inject(directory) {
   }
 }
 inject(output);
+rmSync(published, { recursive: true, force: true });
+renameSync(output, published);
 console.log(
   "React pages prerendered; chatbot knowledge and responsive images generated.",
 );

@@ -22,6 +22,7 @@ export interface Program {
   category: string;
   audience: string;
   duration: string;
+  format: string;
   description: string;
   number: string;
 }

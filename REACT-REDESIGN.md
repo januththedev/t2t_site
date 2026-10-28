@@ -4,12 +4,14 @@ The frontend uses React, strict TypeScript, Vite, and a custom Material UI theme
 
 ## Editing and building
 
-- `src/App.tsx`: React navigation, hero, program explorer, and shared page shell.
-- `src/programs.ts`: typed program explorer content.
+- `src/App.tsx`: React navigation, paired-photo hero, partner ribbon, and shared page shell.
+- `src/programs.ts`: typed program descriptions, audiences, durations, and formats.
+- `src/components/ProgramNavigator.tsx`: an accessible selector with roving focus, arrow/Home/End keys, and program links that work without JavaScript.
+- `src/home-content.ts`: shared photo and partner references used by the renderer and page.
 - `src/content.json`: reviewed page content and metadata, migrated from the previous HTML. Edit this for current program detail pages and the homepage's editorial sections. HTML is trusted repository content, never user input.
 - `src/theme.ts` and `src/refined.css`: Material UI theme and responsive visual system.
 - `src/enhance.js`: native JavaScript enhancements within published content (events, section index, chatbot launcher).
-- `src/components/Footer.tsx`: contextual application/contact action and the shared theory-to-trade signature. This replaces the previous HTML footer and duplicate closing banners.
+- `src/components/Footer.tsx`: compact contextual application/contact action, official T2T logo, and useful links. This replaces the earlier oversized signature and duplicate closing banners.
 - `src/components/ProgramGlyph.tsx`: small program-specific line illustrations.
 - `src/fonts.css`: self-hosted Manrope font, with license under `licenses/`.
 - Existing root and program HTML files remain historical migration inputs; the React build replaces their output with pages from `src/content.json`.
@@ -34,6 +36,12 @@ The shared navigation is 72px on desktop and 66px on mobile, with a smaller, rea
 
 ## Competition polish
 
-The footer is a single intentional closing composition: a contextual next step, grouped practical links, and an oversized theory-to-trade signature connected by an arch. Program pages retain a unique `#apply` anchor pointing at their own application. Duplicate closing banners were removed. The fixed chatbot launcher has reserved space in the legal row.
+The footer is a compact closing composition: a contextual next step, the official T2T mark, and grouped practical links. Program pages retain a unique `#apply` anchor pointing at their own application. Duplicate closing banners were removed. The fixed chatbot launcher has reserved space in the legal row.
 
 The same typography, blue palette, spacing, and surfaces carry through the homepage, program details, corporate, event, privacy, and archive pages. Real source photography and testimonials are preserved. The optional Three.js form now echoes the arch in the T2T logo rather than showing an unrelated ring. Program-specific SVG glyphs, a self-hosted variable font, and readable metadata replace the previous mixed presentation. Partner marks with excessive empty margins are trimmed during image optimization; the ISC2 mark retains its full lettering on a contrasting surface.
+
+## Current refinement
+
+The current implementation follows `DESIGN-REFINEMENT-PLAN.md`: a paired-photo opening, a four-program navigator in place of the repeated card grid, and a compact footer built around the official logo. The home asset list is shared with prerendering to keep responsive image URLs identical during hydration. Modified key combinations are left to the browser, so Ctrl+Home/End and assistive-technology shortcuts work normally. The navigator links retain real program destinations before JavaScript loads.
+
+Local rebuilds prepare complete HTML, images, and Vite assets in a staging directory before replacing the served output. Failed builds keep the previous complete output available. Asset checks verify that every prerendered React page contains working module and stylesheet links.

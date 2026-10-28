@@ -1,5 +1,6 @@
 import { Arrow } from "./Arrow";
 import { programs } from "../programs";
+import type { ImageAsset } from "../types";
 
 const applications: Record<string, string> = {
   crisp: "https://forms.gle/KAqXzHDPBsFPy5EJ6",
@@ -14,8 +15,8 @@ const social = [
   ["YouTube", "https://youtube.com/@tracet2t"],
   ["TikTok", "https://www.tiktok.com/@t2t445"],
 ];
-export function Footer({ path }: { path: string }) {
-  const program = programs.find((p) => path === `/programs/${p.id}/`);
+export function Footer({ path, logo }: { path: string; logo?: ImageAsset }) {
+  const program = programs.find((item) => path === `/programs/${item.id}/`);
   const corporate = path === "/corporate-programs/";
   const href = program
     ? applications[program.id]
@@ -32,79 +33,97 @@ export function Footer({ path }: { path: string }) {
       <div className="container">
         <div className="footer-invitation" id={program ? "apply" : undefined}>
           <div>
-            <p className="eyebrow">
-              {corporate
-                ? "BUILD WHAT COMES NEXT, TOGETHER"
-                : "YOUR NEXT CHAPTER"}
-            </p>
+            <p className="eyebrow">LET’S TAKE THE NEXT STEP</p>
             <h2>
               {program ? (
                 <>
-                  Your next move.
+                  Your next chapter,
                   <br />
-                  <span>Make it {program.name}.</span>
+                  <span>with {program.name}.</span>
                 </>
               ) : corporate ? (
                 <>
-                  A stronger team.
+                  Build what’s next,
                   <br />
-                  <span>A new possibility.</span>
+                  <span>together.</span>
                 </>
               ) : (
                 <>
-                  Your potential.
+                  Your next chapter
                   <br />
-                  <span>Make it happen.</span>
+                  <span>starts here.</span>
                 </>
               )}
             </h2>
           </div>
           <div className="footer-action">
             <a className="footer-next" href={href}>
+              {action}
               <span className="footer-next-icon">
                 <Arrow diagonal />
               </span>
-              <span>{action}</span>
             </a>
             <a className="footer-conversation" href="https://wa.me/94777643129">
-              Have a question? Let’s talk <Arrow diagonal />
+              Or talk to the team <Arrow diagonal />
             </a>
           </div>
         </div>
         <div className="footer-details">
-          <p className="footer-purpose">
-            A learning initiative by{" "}
+          <div className="footer-identity">
             <a
-              href="https://trace.lk/"
-              target="_blank"
-              rel="noopener noreferrer"
+              className="footer-brand brand"
+              href="/"
+              aria-label="Theory to Trade home"
             >
-              TRACE <Arrow diagonal />
+              <span className="brandmark">
+                <img
+                  src={logo?.src ?? "/images/logos/t2t.png"}
+                  srcSet={logo?.srcset}
+                  sizes={logo?.sizes}
+                  width={logo?.width}
+                  height={logo?.height}
+                  alt="T2T — Theory to Trade"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span>
+                Knowledge into practice.
+                <br />
+                <strong>Possibility into progress.</strong>
+              </span>
             </a>
-            <br />
-            Made for the space between
-            <br />
-            what you know and what comes next.
-          </p>
+            <p className="footer-purpose">
+              A learning initiative by{" "}
+              <a
+                href="https://trace.lk/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TRACE
+              </a>{" "}
+              · Colombo, Sri Lanka
+            </p>
+          </div>
           <nav className="footer-programs" aria-label="Footer programs">
-            <p className="footer-label">FIND YOUR DIRECTION</p>
+            <p className="footer-label">EXPLORE THE PROGRAMS</p>
             <div>
-              {programs.map((p) => (
+              {programs.map((item) => (
                 <a
-                  href={`/programs/${p.id}/`}
-                  key={p.id}
+                  key={item.id}
+                  href={`/programs/${item.id}/`}
                   aria-current={
-                    path === `/programs/${p.id}/` ? "page" : undefined
+                    path === `/programs/${item.id}/` ? "page" : undefined
                   }
                 >
-                  {p.name}
+                  {item.name}
                   <Arrow diagonal />
                 </a>
               ))}
             </div>
           </nav>
           <div className="footer-contact">
-            <p className="footer-label">LET’S CONNECT</p>
+            <p className="footer-label">GET IN TOUCH</p>
             <a href="mailto:corporate@trace.lk">
               corporate@trace.lk <Arrow diagonal />
             </a>
@@ -113,33 +132,9 @@ export function Footer({ path }: { path: string }) {
             </a>
           </div>
         </div>
-        <a
-          className="footer-signature"
-          href="/"
-          aria-label="Theory to Trade home"
-        >
-          <span>theory</span>
-          <svg viewBox="0 0 160 100" fill="none" aria-hidden="true">
-            <path
-              className="signature-track"
-              d="M8 77C42 77 43 23 78 23s37 54 73 54"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-            <path
-              d="m139 63 14 14-14 14"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-            <circle cx="8" cy="77" r="3" fill="currentColor" />
-          </svg>
-          <span>
-            trade<span className="signature-period">.</span>
-          </span>
-        </a>
         <div className="footer-legal">
           <span>
-            © <span data-year>2026</span> T2T by TRACE · Colombo, Sri Lanka
+            © <span data-year>2026</span> Theory to Trade by TRACE
           </span>
           <nav aria-label="Social media">
             {social.map(([label, url]) => (
@@ -155,7 +150,7 @@ export function Footer({ path }: { path: string }) {
           </nav>
           <div>
             <a href="/privacy_policy/">Privacy</a>
-            <a href="#main" className="back-to-top">
+            <a className="back-to-top" href="#main">
               Back to top <span aria-hidden="true">↑</span>
             </a>
           </div>

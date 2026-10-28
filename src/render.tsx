@@ -2,6 +2,7 @@ import { renderToString } from "react-dom/server";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { App } from "./App";
+import { homeAssetPaths } from "./home-content";
 import content from "./content.json";
 import type { Payload, ImageAsset, Page } from "./types";
 export function renderPages(
@@ -39,8 +40,7 @@ export function renderPages(
         ([key]) =>
           page.html.includes(images[key].src) ||
           key === "images/logos/t2t.png" ||
-          (page.path === "/" &&
-            key === "images/IMG_20250330_121443-scaled.jpg"),
+          (page.path === "/" && homeAssetPaths.has(key)),
       ),
     );
     const payload: Payload = { page, images: used };
